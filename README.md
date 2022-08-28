@@ -106,3 +106,7 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+
+Credits 
+
+w3schools for popup modal form code https://www.w3schools.com/howto/howto_css_modals.asp
