@@ -63,7 +63,8 @@ document.getElementById("fare_required").innerHTML = fareCalc;
 document.getElementById("fare_required").style.fontSize = "xx-large";
 document.getElementById("fare_required").style.fontWeight = "900";
 
-
 }
 
-
+fetch('assets/js/data.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));

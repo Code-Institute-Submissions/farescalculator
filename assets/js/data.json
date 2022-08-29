@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "age": 30,
+  "Name": "James Bond",
+  "Address" :[
+      {
+        "city":"Los Angels",
+        "country": "USA"
+      },
+      {
+        "city":"London",
+        "country": "UK"
+      }
+    ],
+  "wife":null,
+  "ishavingmobile":true,
+  "firstmovie" :{
+    "name":"Dr. No",
+    "releaseyear":1962
+  }
+ 
+}
