@@ -446,10 +446,10 @@
         </div>
     </section>
     <section id = "popupcalculator">
-        <h2>Animated Modal with Header and Footer</h2>
+        <h2>Fares Calculator</h2>
 
         <!-- Trigger/Open The Modal -->
-        <button id="myBtn">Open Modal</button>
+        <button id="myBtn">Click here to calculate fares!</button>
         
         <!-- The Modal -->
         <div id="myModal" class="modal">
@@ -458,16 +458,59 @@
           <div class="modal-content">
             <div class="modal-header">
               <span class="close">&times;</span>
-              <h2>Modal Header</h2>
+              <h2>Fares Calculator</h2>
             </div>
             <div class="modal-body">
-              <p>Some text in the Modal Body</p>
-              <p>Some other text...</p>
+              <form action="">
+                  <label for="pickup">Pickup Point</label>
+                  <select name="pickup" id ="pickup">
+                    <option value="15">Clonakilty (Pearse Street Newsagents)</option>
+                    <option value="14">Clonakilty (Croppy Quay)</option>
+                    <option value="13">Ring (Kitty Mac’s Pub)</option>
+                    <option value="12">Grange (Grange Tavern)</option>
+                    <option value="11">Lislevane (Post Office)</option>
+                    <option value="9">Courtmacsherry (The Shop)</option>
+                    <option value="19">Darrara (Agricultural College)</option>
+                    <option value="8">Timoleague (Post Office)</option>
+                    <option value="7">Kilbrittain (Community Centre)</option>
+                    <option value="6">Ballinspittle (Lissoran)</option>
+                    <option value="5">Garretstown (Post Office Box)</option>
+                    <option value="4">Garrylucas (Shop)</option>
+                    <option value="3">Old Head (Signal Tower)</option>
+                    <option value="2">Speckled Door Pub</option>
+                    <option value="18">Kinsale (Community College)</option>
+                    <option value="1">Kinsale (Bus Stop in Car Park)</option>
+                  </select>
+                  <label for="destination">Destination</label>
+                  <select name="destination" id ="destination">
+                    <option value="1">Kinsale (Bus Stop in Car Park)</option>
+                    <option value="18">Kinsale (Community College)</option>
+                    <option value="2">Speckled Door Pub</option>
+                    <option value="3">Old Head (Signal Tower)</option>
+                    <option value="4">Garrylucas (Shop)</option>
+                    <option value="5">Garretstown (Post Office Box)</option>
+                    <option value="6">Ballinspittle (Lissoran)</option>
+                    <option value="7">Kilbrittain (Community Centre)</option>
+                    <option value="8">Timoleague (Post Office)</option>
+                    <option value="19">Darrara (Agricultural College)</option>
+                    <option value="9">Courtmacsherry (The Shop)</option>
+                    <option value="11">Lislevane (Post Office)</option>
+                    <option value="12">Grange (Grange Tavern)</option>
+                    <option value="13">Ring (Kitty Mac’s Pub)</option>
+                    <option value="14">Clonakilty (Croppy Quay)</option>
+                    <option value="15">Clonakilty (Pearse Street Newsagents)</option>
+                  </select>
+            
+              <p id = "category">Category</p>
+              <p id = "frequency">Frequency</p>
+              <input type="submit" value="Calculate Fares">
+            </form>
             </div>
             <div class="modal-footer">
-              <h3>Modal Footer</h3>
+              <h3>The calculated fare is:</h3>
+              <h4 id = "fare_required"></h4>
             </div>
-          </div>
+          </div> 
         
         </div>
 
