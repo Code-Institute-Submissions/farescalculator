@@ -1,25 +1,17 @@
+[{
+  "username": "john",
+  "firstName": "John",
+  "lastName": "Doe",
+  "gender": "Male",
+  "profileURL": "assets/images/male.png",
+  "email": "john.doe@example.com"
+},
 {
-  "Fares":[
-  {
-  "pick": 1,
-  "drop": 1,
-  "person": "a",
-  "frequency" : ["s", "r", "w"],
-  "fare" : ["€1.00", "€2.00", "€3.00"]
-  },
-  {
-  "pick": 1,
-  "drop": 1,
-  "person": "s",
-  "frequency" : ["s", "r", "w"],
-  "fare" : ["€3.00", "€4.00", "€5.00"]
-  },
-  {
-  "pick": 1,
-  "drop": 1,
-  "person": "c",
-  "frequency" : ["s", "r", "w"],
-  "fare" : ["€6.00", "€7.00", "€8.00"]
-  }
-]
+  "username": "jane",
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "gender": "Female",
+  "profileURL": "assets/images/female.png",
+  "email": "jane.doe@example.com"
 }
+]
