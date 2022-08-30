@@ -92,4 +92,23 @@ async function renderUsers() {
   container.innerHTML = html;
 }
 
-renderUsers();
+function checkFares(users) {
+  return users.gender === "Female" && users.username === "jane";
+}
+
+async function searchUsers() {
+  const users = await getUsers();
+  const result = users.filter(checkFares);
+  console.log(result);
+  /*for (let user of users) {
+    if (user.gender === "Female" && user.username === "jane"){
+      console.log(user.email);
+    }
+
+  }*/
+ 
+}
+
+//renderUsers();
+
+searchUsers();

@@ -110,3 +110,5 @@ Happy coding!
 Credits 
 
 w3schools for popup modal form code https://www.w3schools.com/howto/howto_css_modals.asp
+w3schools for filter array https://www.w3schools.com/jsref/jsref_filter.asp
+javascripttutorial for Fetch API example https://www.javascripttutorial.net/javascript-fetch-api/

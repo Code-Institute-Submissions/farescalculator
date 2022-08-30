@@ -149,6 +149,11 @@ table {
     color: white;
   }
 
+  .container {
+    display: flex;
+    flex-direction: row;
+}
+
   .container img {
     border-radius: 50%;
     padding: 1rem;
