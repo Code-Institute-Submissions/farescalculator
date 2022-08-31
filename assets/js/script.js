@@ -1,3 +1,74 @@
+// Wait for the DOM to finish loading before populating the selects
+document.addEventListener("DOMContentLoaded", function() {
+  
+  populateSelects();
+
+});
+
+/**
+ * The main populating function, called when the popup is first loaded.
+ * This populates the dropdown selects from json files
+ */
+function populateSelects(){
+  renderPickupPoint();
+}
+
+//This is all the json relevant code
+//This is based on javascripttutorial for Fetch API example https://www.javascripttutorial.net/javascript-fetch-api/ See Credits
+
+/**
+ * The json collection function, called when a select is looking to json for source.
+ * This gets the data from the json file residing at the provided url.
+ * Then returns the json data as an object
+ */
+async function fetchJson(myUrl) {
+  try {
+      let res = await fetch(myUrl);
+      return await res.json();
+  } catch (error) {
+      console.log(error);
+  }
+}
+/**
+ * The Pickup Point select populating function.
+ * This loops through the object returned from our fetchJson.
+ * This lopp then builds the html to populate the select name="pickup" in Calulate fares Form.
+ */
+async function renderPickupPoint() {
+  let pickUrl = 'assets/js/pdata.json';
+  let picks = await fetchJson(pickUrl);
+  let pickHtml = '';
+  picks.forEach(pick => {
+      let htmlSegment = ` <option value=${pick.value}>
+                          ${pick.ppoint}
+                          </option>`;
+
+      pickHtml += htmlSegment;
+  });
+
+  let pickoptions = document.querySelector('.pickoptions');
+  pickoptions.innerHTML = pickHtml;
+}
+
+/*
+function checkFares(users) {
+  return users.gender === "Female" && users.username === "jane";
+}
+
+async function searchUsers() {
+  const users = await getUsers();
+  const result = users.filter(checkFares);
+  console.log(result);
+  
+}
+
+*/
+
+//renderUsers();
+
+//searchUsers();
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -23,6 +94,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+/*
 
 const form = document.getElementById('form_fares');
 
@@ -64,51 +137,4 @@ document.getElementById("fare_required").style.fontSize = "xx-large";
 document.getElementById("fare_required").style.fontWeight = "900";
 
 }
-
-async function getUsers() {
-  let url = 'assets/js/data.json';
-  try {
-      let res = await fetch(url);
-      return await res.json();
-  } catch (error) {
-      console.log(error);
-  }
-}
-
-async function renderUsers() {
-  let users = await getUsers();
-  let html = '';
-  users.forEach(user => {
-      let htmlSegment = `<div class="user">
-                          <img src="${user.profileURL}" >
-                          <h2>${user.firstName} ${user.lastName}</h2>
-                          <div class="email"><a href="email:${user.email}">${user.email}</a></div>
-                      </div>`;
-
-      html += htmlSegment;
-  });
-
-  let container = document.querySelector('.container');
-  container.innerHTML = html;
-}
-
-function checkFares(users) {
-  return users.gender === "Female" && users.username === "jane";
-}
-
-async function searchUsers() {
-  const users = await getUsers();
-  const result = users.filter(checkFares);
-  console.log(result);
-  /*for (let user of users) {
-    if (user.gender === "Female" && user.username === "jane"){
-      console.log(user.email);
-    }
-
-  }*/
- 
-}
-
-//renderUsers();
-
-searchUsers();
+*/
