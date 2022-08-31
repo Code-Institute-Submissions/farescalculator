@@ -2,7 +2,7 @@
 // Then populate some of the selects with defaults.
 document.addEventListener("DOMContentLoaded", function () {
 
-  populateSelects("direction", 1);
+  populateSelects("direction");
   populateSelects("pickup", 1);
   populateSelects("passenger");
   populateSelects("ticket");
@@ -57,7 +57,7 @@ async function fetchJson(myUrl) {
  */
 async function renderDirection() {
 
-  let dirUrl = 'assets/js/destdata.json';
+  let dirUrl = 'assets/js/directiondata.json';
   let dirs = await fetchJson(dirUrl);
   let dirHtml = '';
   dirs.forEach(dir => {
