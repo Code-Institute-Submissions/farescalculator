@@ -1,7 +1,7 @@
 // Wait for the DOM to finish loading before populating the selects
-document.addEventListener("DOMContentLoaded", function() {
-  
-  populateSelects();
+document.addEventListener("DOMContentLoaded", function () {
+
+  populateSelects("pickUp");
 
 });
 
@@ -9,8 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
  * The main populating function, called when the popup is first loaded.
  * This populates the dropdown selects from json files
  */
-function populateSelects(){
+function populateSelects(mySelect) {
+  switch (mySelect) {
+  case 'pickUp':
   renderPickupPoint();
+  break;
+  default:
+  console.log("Error no select provided. Scrath head");
+}
 }
 
 //This is all the json relevant code
@@ -23,10 +29,10 @@ function populateSelects(){
  */
 async function fetchJson(myUrl) {
   try {
-      let res = await fetch(myUrl);
-      return await res.json();
+    let res = await fetch(myUrl);
+    return await res.json();
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
 }
 /**
@@ -39,11 +45,11 @@ async function renderPickupPoint() {
   let picks = await fetchJson(pickUrl);
   let pickHtml = '';
   picks.forEach(pick => {
-      let htmlSegment = ` <option value=${pick.value}>
+    let htmlSegment = ` <option value=${pick.value}>
                           ${pick.ppoint}
                           </option>`;
 
-      pickHtml += htmlSegment;
+    pickHtml += htmlSegment;
   });
 
   let pickoptions = document.querySelector('.pickoptions');
@@ -79,17 +85,17 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target === modal) {
     modal.style.display = "none";
   }
