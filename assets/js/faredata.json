@@ -1,0 +1,62 @@
+[
+  {
+    "pick": "1",
+    "drop": "2",
+    "adult_single": "€2.50",
+    "adult_return": "€4.00",
+    "adult_weekly": "€17.50",
+    "student_single": "€1.00",
+    "student_return": "€2.00",
+    "student_weekly": "€9.00",
+    "child_single": "€1.00",
+    "child_return": "€2.00",
+    "child_weekly": "€9.00",
+    "ppoint": "Clon  Pearse St. ",
+    "dpoint": "Croppy Quay"
+  },
+  {
+    "pick": "1",
+    "drop": "3",
+    "adult_single": "€2.50",
+    "adult_return": "€4.00",
+    "adult_weekly": "€17.50",
+    "student_single": "€1.00",
+    "student_return": "€2.00",
+    "student_weekly": "€9.00",
+    "child_single": "€1.00",
+    "child_return": "€2.00",
+    "child_weekly": "€9.00",
+    "ppoint": "Clon  Pearse St. ",
+    "dpoint": "Ring"
+  },
+  {
+    "pick": "1",
+    "drop": "4",
+    "adult_single": "€2.50",
+    "adult_return": "€4.00",
+    "adult_weekly": "€17.50",
+    "student_single": "€1.00",
+    "student_return": "€2.00",
+    "student_weekly": "€9.00",
+    "child_single": "€1.00",
+    "child_return": "€2.00",
+    "child_weekly": "€9.00",
+    "ppoint": "Clon  Pearse St. ",
+    "dpoint": "Grange"
+  },
+  {
+    "pick": "1",
+    "drop": "5",
+    "adult_single": "€2.50",
+    "adult_return": "€4.00",
+    "adult_weekly": "€17.50",
+    "student_single": "€1.00",
+    "student_return": "€2.00",
+    "student_weekly": "€9.00",
+    "child_single": "€1.00",
+    "child_return": "€2.00",
+    "child_weekly": "€9.00",
+    "ppoint": "Clon  Pearse St. ",
+    "dpoint": "Lislevane"
+  }
+]

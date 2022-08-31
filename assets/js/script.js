@@ -65,7 +65,7 @@ async function renderDirection() {
                           ${dir.direction}
                           </option>`;
 
-    dirHtml += htmlSegment;
+    dirHtml += htmlSegment; 
   });
   let directionoptions = document.querySelector('.directionoptions');
   directionoptions.innerHTML = dirHtml;
