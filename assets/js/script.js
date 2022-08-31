@@ -41,7 +41,7 @@ function populateSelects(mySelect, myOption) {
  * This gets the data from the json file residing at the provided url.
  * Then returns the json data as an object
  */
-async function fetchJson(myUrl) { 
+async function fetchJson(myUrl) {
   try {
     let res = await fetch(myUrl);
     return await res.json();
@@ -65,7 +65,7 @@ async function renderDirection() {
                           ${dir.direction}
                           </option>`;
 
-    dirHtml += htmlSegment; 
+    dirHtml += htmlSegment;
   });
   let directionoptions = document.querySelector('.directionoptions');
   directionoptions.innerHTML = dirHtml;
@@ -185,58 +185,62 @@ async function renderTicket() {
  * This then passes the parameters to the calculateFares function
  * This function then outputs the fare to the name = "fare"
  */
-function calculateForm() {
-  
-   //Direction
-   let direction = document.getElementById("direction");
-   let value1 = direction.options[direction.selectedIndex].value;
-  
+function formParameters() {
+
+  //Direction
+  let direction = document.getElementById("direction");
+  let value1 = direction.options[direction.selectedIndex].value;
+
   //Pick Up Point
   let pickup = document.getElementById("pickup");
   let value2 = pickup.options[pickup.selectedIndex].value;
-  
+
   //Drop Off Point
   let dropOff = document.getElementById("dropoff");
-  let value3= dropOff.options[dropOff.selectedIndex].value;
-  
+  let value3 = dropOff.options[dropOff.selectedIndex].value;
+
   //Passenger
   let passenger = document.getElementById("passenger");
   let value4 = passenger.options[passenger.selectedIndex].value;
-  
+
   //Ticket
   let ticket = document.getElementById("ticket");
   let value5 = ticket.options[ticket.selectedIndex].value;
-  
+
   let fareCalc = calculateFares(value1, value2, value3, value4, value5);
 
-  let returnText =`Travelling ${fareDirection}${freqTicket} for ${catPerson} from ${pickPoint} to ${destPoint} is ${myFare}`
-  document.getElementById("fare_required").innerHTML = fareCalc;
-  document.getElementById("fare_required").style.fontSize = "xx-large";
-  document.getElementById("fare_required").style.fontWeight = "900";
 
-  }
+  //let returnText =`Travelling ${fareDirection}${freqTicket} for ${catPerson} from ${pickPoint} to ${destPoint} is ${myFare}`
+ // document.getElementById("fare").innerHTML = fareCalc;
+  //document.getElementById("fare").style.fontSize = "xx-large";
+ // document.getElementById("fare").style.fontWeight = "900";
 
-/*
-
- function calculateFares(fareDirection, farePick, fareDrop, farePassenger, fareTicket) {
-  let fareArray = []; 
-    
-  let myFare = "€14.00"; 
-  
-  return myFare; 
-}
- 
-function checkFares(users) {
-  return users.gender === "Female" && users.username === "jane";
 }
 
-async function searchUsers() {
-  const users = await getUsers();
-  const result = users.filter(checkFares);
-  console.log(result);
+/**
+ * The Fares Calculation function.
+ * This calculates the appropriate fare based on the provided parameters.
+ * This function checks the fares json file for the fare satisfying the parameters.
+ * It then returns that fare value.
+ */
+async function calculateFares(fareDirection, farePick, fareDrop, farePassenger, fareTicket) {
+  let fareUrl = 'assets/js/faredata.json';
+  let getFares = await fetchJson(fareUrl);
+  const fares = getFares.filter(checkFares);
+  const correctFare = fares[0].adult_single;
+  console.log(correctFare);
+  console.log(fares[0]);
+  console.log('drop' in fares[0]); // 👉️ true
   
 }
-*/
+
+/**
+ * The Fares Filter function.
+ * This function filters the returned json object to the specified parameters.
+ */
+function checkFares(fares) {
+  return fares.pick === "1" && fares.drop === "5";
+}
 
 // Handle all the modal stuff for the popup
 
