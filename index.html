@@ -478,24 +478,20 @@
             <select class="dropoptions" name="dropoff" id="dropoff">
               
             </select>
-            <label for="category">Category</label>
-            <select name="category" id="category">
-              <option value="a">Adult</option>
-              <option value="s">Student</option>
-              <option value="c">Child</option>
+            <label for="passenger">Passenger</label>
+            <select class="passengeroptions" name="passenger" id="passenger">
+              
             </select>
-            <label for="frequency">Frequency</label>
-            <select name="frequency" id="frequency">
-              <option value="s">Single Ticket</option>
-              <option value="r">Return Ticket</option>
-              <option value="w">Weekly Ticket</option>
+            <label for="ticket">Ticket</label>
+            <select class="ticketoptions" name="ticket" id="ticket">
+             
             </select>
             <input type="submit" id="calc_submitter" value="Calculate Fares">
           </form>
         </div>
         <div class="modal-footer">
           <h3>The calculated fare is:</h3>
-          <h4 id="fare_required"></h4>
+          <h4 class="fare" name = "fare" id="fare"></h4>
         </div>
       </div>
 

@@ -1,0 +1,14 @@
+[
+  {
+    "value": "1",
+    "passenger": "Adult"
+  },
+  {
+    "value": "2",
+    "passenger": "Student"
+  },
+  {
+    "value": "3",
+    "passenger": "Child"
+  }
+]

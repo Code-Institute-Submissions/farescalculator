@@ -1,42 +1,47 @@
 // Wait for the DOM to finish loading before populating the selects
+// Then populate some of the selects with defaults.
 document.addEventListener("DOMContentLoaded", function () {
 
   populateSelects("direction", 1);
+  populateSelects("pickup", 1);
+  populateSelects("passenger");
+  populateSelects("ticket");
 
 });
 
-
-
 /**
- * The main populating function, called when the popup is first loaded and defaulting to direction.
+ * The main populating function, called when the popup is first loaded and loads default direction.
  * This populates the dropdown selects from json files.
  * This function is also called in response to event listeners catching user interaction with selects on form.
  */
 function populateSelects(mySelect, myOption) {
   switch (mySelect) {
     case 'direction':
-  renderDirection();
-  break;
+      renderDirection();
+      break;
     case 'pickup':
-  renderPickupPoint(myOption); 
-  break;
-  case 'dropoff':
-    renderDropPoint(myOption); 
-    break;
-  default:
-  alert("Error no select provided. Scratch head as this should never happen!");
+      renderPickupPoint(myOption);
+      break;
+    case 'dropoff':
+      renderDropPoint(myOption);
+      break;
+    case 'passenger':
+      renderPassenger();
+      break;
+    case 'ticket':
+      renderTicket();
+      break;
+    default:
+      alert("Error no select provided. Scratch head as this should never happen!");
+  }
 }
-}
-
-//This is all the json relevant code
-//This is based on javascripttutorial for Fetch API example https://www.javascripttutorial.net/javascript-fetch-api/ See Credits
 
 /**
  * The json collection function, called when a select is looking to json for source.
  * This gets the data from the json file residing at the provided url.
  * Then returns the json data as an object
  */
-async function fetchJson(myUrl) {
+async function fetchJson(myUrl) { 
   try {
     let res = await fetch(myUrl);
     return await res.json();
@@ -50,9 +55,9 @@ async function fetchJson(myUrl) {
  * This loops through the object returned from our fetchJson.
  * This loop then builds the html to populate the select name="direction" in Calulate fares Form.
  */
- async function renderDirection() {
- 
-  let dirUrl = 'assets/js/ddata.json';
+async function renderDirection() {
+
+  let dirUrl = 'assets/js/destdata.json';
   let dirs = await fetchJson(dirUrl);
   let dirHtml = '';
   dirs.forEach(dir => {
@@ -73,11 +78,11 @@ async function fetchJson(myUrl) {
  * This function reacts to the selection picked by the user in Direction select.
  */
 async function renderPickupPoint(myDirection) {
-  let pickUrl ="";
+  let pickUrl = "";
   //Check which direction the user wished to travel
-  if (myDirection === '1') {
+  if (myDirection === 1) {
     pickUrl = 'assets/js/clondata.json';
-  } else if (myDirection === '2') {
+  } else if (myDirection === 2) {
     pickUrl = 'assets/js/kinsaledata.json';
   } else {
     alert("Error no direction provided. Scratch head as this should never happen!");
@@ -102,8 +107,8 @@ async function renderPickupPoint(myDirection) {
  * This loop then builds the html to populate the select name="dropoff" in Calulate fares Form.
  * This function also ensures the available option in dropoff will not precede the pickup point in travelling in the selected.
  */
- async function renderDropPoint(myPickupPoint) {
-  let dropUrl ="";
+async function renderDropPoint(myPickupPoint) {
+  let dropUrl = "";
   //Check which direction the user wished to travel
   let selectdir = document.getElementById("direction");
   let selectdirvalue = selectdir.options[selectdir.selectedIndex].value;
@@ -118,25 +123,109 @@ async function renderPickupPoint(myDirection) {
   let dropHtml = '';
   //This is where it gets interesting
   //We need to only show the elements in json that are later in the journey than the Pickup Point
-  drops.forEach(drop => {
-    if(parseInt(drop.value) > myPickupPoint) {
-      let htmlSegment = ` <option value=${drop.value}>
+  const filteredDrops = drops.filter(drop => parseInt(drop.value) > myPickupPoint);
+
+  filteredDrops.forEach(drop => {
+    let htmlSegment = ` <option value=${drop.value}>
                           ${drop.ppoint}
                           </option>`;
 
     dropHtml += htmlSegment;
-    }    
   });
 
   let dropoptions = document.querySelector('.dropoptions');
   dropoptions.innerHTML = dropHtml;
 }
 
+/**
+ * The Passenger select populating function.
+ * This loops through the object returned from our fetchJson.
+ * This loop then builds the html to populate the select name="passenger" in Calulate fares Form.
+ */
+async function renderPassenger() {
 
+  let passUrl = 'assets/js/passdata.json';
+  let passengers = await fetchJson(passUrl);
+  let passHtml = '';
+  passengers.forEach(passenger => {
+    let htmlSegment = ` <option value=${passenger.value}>
+                          ${passenger.passenger}
+                          </option>`;
 
+    passHtml += htmlSegment;
+  });
+  let passengeroptions = document.querySelector('.passengeroptions');
+  passengeroptions.innerHTML = passHtml;
+}
 
+/**
+ * The Passenger select populating function.
+ * This loops through the object returned from our fetchJson.
+ * This loop then builds the html to populate the select name="passenger" in Calulate fares Form.
+ */
+async function renderTicket() {
+
+  let tickUrl = 'assets/js/tickdata.json';
+  let tickets = await fetchJson(tickUrl);
+  let tickHtml = '';
+  tickets.forEach(ticket => {
+    let htmlSegment = ` <option value=${ticket.value}>
+                          ${ticket.ticket}
+                          </option>`;
+
+    tickHtml += htmlSegment;
+  });
+  let ticketoptions = document.querySelector('.ticketoptions');
+  ticketoptions.innerHTML = tickHtml;
+}
+
+/**
+ * The Fares Calculation Parameter gathering function.
+ * This checks that all the selects have a value.
+ * This then passes the parameters to the calculateFares function
+ * This function then outputs the fare to the name = "fare"
+ */
+function calculateForm() {
+  
+   //Direction
+   let direction = document.getElementById("direction");
+   let value1 = direction.options[direction.selectedIndex].value;
+  
+  //Pick Up Point
+  let pickup = document.getElementById("pickup");
+  let value2 = pickup.options[pickup.selectedIndex].value;
+  
+  //Drop Off Point
+  let dropOff = document.getElementById("dropoff");
+  let value3= dropOff.options[dropOff.selectedIndex].value;
+  
+  //Passenger
+  let passenger = document.getElementById("passenger");
+  let value4 = passenger.options[passenger.selectedIndex].value;
+  
+  //Ticket
+  let ticket = document.getElementById("ticket");
+  let value5 = ticket.options[ticket.selectedIndex].value;
+  
+  let fareCalc = calculateFares(value1, value2, value3, value4, value5);
+
+  let returnText =`Travelling ${fareDirection}${freqTicket} for ${catPerson} from ${pickPoint} to ${destPoint} is ${myFare}`
+  document.getElementById("fare_required").innerHTML = fareCalc;
+  document.getElementById("fare_required").style.fontSize = "xx-large";
+  document.getElementById("fare_required").style.fontWeight = "900";
+
+  }
 
 /*
+
+ function calculateFares(fareDirection, farePick, fareDrop, farePassenger, fareTicket) {
+  let fareArray = []; 
+    
+  let myFare = "€14.00"; 
+  
+  return myFare; 
+}
+ 
 function checkFares(users) {
   return users.gender === "Female" && users.username === "jane";
 }
@@ -147,13 +236,9 @@ async function searchUsers() {
   console.log(result);
   
 }
-
 */
 
-//renderUsers();
-
-//searchUsers();
-
+// Handle all the modal stuff for the popup
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -181,8 +266,6 @@ window.onclick = function (event) {
   }
 }
 
-
-
 //Set up event listeners on form
 const form = document.getElementById('form_fares');
 
@@ -191,61 +274,17 @@ const selectdirection = document.getElementById('direction');
 const selectPickupPoint = document.getElementById('pickup');
 
 selectdirection.addEventListener('change', function handleChange(event) {
- // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
-  populateSelects('pickup', event.target.value);
- 
+  // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
+  populateSelects('pickup', parseInt(event.target.value));
+
 });
 
 selectPickupPoint.addEventListener('change', function handleChange(event) {
   // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
-   populateSelects('dropoff', parseInt(event.target.value));
-  
- });
+  populateSelects('dropoff', parseInt(event.target.value));
 
+});
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 });
-
-
-/*
-
-
-
-
-
-function calculateFares(pickPoint, destPoint, catPerson, freqTicket) {
-  let fareArray = []; 
-    
-  let myFare = "€14.00"; 
-  let returnText =`${freqTicket} for ${catPerson} from ${pickPoint} to ${destPoint} is ${myFare}`
-  return returnText; 
-}
-    
-function calculateForm() {
-  
-//Pick up Point
-let select1 = document.getElementById("pickup");
-let value1 = select1.options[select1.selectedIndex].value;
-//alert("Pickup is :" + value1);
-//Destination
-let select2 = document.getElementById("destination");
-let value2 = select2.options[select2.selectedIndex].value;
-//alert("Destination is :" + value2);
-//Category
-let select3 = document.getElementById("category");
-let value3 = select3.options[select3.selectedIndex].value;
-//alert("Category is :" + value3);
-//Frequency
-let select4 = document.getElementById("frequency");
-let value4 = select4.options[select4.selectedIndex].value;
-//alert("Frequency is :" + value4);
-
-let fareCalc = calculateFares(value1, value2, value3, value4);
-
-document.getElementById("fare_required").innerHTML = fareCalc;
-document.getElementById("fare_required").style.fontSize = "xx-large";
-document.getElementById("fare_required").style.fontWeight = "900";
-
-}
-*/
