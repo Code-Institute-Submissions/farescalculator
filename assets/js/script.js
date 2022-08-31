@@ -70,15 +70,17 @@ async function fetchJson(myUrl) {
  * The Pickup Point select populating function.
  * This loops through the object returned from our fetchJson.
  * This loop then builds the html to populate the select name="pickup" in Calulate fares Form.
+ * This function reacts to the selection picked by the user in Direction select.
  */
 async function renderPickupPoint(myDirection) {
   let pickUrl ="";
+  //Check which direction the user wished to travel
   if (myDirection === '1') {
     pickUrl = 'assets/js/clondata.json';
   } else if (myDirection === '2') {
     pickUrl = 'assets/js/kinsaledata.json';
   } else {
-    alert('Oh my god what have they selected!');
+    alert("Error no direction provided. Scratch head as this should never happen!");
   }
   let picks = await fetchJson(pickUrl);
   let pickHtml = '';
@@ -98,28 +100,36 @@ async function renderPickupPoint(myDirection) {
  * The Drop off Point select populating function.
  * This loops through the object returned from our fetchJson.
  * This loop then builds the html to populate the select name="dropoff" in Calulate fares Form.
+ * This function also ensures the available option in dropoff will not precede the pickup point in travelling in the selected.
  */
- async function renderDropPoint(myDirection) {
-  let pickUrl ="";
-  if (myDirection === '1') {
-    pickUrl = 'assets/js/clondata.json';
-  } else if (myDirection === '2') {
-    pickUrl = 'assets/js/kinsaledata.json';
+ async function renderDropPoint(myPickupPoint) {
+  let dropUrl ="";
+  //Check which direction the user wished to travel
+  let selectdir = document.getElementById("direction");
+  let selectdirvalue = selectdir.options[selectdir.selectedIndex].value;
+  if (selectdirvalue === '1') {
+    dropUrl = 'assets/js/clondata.json';
+  } else if (selectdirvalue === '2') {
+    dropUrl = 'assets/js/kinsaledata.json';
   } else {
-    alert('Oh my god what have they selected!');
+    alert("Error no direction provided. Scratch head as this should never happen!");
   }
-  let picks = await fetchJson(pickUrl);
-  let pickHtml = '';
-  picks.forEach(pick => {
-    let htmlSegment = ` <option value=${pick.value}>
-                          ${pick.ppoint}
+  let drops = await fetchJson(dropUrl);
+  let dropHtml = '';
+  //This is where it gets interesting
+  //We need to only show the elements in json that are later in the journey than the Pickup Point
+  drops.forEach(drop => {
+    if(parseInt(drop.value) > myPickupPoint) {
+      let htmlSegment = ` <option value=${drop.value}>
+                          ${drop.ppoint}
                           </option>`;
 
-    pickHtml += htmlSegment;
+    dropHtml += htmlSegment;
+    }    
   });
 
-  let pickoptions = document.querySelector('.pickoptions');
-  pickoptions.innerHTML = pickHtml;
+  let dropoptions = document.querySelector('.dropoptions');
+  dropoptions.innerHTML = dropHtml;
 }
 
 
@@ -188,7 +198,7 @@ selectdirection.addEventListener('change', function handleChange(event) {
 
 selectPickupPoint.addEventListener('change', function handleChange(event) {
   // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
-   populateSelects('dropoff', event.target.value);
+   populateSelects('dropoff', parseInt(event.target.value));
   
  });
 
