@@ -190,31 +190,30 @@ function formParameters() {
   //Direction
   let direction = document.getElementById("direction");
   let value1 = direction.options[direction.selectedIndex].value;
+  let text1 = direction.options[direction.selectedIndex].text;
 
   //Pick Up Point
   let pickup = document.getElementById("pickup");
   let value2 = pickup.options[pickup.selectedIndex].value;
+  let text2 = pickup.options[pickup.selectedIndex].text;
 
   //Drop Off Point
   let dropOff = document.getElementById("dropoff");
   let value3 = dropOff.options[dropOff.selectedIndex].value;
+  let text3 = dropOff.options[dropOff.selectedIndex].text;
 
   //Passenger
   let passenger = document.getElementById("passenger");
   let value4 = passenger.options[passenger.selectedIndex].value;
+  let text4 = passenger.options[passenger.selectedIndex].text;
 
   //Ticket
   let ticket = document.getElementById("ticket");
   let value5 = ticket.options[ticket.selectedIndex].value;
+  let text5 = ticket.options[ticket.selectedIndex].text;
 
-  let fareCalc = calculateFares(value1, value2, value3, value4, value5);
-
-
-  //let returnText =`Travelling ${fareDirection}${freqTicket} for ${catPerson} from ${pickPoint} to ${destPoint} is ${myFare}`
- // document.getElementById("fare").innerHTML = fareCalc;
-  //document.getElementById("fare").style.fontSize = "xx-large";
- // document.getElementById("fare").style.fontWeight = "900";
-
+  let fareCalc = calculateFares(value1, text1, value2, text2, value3, text3, value4, text4, value5, text5);
+ 
 }
 
 /**
@@ -223,15 +222,26 @@ function formParameters() {
  * This function checks the fares json file for the fare satisfying the parameters.
  * It then returns that fare value.
  */
-async function calculateFares(fareDirection, farePick, fareDrop, farePassenger, fareTicket) {
-  let fareUrl = 'assets/js/faredata.json';
+async function calculateFares(fareDirection, fareDirectionText, farePick, farePickText, fareDrop, fareDropText, farePassenger, farePassengerText, fareTicket, fareTicketText) {
+  let fareUrl = 'assets/js/clonfaredata.json';
   let getFares = await fetchJson(fareUrl);
-  const fares = getFares.filter(checkFares);
-  const correctFare = fares[0].adult_single;
-  console.log(correctFare);
-  console.log(fares[0]);
-  console.log('drop' in fares[0]); // 👉️ true
-  
+  const fares = getFares.filter(checkFares);  //Get a subset of fares that match the provided parameters
+
+  //Prepare the key that you wish to get the value of
+  const farePText = farePassengerText.toLowerCase(); //First part of key
+  const fareTText = fareTicketText.split(' ')[0];
+  const fareTTextLower = fareTText.toLowerCase(); //Second part of key
+  const fareSearch = farePText.concat("_", fareTTextLower); //Key
+
+  //Use the key to get the value
+  const correctFare = fares[0][fareSearch];
+
+  //Now we have the Fare Tell the user what it is
+  let returnText =`Travelling on route ${fareDirectionText} from ${farePickText} to ${fareDropText}, An ${farePassengerText} ${fareTicketText} will cost ${correctFare}.`
+  document.getElementById("fare").innerHTML = returnText;
+  document.getElementById("fare").style.fontSize = "xx-large";
+  document.getElementById("fare").style.fontWeight = "900";
+ 
 }
 
 /**
