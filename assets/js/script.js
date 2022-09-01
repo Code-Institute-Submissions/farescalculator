@@ -212,7 +212,7 @@ function formParameters() {
   let text5 = ticket.options[ticket.selectedIndex].text;
 
   let fareCalc = calculateFares(value1, text1, value2, text2, value3, text3, value4, text4, value5, text5);
- 
+
 }
 
 /**
@@ -222,7 +222,7 @@ function formParameters() {
  * It then returns that fare value.
  */
 async function calculateFares(fareDirection, fareDirectionText, farePick, farePickText, fareDrop, fareDropText, farePassenger, farePassengerText, fareTicket, fareTicketText) {
-  let fareUrl=""
+  let fareUrl = ""
   //Which direction are we travelling?
   if (fareDirection === 1) {
     fareUrl = 'assets/js/clonfaredata.json';
@@ -232,7 +232,7 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
     alert("Error with Fares Calculation no Direction provided. Scratch head as this should never happen!");
   }
   let getFares = await fetchJson(fareUrl);
-  const fares = getFares.filter(checkFares);  //Get a subset of fares that match the provided parameters
+  const fares = getFares.filter(checkFares); //Get a subset of fares that match the provided parameters
 
   //Prepare the key that you wish to get the value of
   const farePText = farePassengerText.toLowerCase(); //First part of key
@@ -241,14 +241,17 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
   const fareSearch = farePText.concat("_", fareTTextLower); //Key
 
   //Use the key to get the value
-  const correctFare = fares[0][fareSearch];
-
-  //Now we have the Fare Tell the user what it is
-  let returnText =`Travelling on route ${fareDirectionText} from ${farePickText} to ${fareDropText}, An ${farePassengerText} ${fareTicketText} will cost ${correctFare}.`
-  document.getElementById("fare").innerHTML = returnText;
-  document.getElementById("fare").style.fontSize = "xx-large";
-  document.getElementById("fare").style.fontWeight = "900";
- 
+  let correctFare = ""
+  try {
+    correctFare = fares[0][fareSearch];
+    //Now we have the Fare Tell the user what it is
+    let returnText = `Travelling on route ${fareDirectionText} from ${farePickText} to ${fareDropText}, An ${farePassengerText} ${fareTicketText} will cost ${correctFare}.`
+    document.getElementById("fare").innerHTML = returnText;
+    document.getElementById("fare").style.fontSize = "xx-large";
+    document.getElementById("fare").style.fontWeight = "900";
+  } catch (err) {
+    document.getElementById("fare").innerHTML = "Fare not Found";
+  }
 }
 
 /**
