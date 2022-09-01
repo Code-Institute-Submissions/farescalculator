@@ -2,10 +2,11 @@
 // Then populate some of the selects with defaults.
 document.addEventListener("DOMContentLoaded", function () {
 
-  populateSelects("direction");
+  populateSelects("direction", 1);
   populateSelects("pickup", 1);
-  populateSelects("passenger");
-  populateSelects("ticket");
+  populateSelects("dropoff", 1, 1);
+  populateSelects("passenger", 1);
+  populateSelects("ticket", 1);
 
 });
 
@@ -14,22 +15,22 @@ document.addEventListener("DOMContentLoaded", function () {
  * This populates the dropdown selects from json files.
  * This function is also called in response to event listeners catching user interaction with selects on form.
  */
-function populateSelects(mySelect, myOption) {
+function populateSelects(mySelect, myOption, myPicks) {
   switch (mySelect) {
     case 'direction':
-      renderDirection();
+      renderDirection(myOption);
       break;
     case 'pickup':
       renderPickupPoint(myOption);
       break;
     case 'dropoff':
-      renderDropPoint(myOption);
+      renderDropPoint(myOption, myPicks);
       break;
     case 'passenger':
-      renderPassenger();
+      renderPassenger(myOption);
       break;
     case 'ticket':
-      renderTicket();
+      renderTicket(myOption);
       break;
     default:
       alert("Error no select provided. Scratch head as this should never happen!");
@@ -107,14 +108,12 @@ async function renderPickupPoint(myDirection) {
  * This loop then builds the html to populate the select name="dropoff" in Calulate fares Form.
  * This function also ensures the available option in dropoff will not precede the pickup point in travelling in the selected.
  */
-async function renderDropPoint(myPickupPoint) {
+async function renderDropPoint(myDirection, myPickupPoint) {
   let dropUrl = "";
   //Check which direction the user wished to travel
-  let selectdir = document.getElementById("direction");
-  let selectdirvalue = selectdir.options[selectdir.selectedIndex].value;
-  if (selectdirvalue === '1') {
+  if (myDirection === 1) {
     dropUrl = 'assets/js/clondata.json';
-  } else if (selectdirvalue === '2') {
+  } else if (myDirection === 2) {
     dropUrl = 'assets/js/kinsaledata.json';
   } else {
     alert("Error no direction provided. Scratch head as this should never happen!");
@@ -189,27 +188,27 @@ function formParameters() {
 
   //Direction
   let direction = document.getElementById("direction");
-  let value1 = direction.options[direction.selectedIndex].value;
+  let value1 = parseInt(direction.options[direction.selectedIndex].value);
   let text1 = direction.options[direction.selectedIndex].text;
 
   //Pick Up Point
   let pickup = document.getElementById("pickup");
-  let value2 = pickup.options[pickup.selectedIndex].value;
+  let value2 = parseInt(pickup.options[pickup.selectedIndex].value);
   let text2 = pickup.options[pickup.selectedIndex].text;
 
   //Drop Off Point
   let dropOff = document.getElementById("dropoff");
-  let value3 = dropOff.options[dropOff.selectedIndex].value;
-  let text3 = dropOff.options[dropOff.selectedIndex].text;
+  let value3 = parseInt(dropoff.options[dropoff.selectedIndex].value);
+  let text3 = dropoff.options[dropoff.selectedIndex].text;
 
   //Passenger
   let passenger = document.getElementById("passenger");
-  let value4 = passenger.options[passenger.selectedIndex].value;
+  let value4 = parseInt(passenger.options[passenger.selectedIndex].value);
   let text4 = passenger.options[passenger.selectedIndex].text;
 
   //Ticket
   let ticket = document.getElementById("ticket");
-  let value5 = ticket.options[ticket.selectedIndex].value;
+  let value5 = parseInt(ticket.options[ticket.selectedIndex].value);
   let text5 = ticket.options[ticket.selectedIndex].text;
 
   let fareCalc = calculateFares(value1, text1, value2, text2, value3, text3, value4, text4, value5, text5);
@@ -223,7 +222,15 @@ function formParameters() {
  * It then returns that fare value.
  */
 async function calculateFares(fareDirection, fareDirectionText, farePick, farePickText, fareDrop, fareDropText, farePassenger, farePassengerText, fareTicket, fareTicketText) {
-  let fareUrl = 'assets/js/clonfaredata.json';
+  let fareUrl=""
+  //Which direction are we travelling?
+  if (fareDirection === 1) {
+    fareUrl = 'assets/js/clonfaredata.json';
+  } else if (fareDirection === 2) {
+    fareUrl = 'assets/js/kinsalefaredata.json';
+  } else {
+    alert("Error with Fares Calculation no Direction provided. Scratch head as this should never happen!");
+  }
   let getFares = await fetchJson(fareUrl);
   const fares = getFares.filter(checkFares);  //Get a subset of fares that match the provided parameters
 
@@ -249,7 +256,9 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
  * This function filters the returned json object to the specified parameters.
  */
 function checkFares(fares) {
-  return fares.pick === "1" && fares.drop === "5";
+  const farePick = pickup.options[pickup.selectedIndex].value
+  const fareDrop = dropoff.options[dropoff.selectedIndex].value
+  return fares.pick === farePick && fares.drop === fareDrop;
 }
 
 // Handle all the modal stuff for the popup
@@ -295,7 +304,7 @@ selectdirection.addEventListener('change', function handleChange(event) {
 
 selectPickupPoint.addEventListener('change', function handleChange(event) {
   // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
-  populateSelects('dropoff', parseInt(event.target.value));
+  populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
 
 });
 
