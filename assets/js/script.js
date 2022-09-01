@@ -302,9 +302,13 @@ const selectPickupPoint = document.getElementById('pickup');
 selectdirection.addEventListener('change', function handleChange(event) {
   // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
   populateSelects('pickup', parseInt(event.target.value));
-
+  if (parseInt(event.target.value)=== 1) {
+    populateSelects('dropoff', parseInt(event.target.value), 1 );
+  } else if (parseInt(event.target.value)=== 2) {
+    populateSelects('dropoff', parseInt(event.target.value), 21 );
+  }
 });
-
+  
 selectPickupPoint.addEventListener('change', function handleChange(event) {
   // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
   populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
