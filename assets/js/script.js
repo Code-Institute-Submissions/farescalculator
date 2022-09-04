@@ -7,8 +7,45 @@ document.addEventListener("DOMContentLoaded", function () {
   populateSelects("dropoff", 1, 1);
   populateSelects("passenger", 1);
   populateSelects("ticket", 1);
+  loadChart();
 
 });
+
+function loadChart() {
+
+  // Load the Visualization API and the corechart package.
+  google.charts.load('current', {'packages':['corechart']});
+  
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(drawChart);
+  
+  // Callback that creates and populates a data table,
+  // instantiates the pie chart, passes in the data and
+  // draws it.
+  function drawChart() {
+  
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'Slices');
+    data.addRows([
+      ['Adult', 1],
+      ['Student', 1.2],
+      ['Child', 0.25],
+      ['Under 5', 0.1],
+      ['FTP', 7.5]
+    ]);
+  
+    // Set chart options
+    var options = {'title':'Travellers Using this service by Passenger',
+                   'width':400,
+                   'height':300};
+  
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+  }
 
 /**
  * The main populating function, called when the popup is first loaded and loads default direction.
@@ -245,7 +282,7 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
   try {
     correctFare = fares[0][fareSearch];
     //Now we have the Fare Tell the user what it is
-    let returnText = `From ${farePickText} to ${fareDropText}, an ${farePassengerText} ${fareTicketText} will cost ${correctFare} euro.`
+    let returnText = `From ${farePickText}<br>to ${fareDropText}<br>${farePassengerText} ${fareTicketText}<br>will cost ${correctFare} euro.`
     document.getElementById("fare").innerHTML = returnText;
     document.getElementById("fare").style.fontSize = "large";
     document.getElementById("fare").style.fontWeight = "900";
@@ -318,3 +355,4 @@ selectPickupPoint.addEventListener('change', function handleChange(event) {
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 });
+

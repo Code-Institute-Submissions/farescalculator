@@ -12,6 +12,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+</script>
   <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Fares Calculator</title>
@@ -469,23 +475,28 @@
             <label for="direction">Direction</label>
             <select class="directionoptions" name="direction" id="direction">
 
-            </select>
+            </select><br><br><hr>
+
             <label for="pickup">Pickup Point</label>
             <select class="pickoptions" name="pickup" id="pickup">
 
-            </select>
+            </select><br><br><hr>
+
             <label for="dropoff">Destination</label>
             <select class="dropoptions" name="dropoff" id="dropoff">
               
-            </select>
+            </select><br><br><hr>
+
             <label for="passenger">Passenger</label>
             <select class="passengeroptions" name="passenger" id="passenger">
               
             </select>
+
             <label for="ticket">Ticket</label>
             <select class="ticketoptions" name="ticket" id="ticket">
              
-            </select>
+            </select><br><br><hr>
+
             <input type="submit" id="calc_submitter" value="Calculate Fares">
           </form>
         </div>
@@ -498,8 +509,11 @@
     </div>
 
   </section>
+  <!--Div that will hold the pie chart-->
+  <div id="chart_div"></div>
   <div class="container"></div>
   <script src="assets/js/script.js"></script>
+   
 </body>
 
 </html>
