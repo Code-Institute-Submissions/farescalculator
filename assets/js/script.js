@@ -245,9 +245,9 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
   try {
     correctFare = fares[0][fareSearch];
     //Now we have the Fare Tell the user what it is
-    let returnText = `Travelling on route ${fareDirectionText} from ${farePickText} to ${fareDropText}, An ${farePassengerText} ${fareTicketText} will cost ${correctFare}.`
+    let returnText = `From ${farePickText} to ${fareDropText}, an ${farePassengerText} ${fareTicketText} will cost ${correctFare} euro.`
     document.getElementById("fare").innerHTML = returnText;
-    document.getElementById("fare").style.fontSize = "xx-large";
+    document.getElementById("fare").style.fontSize = "large";
     document.getElementById("fare").style.fontWeight = "900";
   } catch (err) {
     document.getElementById("fare").innerHTML = "Fare not Found";
