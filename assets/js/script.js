@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   populateSelects("dropoff", 1, 1);
   populateSelects("passenger", 1);
   populateSelects("ticket", 1);
-  loadChart();
+  //loadChart();
 
 });
 

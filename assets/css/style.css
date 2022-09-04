@@ -1,6 +1,15 @@
 body {
   font-family: 'Raleway', sans-serif;
-  margin: 0 auto;
+}
+
+.fareButton {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1D4D71;
+  padding: 20px;
+  width: 100%;
+
 }
 
 table {
@@ -123,7 +132,7 @@ table {
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 100%;
+  width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
