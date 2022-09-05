@@ -40,12 +40,12 @@ header {
   background-color: #1D4D71;
   padding: 20px;
   width: 100%;
-
+  margin-bottom: 2.5px;
 }
 
 table {
-
   font-family: 'Signika', sans-serif;
+  margin-bottom: 2.5px;
 }
 
 #table253A {
