@@ -307,7 +307,7 @@ function checkFares(fares) {
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("fareButton");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];

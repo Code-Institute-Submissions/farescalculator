@@ -22,13 +22,13 @@ html {
 /* Give the body a font family and a color and set the margin */
 body {
   font-family: 'Raleway', sans-serif;
-  color: #fff;
+  color: #000;
   margin: 0 auto;
 }
 
 .site-flex-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: 0 30px;
