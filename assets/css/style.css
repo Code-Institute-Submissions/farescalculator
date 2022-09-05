@@ -1,13 +1,95 @@
+/* Just clearing these out to a default position for the whole site before any styling is applied */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Note this is a mobile first approach*/
+
+/* Give the body a font family and a color and set the margin */
 body {
   font-family: 'Raleway', sans-serif;
+  color: #fff;
   margin: 0 auto;
 }
 
-header {
+.site-flex-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  height: 150px;
 }
+
+.site-flex-social ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  font-size: 350%;
+  font-weight: 600;
+  gap: 60px;
+}
+
+.fa-facebook {
+  color: #3B5998;
+}
+
+.fa-facebook { transition: all .2s ease-in-out; }
+.fa-facebook:hover { transform: scale(1.1); }
+
+.fa-instagram {
+  color: #3F729B;
+}
+
+.fa-instagram  { transition: all .2s ease-in-out; }
+.fa-instagram:hover { transform: scale(1.1); }
+
+.fa-twitter-square {
+  color: #00ACEE;
+}
+
+.fa-twitter-square { transition: all .2s ease-in-out; }
+.fa-twitter-square:hover { transform: scale(1.1); }
+
+.site-flex-button {
+  background: #00A651;
+  border-radius: 4px;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 3em;
+  padding: 1rem;
+  letter-spacing: 4px;
+}
+
+.site-flex-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-flex-button:hover,
+.site-flex-button:focus
+ {
+  box-shadow: 0 3px 7px 1px rgba(50, 50, 50, 0.25);
+}
+
+
+
 
 #route {
   display: flex;
@@ -23,12 +105,6 @@ header {
   margin-bottom: 25px;
 }
 
-#headerend {
-  border: 10px solid green;
-  width: 100%;
-  margin: 0 auto;
-}
-
 #service {
   margin-left: 10px;
 }
@@ -41,6 +117,7 @@ header {
   padding: 20px;
   width: 100%;
   margin-bottom: 2.5px;
+  border: #fff;
 }
 
 table {
@@ -171,24 +248,24 @@ table {
   animation-duration: 0.4s
 }
 
-  .form_fares input {
-    color: #000;
-    border: 1px solid #000;
-    margin: 25px 0;
-    width: 100%;
-    line-height: 24px;
-    padding: 12px 20px;
-    
-  }
+.form_fares input {
+  color: #000;
+  border: 1px solid #000;
+  margin: 25px 0;
+  width: 100%;
+  line-height: 24px;
+  padding: 12px 20px;
 
-  .form_fares select {
-    color: #000;
-    border: 1px solid #000;
-    margin: 25px 15px;
-    line-height: 14px;
-    padding: 12px 20px;
-  }
-  
+}
+
+.form_fares select {
+  color: #000;
+  border: 1px solid #000;
+  margin: 25px 15px;
+  line-height: 14px;
+  padding: 12px 20px;
+}
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
   from {

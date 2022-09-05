@@ -25,32 +25,60 @@
 
 <body>
 
-  <header>
-    <div id = "route">
-    <h1>Route 253</h1>
+  <header><!-- This is the header. It contains all header related divs and classes -->
+    <div class="site-flex-container"> <!-- This is the wrapper for the header elements -->
+      <div class="site-flex-logo"> <!-- This is the site logo. When clicke dit takes us home -->
+        <a href="index.html" role="link" aria-label="Jump to the Home Page">
+          <img src="assets/images/TFI-Local-Link-NEW-Cork.webp" alt="site logo" width="256" height="131">
+        </a>
+      </div>
+      <div class="site-flex-social">
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/Locallinkcork/" aria-label="Go to our facebook page (opens in new tab)" target="_blank"
+              rel="noopener"><i class="fab fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/tfilocallinkcork/" aria-label="Go to our instagram page (opens in new tab)" target="_blank"
+              rel="noopener"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/locallinkcork?lang=en" aria-label="Go to our twitter page (opens in new tab)" target="_blank"
+              rel="noopener"><i class="fab fa-twitter-square"></i></a>
+          </li>
+        </ul>
+      </div>
+      <button class="site-flex-button">
+        <a href="index.html" aria-label="Start a new search">
+          New Search
+        </a>
     </div>
-    <div id = "title">
-      <h2>Clonakilty - Kinsale</h2>
-      <h2>&</h2>
-      <h2>Kinsale - Clonakilty</h2>
-    </div>
-    <hr id = "headerend">
   </header>
 
+
+  <div id="routedetails">
+    <!-- This is the route details div. It contains all route details related divs -->
+    <div id="routenumber">
+      <h1>Route 253</h1>
+    </div>
+    <div id="routetitle">
+      <h2>Clonakilty to Kinsale</h2>
+      <h2>&</h2>
+      <h2>Kinsale to Clonakilty</h2>
+    </div>
+    <h3>Day: Monday - Sunday</h3>
+    <h4>Hail & Ride</h4>
+  </div>
+
   <section id="main">
-
-    <h2 id ="service">Clonakilty to Kinsale</h2>
-
+    <!-- This is the main section the page this contains the timetables and calculator popup buttons-->
     <!-- This opens the Full Screen Fare Calculator Modal Popup -->
-    <section id="popupcalculator"> 
-      <button class="fareButton" id="fareButton">Click here to calculate fares!</button>
-    </section>
-
+    <button class="fareButton" id="fareButton">Click here to calculate fares!</button>
     <div style="overflow-x: auto;">
       <table id="table253A">
         <tbody>
           <tr>
-            <th>Pick Up Point</th>
+            <th>Clonakilty to Kinsale</th>
             <th colspan="5">Monday to Saturday</th>
             <th>Fri &amp; Sat only</th>
             <th colspan="3">Sunday &amp; Bank Holidays</th>
@@ -250,19 +278,13 @@
         </tbody>
       </table>
     </div>
-
-    <h2 id ="service">Kinsale to Clonakilty</h2>
-
     <!-- This opens the Full Screen Fare Calculator Modal Popup -->
-    <section id="popupcalculator">
-      <button class="fareButton" id="fareButton">Click here to calculate fares!</button>
-    </section>
-
+    <button class="fareButton" id="fareButton">Click here to calculate fares!</button>
     <div style="overflow-x: auto;">
       <table id="table253B">
         <tbody>
           <tr>
-            <th>Pick Up Point</th>
+            <th>Kinsale to Clonakilty</th>
             <th colspan="5">Monday to Saturday</th>
             <th colspan="2">Fri &amp; Sat only</th>
             <th colspan="3">Sunday &amp; Bank Holidays</th>
@@ -478,21 +500,8 @@
         </tbody>
       </table>
     </div>
-
     <!-- This opens the Full Screen Fare Calculator Modal Popup -->
-    <section id="popupcalculator">
-      <button class="fareButton" id="fareButton">Click here to calculate fares!</button>
-    </section>
-
-  </section>
-
-
-
-  <section id="popupcalculator">
-
-
-    
-    
+    <button class="fareButton" id="fareButton">Click here to calculate fares!</button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
