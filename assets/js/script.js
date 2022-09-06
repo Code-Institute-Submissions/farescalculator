@@ -89,6 +89,34 @@ async function fetchJson(myUrl) {
 }
 
 /**
+ * The Timetable table populating function.
+ * This loops through the object returned from our fetchJson.
+ * This loop then builds the html to populate the table for timetables in home page.
+ */
+ async function renderTable(whichTable) {
+  let pickUrl = "";
+  //Check which direction the user wished to travel
+  if (whichTable === 1) {
+    pickUrl = 'assets/js/clontimetable.json';
+  } else if (whichTable === 2) {
+    pickUrl = 'assets/js/kinsaletimetable.json';
+  } else {
+    alert("Error no Table provided. Scratch head as this should never happen!");
+  }
+  let dirs = await fetchJson(dirUrl);
+  let dirHtml = '';
+  dirs.forEach(dir => {
+    let htmlSegment = ` <option value=${dir.value}>
+                          ${dir.direction}
+                          </option>`;
+
+    dirHtml += htmlSegment;
+  });
+  let directionoptions = document.querySelector('.directionoptions');
+  directionoptions.innerHTML = dirHtml;
+}
+
+/**
  * The Direction select populating function.
  * This loops through the object returned from our fetchJson.
  * This loop then builds the html to populate the select name="direction" in Calulate fares Form.
