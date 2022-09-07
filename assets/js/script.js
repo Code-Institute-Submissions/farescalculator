@@ -7,9 +7,31 @@ document.addEventListener("DOMContentLoaded", function () {
   populateSelects("dropoff", 1, 1);
   populateSelects("passenger", 1);
   populateSelects("ticket", 1);
+
+  renderTable("253Clon", 1)
   //loadChart();
 
 });
+
+/**
+ * The Timetable table populating function.
+ * This loops through the object returned from our fetchJson.
+ * This loop then builds the html to populate the table for timetables in home page.
+ */
+ async function renderTable(whichTable, jsonFile) {
+  let pickUrl = "";
+  //Check which direction the user wished to travel
+  if (jsonFile === 1) {
+    pickUrl = 'assets/js/clontimetable.json';
+  } else if (jsonFile === 2) {
+    pickUrl = 'assets/js/kinsaletimetable.json';
+  } else {
+    alert("Error no Table provided. Scratch head as this should never happen!");
+  }
+  let dirs = await fetchJson(dirUrl); //We now have a Data Object
+  console.log(dirs);
+}
+
 
 function loadChart() {
 
@@ -88,41 +110,13 @@ async function fetchJson(myUrl) {
   }
 }
 
-/**
- * The Timetable table populating function.
- * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the table for timetables in home page.
- */
- async function renderTable(whichTable) {
-  let pickUrl = "";
-  //Check which direction the user wished to travel
-  if (whichTable === 1) {
-    pickUrl = 'assets/js/clontimetable.json';
-  } else if (whichTable === 2) {
-    pickUrl = 'assets/js/kinsaletimetable.json';
-  } else {
-    alert("Error no Table provided. Scratch head as this should never happen!");
-  }
-  let dirs = await fetchJson(dirUrl);
-  let dirHtml = '';
-  dirs.forEach(dir => {
-    let htmlSegment = ` <option value=${dir.value}>
-                          ${dir.direction}
-                          </option>`;
-
-    dirHtml += htmlSegment;
-  });
-  let directionoptions = document.querySelector('.directionoptions');
-  directionoptions.innerHTML = dirHtml;
-}
 
 /**
  * The Direction select populating function.
  * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the select name="direction" in Calulate fares Form.
+ * This loop then builds the html to populate the select name="direction" in Calculate fares Form.
  */
 async function renderDirection() {
-
   let dirUrl = 'assets/js/directiondata.json';
   let dirs = await fetchJson(dirUrl);
   let dirHtml = '';
@@ -140,7 +134,7 @@ async function renderDirection() {
 /**
  * The Pickup Point select populating function.
  * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the select name="pickup" in Calulate fares Form.
+ * This loop then builds the html to populate the select name="pickup" in Calculate fares Form.
  * This function reacts to the selection picked by the user in Direction select.
  */
 async function renderPickupPoint(myDirection) {
@@ -170,7 +164,7 @@ async function renderPickupPoint(myDirection) {
 /**
  * The Drop off Point select populating function.
  * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the select name="dropoff" in Calulate fares Form.
+ * This loop then builds the html to populate the select name="dropoff" in Calculate fares Form.
  * This function also ensures the available option in dropoff will not precede the pickup point in travelling in the selected.
  */
 async function renderDropPoint(myDirection, myPickupPoint) {
@@ -204,7 +198,7 @@ async function renderDropPoint(myDirection, myPickupPoint) {
 /**
  * The Passenger select populating function.
  * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the select name="passenger" in Calulate fares Form.
+ * This loop then builds the html to populate the select name="passenger" in Calculate fares Form.
  */
 async function renderPassenger() {
 
@@ -223,9 +217,9 @@ async function renderPassenger() {
 }
 
 /**
- * The Passenger select populating function.
+ * The Ticket select populating function.
  * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the select name="passenger" in Calulate fares Form.
+ * This loop then builds the html to populate the select name="ticket" in Calculate fares Form.
  */
 async function renderTicket() {
 
