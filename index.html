@@ -13,7 +13,6 @@
     href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Fares Calculator</title>
 </head>
@@ -78,8 +77,8 @@
     </div>
 
     <!-- This opens the Full Screen Fare Calculator Modal Popup -->
-    <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton"
-      id="fareButton">Click here to calculate fares!</button>
+    <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton" id="fareButton">Click
+      here to calculate fares!</button>
 
 
     <section id="timetables">
@@ -289,8 +288,8 @@
       </div>
 
       <!-- This opens the Full Screen Fare Calculator Modal Popup -->
-      <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton"
-        id="fareButton">Click here to calculate fares!</button>
+      <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton" id="fareButton">Click
+        here to calculate fares!</button>
 
       <div style="overflow-x: auto;">
         <table id="table253B">
@@ -516,69 +515,52 @@
     </section>
 
     <!-- This opens the Full Screen Fare Calculator Modal Popup -->
-    <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton"
-      id="fareButton">Click here to calculate fares!</button>
 
-    <!-- This is the html for the Full Screen Fare Calculator Modal Popup section -->
-    <section>     
+    <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton" id="fareButton">Click
+      here to calculate fares!</button>
 
-        <div id="fc-pop" class="fc-pop"> 'This is the modal popup window'
-          
-          <div class="fc-modal-content fc-card fc-animate-zoom-bigger" style="max-width:600px">
-            <div class="fc-center"><br>
-              <span onclick="document.getElementById('fc-modalform').style.display='none'"
-                class="fc-button fc-xlarge fc-hover-red fc-display-topright" title="Close Modal">&times;</span>
-            </div>
-
-            <form class="fc-container" action="">
-              <div class="flex-container">
-                <label for="direction">Direction</label>
-                <select class="directionoptions" name="direction" id="direction" required>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-                <label for="pickup">Pickup Point</label>
-                <select class="pickoptions" name="pickup" id="pickup" required>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-
-                <label for="dropoff">Destination</label>
-                <select class="dropoptions" name="dropoff" id="dropoff" required>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-
-                <label for="passenger">Passenger</label>
-                <select class="passengeroptions" name="passenger" id="passenger" required>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-
-                <label for="ticket">Ticket</label>
-                <select class="ticketoptions" name="ticket" id="ticket" required>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-                <button class="fc-button fc-block fc-green fc-section fc-padding" type="submit">Calculate Fare</button>
-                <h3>The calculated fare is:</h3>
-                <h4 class="fare" name="fare" id="fare"></h4>              
-              </div>
-            </form>
+    <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (fc) -->
+    <div class="fc-container">
+      <div id="fc-pop" class="fc-modal">
+        <div class="fc-modal-content fc-card fc-animate-zoom-bigger" style="max-width:600px">
+          <div class="fc-center"><br>
+            <span onclick="document.getElementById('fc-pop').style.display='none'"
+              class="fc-button fc-xlarge fc-hover-blue fc-display-topright" title="Close Modal">&times;</span>
           </div>
+
+          <form class="fc-container" action="">
+            <div class="fc-section">
+              <label for="direction">Direction</label>
+              <select class="directionoptions fc-select fc-border fc-margin-bottom" name="direction" id="direction" required>
+
+              </select>
+              <label for="pickup">Pickup Point</label>
+              <select class="pickoptions fc-select fc-border fc-margin-bottom" name="pickup" id="pickup" required>
+
+              </select>
+
+              <label for="dropoff">Destination</label>
+              <select class="dropoptions fc-select fc-border fc-margin-bottom" name="dropoff" id="dropoff" required>
+
+              </select>
+
+              <label for="passenger">Passenger</label>
+              <select class="passengeroptions fc-select fc-border fc-margin-bottom" name="passenger" id="passenger" required>
+
+              </select>
+
+              <label for="ticket">Ticket</label>
+              <select class="ticketoptions fc-select fc-border fc-margin-bottom" name="ticket" id="ticket" required>
+
+              </select>
+              <button class="fc-button fc-block fc-green fc-section fc-padding" type="submit">Calculate Fare</button>
+              <h3>The calculated fare is:</h3>
+              <h4 class="fare" name="fare" id="fare"></h4>
+            </div>
+          </form>
         </div>
-      
-    </section>
+      </div>
+    </div>
 
 </body>
 
