@@ -143,11 +143,17 @@ body {
   border: 1px solid #ccc!important;
 }
 .fc-select {
+  color:#000;
   padding: 8px;
+  font-weight: 700;
   display: block;
   border: none;
   border-bottom: 1px solid #ccc;
   width: 100%;
+}
+
+.fc-label {
+  font-weight: 700;
 }
 
 .fc-block {
