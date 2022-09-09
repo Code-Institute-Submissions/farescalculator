@@ -231,26 +231,14 @@ table {
   background-color: rgba(0,0,0,0.4);
 }
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .fc-modal {
-    padding-top: 100px;
-    overflow: auto;
-    width: 100vw;
-    height: 100vh; 
-  }
-  .fc-modal-content {
-    width: 600px;
-  }
-}
-
 .fc-modal-content {
   margin: auto;
   background-color: #fff;
   position: relative;
-  padding: 0;
-  outline: 0;
-  
+  padding-right: 16px;
+  outline: 0; 
+  width: 100vw;
+  height: 100vh; 
 }
 
 .fc-animate-zoom {
@@ -279,7 +267,10 @@ table {
 .fc-button {
   border: none;
   display: inline-block;
-  padding: 8px 16px;
+  padding: 0px 10px 6px 10px;
+  line-height: .8em;
+  margin-right: 16px;
+  margin-bottom: 6px;
   vertical-align: middle;
   overflow: hidden;
   text-decoration: none;
@@ -292,7 +283,7 @@ table {
 }
 
 .fc-xlarge {
-  font-size: 24px;
+  font-size: 48px;
 }
 
 .fc-hover-blue:hover{
@@ -304,6 +295,23 @@ table {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .fc-modal {
+    padding-top: 100px;
+    overflow: auto;
+    width: 100%;
+    height: 100%; 
+  }
+  .fc-modal-content {
+    padding: 0;
+    width: 600px;
+  }
+  .fc-button {
+    margin-right: 0px;
+  }
 }
 
 .fc-section {
