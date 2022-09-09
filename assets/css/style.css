@@ -211,11 +211,6 @@ table {
 
 /* All of the modal popup form styling fc denotes Fares Calculator */
 
-.fc-block {
-  display: block;
-  width: 100%;
-}
-
 .fc-container:after, .fc-container:before {
   content: "";
   display: table;
@@ -319,6 +314,11 @@ table {
   width: 100%;
 }
 
+.fc-block {
+  display: block;
+  width: 100%;
+}
+
 .fc-green, .fc-hover-green:hover {
   color: #fff;
   background-color: #4CAF50;
@@ -339,4 +339,13 @@ button {
 button, input, select, textarea, optgroup {
   font: inherit;
   margin: 0;
+}
+
+.fc-h4 {
+  margin-top: 20px;
+}
+
+.faredisplay {
+  margin-left: 15px;
+  padding-bottom: 20px;
 }

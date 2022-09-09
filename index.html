@@ -522,7 +522,7 @@
     <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (fc) -->
     <div class="fc-container">
       <div id="fc-pop" class="fc-modal">
-        <div class="fc-modal-content fc-card fc-animate-zoom-bigger" style="max-width:600px">
+        <div class="fc-modal-content fc-animate-zoom-bigger" style="max-width:600px">
           <div class="fc-center"><br>
             <span onclick="document.getElementById('fc-pop').style.display='none'"
               class="fc-button fc-xlarge fc-hover-blue fc-display-topright" title="Close Modal">&times;</span>
@@ -531,7 +531,8 @@
           <form class="fc-container" action="">
             <div class="fc-section">
               <label for="direction">Direction</label>
-              <select class="directionoptions fc-select fc-border fc-margin-bottom" name="direction" id="direction" required>
+              <select class="directionoptions fc-select fc-border fc-margin-bottom" name="direction" id="direction"
+                required>
 
               </select>
               <label for="pickup">Pickup Point</label>
@@ -545,7 +546,8 @@
               </select>
 
               <label for="passenger">Passenger</label>
-              <select class="passengeroptions fc-select fc-border fc-margin-bottom" name="passenger" id="passenger" required>
+              <select class="passengeroptions fc-select fc-border fc-margin-bottom" name="passenger" id="passenger"
+                required>
 
               </select>
 
@@ -553,15 +555,19 @@
               <select class="ticketoptions fc-select fc-border fc-margin-bottom" name="ticket" id="ticket" required>
 
               </select>
-              <button class="fc-button fc-block fc-green fc-section fc-padding" type="submit">Calculate Fare</button>
-              <h3>The calculated fare is:</h3>
-              <h4 class="fare" name="fare" id="fare"></h4>
+
             </div>
           </form>
+          <button onclick="formParameters()" class="fc-button fc-block fc-green fc-section fc-padding">Calculate
+            Fare</button>
+          <div id = "faredisplay" class = "faredisplay">
+            <h3 class="farelabel fc-h3">The calculated fare is:</h3>
+            <h4 class="fare fc-h4" name="fare" id="fare"></h4>
+          </div>
         </div>
       </div>
     </div>
-
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

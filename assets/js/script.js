@@ -8,66 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   populateSelects("passenger", 1);
   populateSelects("ticket", 1);
 
-  renderTable("253Clon", 1)
-  //loadChart();
-
 });
-
-/**
- * The Timetable table populating function.
- * This loops through the object returned from our fetchJson.
- * This loop then builds the html to populate the table for timetables in home page.
- */
- async function renderTable(whichTable, jsonFile) {
-  let pickUrl = "";
-  //Check which direction the user wished to travel
-  if (jsonFile === 1) {
-    pickUrl = 'assets/js/clontimetable.json';
-  } else if (jsonFile === 2) {
-    pickUrl = 'assets/js/kinsaletimetable.json';
-  } else {
-    alert("Error no Table provided. Scratch head as this should never happen!");
-  }
-  let dirs = await fetchJson(dirUrl); //We now have a Data Object
-  console.log(dirs);
-}
-
-
-function loadChart() {
-
-  // Load the Visualization API and the corechart package.
-  google.charts.load('current', {'packages':['corechart']});
-  
-  // Set a callback to run when the Google Visualization API is loaded.
-  google.charts.setOnLoadCallback(drawChart);
-  
-  // Callback that creates and populates a data table,
-  // instantiates the pie chart, passes in the data and
-  // draws it.
-  function drawChart() {
-  
-    // Create the data table.
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Topping');
-    data.addColumn('number', 'Slices');
-    data.addRows([
-      ['Adult', 1],
-      ['Student', 1.2],
-      ['Child', 0.25],
-      ['Under 5', 0.1],
-      ['FTP', 7.5]
-    ]);
-  
-    // Set chart options
-    var options = {'title':'Travellers Using this service by Passenger',
-                   'width':400,
-                   'height':300};
-  
-    // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-  }
-  }
 
 /**
  * The main populating function, called when the popup is first loaded and loads default direction.
@@ -250,6 +191,9 @@ function formParameters() {
   let value1 = parseInt(direction.options[direction.selectedIndex].value);
   let text1 = direction.options[direction.selectedIndex].text;
 
+  //console.log(value1);
+  //console.log(text1);
+
   //Pick Up Point
   let pickup = document.getElementById("pickup");
   let value2 = parseInt(pickup.options[pickup.selectedIndex].value);
@@ -323,34 +267,6 @@ function checkFares(fares) {
   return fares.pick === farePick && fares.drop === fareDrop;
 }
 
-// Handle all the modal stuff for the popup
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("fareButton");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function () {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
-
 //Set up event listeners on form
 const form = document.getElementById('form_fares');
 
@@ -374,7 +290,4 @@ selectPickupPoint.addEventListener('change', function handleChange(event) {
 
 });
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-});
 
