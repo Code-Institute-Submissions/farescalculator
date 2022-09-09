@@ -30,37 +30,38 @@
 
         <form class="fc-container" action="">
           <div class="fc-section">
-            <label for="direction" class = "fc-label">Direction</label>
+            <label for="direction" class="fc-label">Direction</label>
             <select class="directionoptions fc-select fc-border fc-margin-bottom" name="direction" id="direction"
               required>
 
             </select>
-            <label for="pickup" class = "fc-label">Pickup Point</label>
+            <label for="pickup" class="fc-label">Pickup Point</label>
             <select class="pickoptions fc-select fc-border fc-margin-bottom" name="pickup" id="pickup" required>
 
             </select>
 
-            <label for="dropoff" class = "fc-label">Destination</label>
+            <label for="dropoff" class="fc-label">Destination</label>
             <select class="dropoptions fc-select fc-border fc-margin-bottom" name="dropoff" id="dropoff" required>
 
             </select>
 
-            <label for="passenger" class = "fc-label">Passenger</label>
+            <label for="passenger" class="fc-label">Passenger</label>
             <select class="passengeroptions fc-select fc-border fc-margin-bottom" name="passenger" id="passenger"
               required>
 
             </select>
 
-            <label for="ticket" class = "fc-label">Ticket</label>
+            <label for="ticket" class="fc-label">Ticket</label>
             <select class="ticketoptions fc-select fc-border fc-margin-bottom" name="ticket" id="ticket" required>
 
             </select>
 
           </div>
-          <button onclick="formParameters()" class="fc-button fc-block fc-thick fc-green fc-section fc-padding" type="button">Calculate
+          <button onclick="formParameters()" class="fc-button fc-block fc-thick fc-green fc-section fc-padding"
+            type="button">Calculate
             Fare</button>
         </form>
-        
+
         <div id="faredisplay" class="faredisplay">
           <h3 class="farelabel fc-h3">The calculated fare is:</h3>
           <h4 class="fare fc-h4" name="fare" id="fare"></h4>
@@ -69,46 +70,48 @@
     </div>
   </div>
 
-  <header>
-    <!-- This is the header. It contains all header related divs and classes -->
-    <div class="site-flex-container">
-      <!-- This is the wrapper for the header elements -->
-      <div class="site-flex-logo">
-        <!-- This is the site logo. When clicked it takes us home -->
-        <a href="index.html" role="link" aria-label="Jump to the Home Page">
-          <img src="assets/images/TFI-Local-Link-NEW-Cork.webp" alt="site logo" width="256" height="131">
-        </a>
+  <div id="site-flex-container">
+    <header>
+      <!-- This is the header. It contains all header related divs and classes -->
+      <div class="header-container hd-mobile hd-desktop">
+        <!-- This is the wrapper for the header elements -->
+        <div class="site-flex-logo logo-center">
+          <!-- This is the site logo. When clicked it takes us home -->
+          <a href="index.html" role="link" aria-label="Jump to the Home Page">
+            <img src="assets/images/TFI-Local-Link-NEW-Cork.webp" alt="site logo" width="256" height="131">
+          </a>
+        </div>
+        <div class="site-flex-social social-center">
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/Locallinkcork/" aria-label="Go to our facebook page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/tfilocallinkcork/"
+                aria-label="Go to our instagram page (opens in new tab)" target="_blank" rel="noopener"><i
+                  class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/locallinkcork?lang=en" aria-label="Go to our twitter page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a>
+            </li>
+          </ul>
+        </div>
+        <button class="site-flex-button">
+          <a href="index.html" aria-label="Start a new search">
+            New Search
+          </a>
       </div>
-      <div class="site-flex-social">
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/Locallinkcork/" aria-label="Go to our facebook page (opens in new tab)"
-              target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/tfilocallinkcork/"
-              aria-label="Go to our instagram page (opens in new tab)" target="_blank" rel="noopener"><i
-                class="fab fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="https://twitter.com/locallinkcork?lang=en" aria-label="Go to our twitter page (opens in new tab)"
-              target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a>
-          </li>
-        </ul>
-      </div>
-      <button class="site-flex-button">
-        <a href="index.html" aria-label="Start a new search">
-          New Search
-        </a>
-    </div>
-  </header>
-  
-      <!-- This opens the Full Screen Fare Calculator Modal Popup -->
+    </header>
 
+    <!-- This opens the Full Screen Fare Calculator Modal Popup -->
+    <main>
       <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton" id="fareButton">Click
         here to calculate fares!</button>
-
-    <script src="assets/js/script.js"></script>
+    </main>
+  </div>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
