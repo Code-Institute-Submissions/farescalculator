@@ -74,10 +74,6 @@ body {
   }
 }
 
-.fc-card, .fc-hover-shadow:hover {
-  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
-}
-
 .fc-center {
   text-align: center;
 }
@@ -86,11 +82,9 @@ body {
   border: none;
   display: inline-block;
   padding: 0px 10px 6px 10px;
-  line-height: .8em;
-  margin-right: 16px;
+  line-height: 0.8em;
   margin-bottom: 6px;
   vertical-align: middle;
-  overflow: hidden;
   text-decoration: none;
   color: inherit;
   background-color: inherit;
@@ -113,6 +107,10 @@ body {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.fc-thick {
+  line-height: 3em;
 }
 
 @media only screen and (min-width: 768px) {
