@@ -278,25 +278,36 @@ button, input, select, textarea, optgroup {
 }
 
 
-#route {
-  display: flex;
-  align-self: flex-end;
-  margin-right: 10px;
-}
-
-#title {
+#routedetails {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  line-height: .1em;
-  margin-bottom: 25px;
+  margin: 30px 25px;
 }
 
-#service {
-  margin-left: 10px;
+#routenumber {
+  align-self: flex-end;
+  margin: 30px 0;
 }
 
-.fareButton {
+#routetitle {
+  align-items: center;
+  line-height: 2em;
+  text-align: center;
+}
+
+#routefrequency {
+  margin: 15px 0;
+}
+
+#routetype {
+  color: #4CAF50;
+  font-weight: 900;
+  font-size: larger;
+}
+
+.fareButton, .timesButton, .pdfButton {
   font-size: 16px;
   font-weight: 500;
   color: #fff;
@@ -305,6 +316,10 @@ button, input, select, textarea, optgroup {
   width: 100%;
   margin-bottom: 2.5px;
   border: #fff;
+}
+
+.timesButton {
+  background-color: #4CAF50;
 }
 
 table {
