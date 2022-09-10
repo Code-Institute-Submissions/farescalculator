@@ -19,16 +19,132 @@
 
 <body>
 
-    <div id = "fc-modal" class="fc-modal fc-animate-opacity">
-        <div class="fc-modal-content  style="max-width:600px">
-            <div class="fc-center"><br>
-                <span onclick="goTo()" class="fc-button fc-xlarge fc-hover-red fc-display-topright" title="Close Modal">&times;</span>
+    <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (fc) -->
+    <div class="fc-container">
+        <div id="fc-pop" class="fc-modal">
+            <div class="fc-modal-content fc-animate-zoom-bigger" style="max-width:600px">
+                <div class="fc-center"><br>
+                    <span onclick="document.getElementById('fc-pop').style.display='none'"
+                        class="fc-button fc-xlarge fc-hover-blue fc-display-topright" title="Close Modal">&times;</span>
+                </div>
+
+                <form class="fc-container" action="">
+                    <div class="fc-section">
+                        <label for="direction" class="fc-label">Direction</label>
+                        <select class="directionoptions fc-select fc-border fc-margin-bottom" name="direction"
+                            id="direction" required>
+
+                        </select>
+                        <label for="pickup" class="fc-label">Pickup Point</label>
+                        <select class="pickoptions fc-select fc-border fc-margin-bottom" name="pickup" id="pickup"
+                            required>
+
+                        </select>
+
+                        <label for="dropoff" class="fc-label">Destination</label>
+                        <select class="dropoptions fc-select fc-border fc-margin-bottom" name="dropoff" id="dropoff"
+                            required>
+
+                        </select>
+
+                        <label for="passenger" class="fc-label">Passenger</label>
+                        <select class="passengeroptions fc-select fc-border fc-margin-bottom" name="passenger"
+                            id="passenger" required>
+
+                        </select>
+
+                        <label for="ticket" class="fc-label">Ticket</label>
+                        <select class="ticketoptions fc-select fc-border fc-margin-bottom" name="ticket" id="ticket"
+                            required>
+
+                        </select>
+
+                    </div>
+                    <button onclick="formParameters()"
+                        class="fc-button fc-block fc-thick fc-green fc-section fc-padding" type="button">Calculate
+                        Fare</button>
+                </form>
+
+                <div id="faredisplay" class="faredisplay">
+                    <h3 class="farelabel fc-h3">The calculated fare is:</h3>
+                    <h4 class="fare fc-h4" name="fare" id="fare"></h4>
+                </div>
             </div>
-            <form action="">
-                
-            </form>
         </div>
     </div>
+
+    <!-- This ends the Full Screen Fare Calculator Modal Popup html -->
+
     
+  <div id="site-flex-container">
+    <header>
+      <!-- This is the header. It contains all header related divs and classes -->
+      <div class="header-container hd-mobile hd-desktop">
+        <!-- This is the wrapper for the header elements -->
+        <div class="site-flex-logo logo-center">
+          <!-- This is the site logo. When clicked it takes us home -->
+          <a href="index.html" role="link" aria-label="Jump to the Home Page">
+            <img src="assets/images/TFI-Local-Link-NEW-Cork.webp" alt="site logo" width="256" height="131">
+          </a>
+        </div>
+        <div class="site-flex-social social-center">
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/Locallinkcork/" aria-label="Go to our facebook page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/tfilocallinkcork/"
+                aria-label="Go to our instagram page (opens in new tab)" target="_blank" rel="noopener"><i
+                  class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/locallinkcork?lang=en" aria-label="Go to our twitter page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a>
+            </li>
+          </ul>
+        </div>
+        <!-- This button returns the user to main index page -->
+          <button class="site-flex-button" id="site-flex-button"><a href="index.html">Click
+              here for a New Search</a></button>
+      </div>
+    </header>
+
+    <main>
+        <div id="routedetails">
+          <!-- This is the route details div. It contains all route details related divs -->
+          <div id="routenumber">
+            <h1>Route 253</h1>
+          </div>
+          <div id="routetitle">
+            <h2>Clonakilty to Kinsale</h2>
+            <h2>&</h2>
+            <h2>Kinsale to Clonakilty</h2>
+          </div>
+          <div id="routefrequency">
+            <h3>Day: Monday - Sunday</h3>
+          </div>
+          <div id="routetype">
+            <h4>Hail & Ride</h4>
+          </div>
+        </div>
+  
+        <!-- This button opens the Full Screen Fare Calculator Modal Popup -->
+        <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton" id="fareButton">Click
+          here to calculate fares</button>
+  
+        <!-- This button links to the Timetable Page -->
+        <button class="timesButton"
+          id="timesButton"><a href="index.html">Click
+          here to view timetable</a></button>
+  
+        <!-- This button allows for a PDF Download -->
+        <button class="pdfButton" id="pdfButton"><a href="index.html">Click
+          here to download PDF</a></button>
+  
+      </main>
+
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
