@@ -249,16 +249,18 @@ button, input, select, textarea, optgroup {
   font-size: larger;
 }
 
+button a, .fareButton {
+  text-decoration: none;
+  color: #fff;
+}
+
 .site-flex-button, .fareButton, .timesButton, .pdfButton {
   font-size: 16px;
   font-weight: 500;
-  color: #fff;
-  text-decoration: none;
   background-color: #1D4D71;
   padding: 20px;
   width: 100%;
   border: #fff;
-  
 }
 
 .site-flex-button, .timesButton {
