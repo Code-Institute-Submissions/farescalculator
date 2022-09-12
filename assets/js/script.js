@@ -1,13 +1,13 @@
 const url = document.location.href;
 const lastSegment = url.substring(url.lastIndexOf("/") + 1);
-  
-  // Wait for the DOM to finish loading before populating the selects
-  // Then populate some of the selects with defaults.
-  document.addEventListener("DOMContentLoaded", function () {
+
+// Wait for the DOM to finish loading before populating the selects
+// Then populate some of the selects with defaults.
+document.addEventListener("DOMContentLoaded", function () {
 
   //This is for single html only
-   
-if (lastSegment === 'single.html') { 
+
+  if (lastSegment === 'single.html') {
 
     populateSelects("direction", 1);
     populateSelects("pickup", 1);
@@ -15,9 +15,16 @@ if (lastSegment === 'single.html') {
     populateSelects("passenger", 1);
     populateSelects("ticket", 1);
 
-}
+  }
 
-  });
+  //This is for index html only
+
+  if (lastSegment === 'index.html') {
+    populateSelects("search", 1);
+
+  }
+
+});
 
 /**
  * The main populating function, called when the popup is first loaded and loads default direction.
@@ -29,14 +36,17 @@ function populateSelects(mySelect, myOption, myPicks) {
     case 'direction':
       renderDirection(myOption);
       break;
-    case 'pickup':
-      renderPickupPoint(myOption);
-      break;
     case 'dropoff':
       renderDropPoint(myOption, myPicks);
       break;
     case 'passenger':
       renderPassenger(myOption);
+      break;
+    case 'pickup':
+      renderPickupPoint(myOption);
+      break;
+    case 'search':
+      renderSearch(myOption);
       break;
     case 'ticket':
       renderTicket(myOption);
@@ -188,6 +198,26 @@ async function renderTicket() {
 }
 
 /**
+ * The Search select populating function.
+ * This loops through the object returned from our fetchJson.
+ * This loop then builds the html to populate the select name="selectroute" in Calculate fares Form.
+ */
+ async function renderSearch() {
+  let dirUrl = 'assets/js/routes.json';
+  let dirs = await fetchJson(dirUrl);
+  let dirHtml = '';
+  dirs.forEach(dir => {
+    let htmlSegment = ` <option value=${dir.value}>
+                          ${dir.routetitle}
+                          </option>`;
+
+    dirHtml += htmlSegment;
+  });
+  let searchoptions = document.querySelector('.searchoptions');
+  searchoptions.innerHTML = dirHtml;
+}
+
+/**
  * The Fares Calculation Parameter gathering function.
  * This checks that all the selects have a value.
  * This then passes the parameters to the calculateFares function
@@ -296,14 +326,17 @@ function swapDirection() {
 //Set up event listeners on form
 const form = document.getElementById('form_fares');
 
-const selectdirection = document.getElementById('direction');
+const selectDirection = document.getElementById('direction');
 
 const selectPickupPoint = document.getElementById('pickup');
 
- //This is for single html only
-   
- if (lastSegment === 'single.html') { 
-  selectdirection.addEventListener('change', function handleChange(event) {
+const selectSearch = document.getElementById('selectroute');
+
+
+//This is for single html only
+
+if (lastSegment === 'single.html') {
+  selectDirection.addEventListener('change', function handleChange(event) {
     // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
     populateSelects('pickup', parseInt(event.target.value));
     if (parseInt(event.target.value) === 1) {
@@ -315,9 +348,9 @@ const selectPickupPoint = document.getElementById('pickup');
 
 }
 
- //This is for single html only
-   
-if (lastSegment === 'single.html') { 
+//This is for single html only
+
+if (lastSegment === 'single.html') {
   selectPickupPoint.addEventListener('change', function handleChange(event) {
     // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
     populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
@@ -325,3 +358,6 @@ if (lastSegment === 'single.html') {
   });
 
 }
+
+
+
