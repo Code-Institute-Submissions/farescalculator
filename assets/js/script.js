@@ -218,7 +218,7 @@ async function renderTicket() {
 }
 
 /**
- * The Fares Calculation Parameter gathering function.
+ * The Form Parameter gathering function.
  * This checks that all the selects have a value.
  * This then passes the parameters to the calculateFares function
  * This function then outputs the fare to the name = "fare"
@@ -230,9 +230,6 @@ function formParameters() {
   let value1 = parseInt(direction.options[direction.selectedIndex].value);
   let text1 = direction.options[direction.selectedIndex].text;
 
-  //console.log(value1);
-  //console.log(text1);
-
   //Pick Up Point
   let pickup = document.getElementById("pickup");
   let value2 = parseInt(pickup.options[pickup.selectedIndex].value);
@@ -240,8 +237,8 @@ function formParameters() {
 
   //Drop Off Point
   let dropOff = document.getElementById("dropoff");
-  let value3 = parseInt(dropoff.options[dropoff.selectedIndex].value);
-  let text3 = dropoff.options[dropoff.selectedIndex].text;
+  let value3 = parseInt(dropOff.options[dropOff.selectedIndex].value);
+  let text3 = dropOff.options[dropOff.selectedIndex].text;
 
   //Passenger
   let passenger = document.getElementById("passenger");
@@ -253,7 +250,7 @@ function formParameters() {
   let value5 = parseInt(ticket.options[ticket.selectedIndex].value);
   let text5 = ticket.options[ticket.selectedIndex].text;
 
-  let fareCalc = calculateFares(value1, text1, value2, text2, value3, text3, value4, text4, value5, text5);
+  calculateFares(value1, text1, value2, text2, value3, text3, value4, text4, value5, text5);
 
 }
 
@@ -324,14 +321,10 @@ function swapDirection() {
 }
 
 //Set up event listeners on form
-const form = document.getElementById('form_fares');
 
 const selectDirection = document.getElementById('direction');
 
 const selectPickupPoint = document.getElementById('pickup');
-
-const selectSearch = document.getElementById('selectroute');
-
 
 //This is for single html only
 
