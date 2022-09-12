@@ -7,10 +7,6 @@ This is standard stuff*/
   border: 0;
 }
 
-html {
-  box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
@@ -19,11 +15,18 @@ html {
   padding: 0;
 }
 
+html {
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+}
+
 /* Give the body a font family and a color and set the margin */
 body {
   font-family: 'Raleway', sans-serif;
   color: #000;
-  margin: 0 auto;
+  margin: 0;
+  height: 100%;
 }
 
 /* Note this is a mobile first approach*/
@@ -42,10 +45,15 @@ See bottom of this file for Popup styling pu*/
 .fc-container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-.fc-container > div {
-  flex: 1;
+.fc-container > * {
+  padding: 16px;
+}
+
+.main-single {
+  flex-grow: 1;
 }
 
 /* Navigation Buttons nb denotes navigation button
@@ -375,6 +383,13 @@ table {
   white-space: nowrap;
   user-select: none;
 }
+
+@media only screen and (max-width: 630px) {
+  .pu-button {
+    margin-right: 10px;
+  }
+}
+
 
 .pu-xlarge {
   font-size: 48px; 
