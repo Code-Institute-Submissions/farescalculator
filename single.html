@@ -2,82 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--font awesome and google fonts-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Fares Calculator</title>
+  <!--font awesome and google fonts-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Fares Calculator</title>
 </head>
 
 <body>
 
-    <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (pu) -->
-    <div class="pu-container">
-        <div id="pu-pop" class="pu-modal">
-            <div class="pu-modal-content pu-animate-zoom-bigger" style="max-width:600px">
-                <div class="pu-center"><br>
-                    <span onclick="document.getElementById('pu-pop').style.display='none'"
-                        class="pu-button pu-xlarge pu-hover-blue pu-display-topright" title="Close Modal">&times;</span>
-                </div>
-
-                <form class="pu-container" action="">
-                    <div class="pu-section">
-                        <label for="direction" class="pu-label">Direction</label>
-                        <select class="directionoptions pu-select pu-border pu-margin-bottom" name="direction"
-                            id="direction" required>
-          
-                        </select>
-                        <label for="pickup" class="pu-label">Pickup Point</label>
-                        <select class="pickoptions pu-select pu-border pu-margin-bottom" name="pickup" id="pickup"
-                            required>
-
-                        </select>
-
-                        <label for="dropoff" class="pu-label">Destination</label>
-                        <select class="dropoptions pu-select pu-border pu-margin-bottom" name="dropoff" id="dropoff"
-                            required>
-
-                        </select>
-
-                        <label for="passenger" class="pu-label">Passenger</label>
-                        <select class="passengeroptions pu-select pu-border pu-margin-bottom" name="passenger"
-                            id="passenger" required>
-
-                        </select>
-
-                        <label for="ticket" class="pu-label">Ticket</label>
-                        <select class="ticketoptions pu-select pu-border pu-margin-bottom" name="ticket" id="ticket"
-                            required>
-
-                        </select>
-
-                    </div>
-                    <!-- This button kicks off the function that gathers parameters for the Fares Calculation -->
-                    <button onclick="formParameters()" class="nb-button nb-green" id="calculationbutton" type="button"
-                    aria-label="Click here to calculate the fare">Calculate Fare</button>
-                </form>
-
-                <div id="faredisplay" class="faredisplay">
-                    <h3 class="farelabel pu-h3">The calculated fare is:</h3>
-                    <h4 class="fare pu-h4" name="fare" id="fare"></h4>
-                </div>
-            </div>
+  <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (pu) -->
+  <div class="pu-container">
+    <div id="pu-pop" class="pu-modal">
+      <div class="pu-modal-content pu-animate-zoom-bigger" style="max-width:600px">
+        <div class="pu-center"><br>
+          <span onclick="document.getElementById('pu-pop').style.display='none'"
+            class="pu-button pu-xlarge pu-hover-blue pu-display-topright" title="Close Modal">&times;</span>
         </div>
-    </div>
 
-    <!-- This ends the Full Screen Fare Calculator Modal Popup html -->
-   
-    <!-- This is the Header -->
-    
-  <div class = "fc-container" id="site-flex-container">
+        <form class="pu-container" action="">
+          <div class="pu-section">
+            <label for="direction" class="pu-label">Direction</label>
+            <select class="directionoptions pu-select pu-border pu-margin-bottom" name="direction" id="direction"
+              required>
+
+            </select>
+            <label for="pickup" class="pu-label">Pickup Point</label>
+            <select class="pickoptions pu-select pu-border pu-margin-bottom" name="pickup" id="pickup" required>
+
+            </select>
+
+            <label for="dropoff" class="pu-label">Destination</label>
+            <select class="dropoptions pu-select pu-border pu-margin-bottom" name="dropoff" id="dropoff" required>
+
+            </select>
+
+            <label for="passenger" class="pu-label">Passenger</label>
+            <select class="passengeroptions pu-select pu-border pu-margin-bottom" name="passenger" id="passenger"
+              required>
+
+            </select>
+
+            <label for="ticket" class="pu-label">Ticket</label>
+            <select class="ticketoptions pu-select pu-border pu-margin-bottom" name="ticket" id="ticket" required>
+
+            </select>
+
+          </div>
+          <!-- This button kicks off the function that gathers parameters for the Fares Calculation -->
+          <button onclick="formParameters()" class="nb-button nb-green" id="calculationbutton" type="button"
+            aria-label="Click here to calculate the fare">Calculate Fare</button>
+        </form>
+
+        <div id="faredisplay" class="faredisplay">
+          <h3 class="farelabel pu-h3">The calculated fare is:</h3>
+          <h4 class="fare pu-h4" name="fare" id="fare"></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- This ends the Full Screen Fare Calculator Modal Popup html -->
+
+  <!-- This is the Header -->
+
+  <div class="fc-container" id="site-flex-container">
     <header>
       <!-- This is the header. It contains all header related divs and classes -->
       <div class="header-container hd-mobile hd-desktop">
@@ -105,48 +102,48 @@
             </li>
           </ul>
         </div>
-         <!-- This button returns the user to main index page -->
-         <button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-flex-button">
+        <!-- This button returns the user to main index page -->
+        <button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-flex-button">
           aria-label="Start a new search">New Search</button>
       </div>
     </header>
 
     <!-- This is End of the Header -->
 
-    <main class = "main-single">
-        <div id="routedetails">
-          <!-- This is the route details div. It contains all route details related divs -->
-          <div id="routenumber">
-            <h1>Route 253</h1>
-          </div>
-          <div class="routetitle">
-            <h2>Clonakilty to Kinsale</h2>
-            <h2>&</h2>
-            <h2>Kinsale to Clonakilty</h2>
-          </div>
-          <div id="routefrequency">
-            <h3>Day: Monday - Sunday</h3>
-          </div>
-          <div id="routetype">
-            <h4>Hail & Ride</h4>
-          </div>
+    <main class="main-single">
+      <div id="routedetails">
+        <!-- This is the route details div. It contains all route details related divs -->
+        <div id="routenumber">
+          <h1>Route 253</h1>
         </div>
-  
-        <!-- This button opens the Full Screen Fare Calculator Modal Popup -->
-        <button onclick="document.getElementById('pu-pop').style.display='block'" class="nb-button nb-blue" id="fareButton"
-        aria-label="Calculate the Fare">Click here to calculate fares</button>
+        <div class="routetitle">
+          <h2>Clonakilty to Kinsale</h2>
+          <h2>&</h2>
+          <h2>Kinsale to Clonakilty</h2>
+        </div>
+        <div id="routefrequency">
+          <h3>Day: Monday - Sunday</h3>
+        </div>
+        <div id="routetype">
+          <h4>Hail & Ride</h4>
+        </div>
+      </div>
 
-        <!-- This button links to the Timetable Page -->
-        <button onclick="document.location='timetable.html'" class="nb-button nb-green" id="timesButton"
+      <!-- This button opens the Full Screen Fare Calculator Modal Popup -->
+      <button onclick="document.getElementById('pu-pop').style.display='block'" class="nb-button nb-blue"
+        id="fareButton" aria-label="Calculate the Fare">Click here to calculate fares</button>
+
+      <!-- This button links to the Timetable Page -->
+      <button onclick="document.location='timetable.html'" class="nb-button nb-green" id="timesButton"
         aria-label="View the timetable">Click here to view timetables</a></button>
- 
-        <!-- This button allows for a PDF Download -->
-        <a id= "pdfopener" href="assets/pdf/Local Link 253 Time Table 2022.pdf" target="_blank">Click
-          here to download PDF</a>
-  
-      </main>
 
-    <script src="assets/js/script.js"></script>
+      <!-- This button allows for a PDF Download -->
+      <a id="pdfopener" href="assets/pdf/Local Link 253 Time Table 2022.pdf" target="_blank">Click
+        here to download PDF</a>
+
+    </main>
+  </div>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
