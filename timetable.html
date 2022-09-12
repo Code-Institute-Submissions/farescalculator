@@ -14,47 +14,55 @@
         rel="stylesheet">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Route 253</title>
+    <title>Timetable</title>
 </head>
 
 <body>
 
-    <div id="site-flex-container">
-        <header>
-            <!-- This is the header. It contains all header related divs and classes -->
-            <div class="header-container hd-mobile hd-desktop">
-                <!-- This is the wrapper for the header elements -->
-                <div class="site-flex-logo logo-center">
-                    <!-- This is the site logo. When clicked it takes us home -->
-                    <a href="index.html" role="link" aria-label="Jump to the Home Page">
-                        <img src="assets/images/TFI-Local-Link-NEW-Cork.webp" alt="site logo" width="256" height="131">
-                    </a>
-                </div>
-                <div class="site-flex-social social-center">
-                    <ul>
-                        <li>
-                            <a href="https://www.facebook.com/Locallinkcork/"
-                                aria-label="Go to our facebook page (opens in new tab)" target="_blank"
-                                rel="noopener"><i class="fab fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/tfilocallinkcork/"
-                                aria-label="Go to our instagram page (opens in new tab)" target="_blank"
-                                rel="noopener"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/locallinkcork?lang=en"
-                                aria-label="Go to our twitter page (opens in new tab)" target="_blank" rel="noopener"><i
-                                    class="fab fa-twitter-square"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- This button returns the user to main route -->
-                <button class="nb-button nb-green" id="site-flex-button"><a href="single.html">Back to Route</a></button>
-            </div>
-        </header>
+ <!-- This is the Header -->
+    
+ <div class = "fc-container" id="site-flex-container">
+    <header>
+      <!-- This is the header. It contains all header related divs and classes -->
+      <div class="header-container hd-mobile hd-desktop">
+        <!-- This is the wrapper for the header elements -->
+        <div class="site-flex-logo logo-center">
+          <!-- This is the site logo. When clicked it takes us home -->
+          <a href="index.html" role="link" aria-label="Jump to the Home Page">
+            <img src="assets/images/TFI-Local-Link-NEW-Cork.webp" alt="site logo" width="256" height="131">
+          </a>
+        </div>
+        <div class="site-flex-social social-center">
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/Locallinkcork/" aria-label="Go to our facebook page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/tfilocallinkcork/"
+                aria-label="Go to our instagram page (opens in new tab)" target="_blank" rel="noopener"><i
+                  class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/locallinkcork?lang=en" aria-label="Go to our twitter page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a>
+            </li>
+          </ul>
+        </div>
+        <!-- This button returns the user to main index page -->
+          <button class="nb-button nb-blue" id="site-flex-button"><a href="single.html"aria-label="Go back to our Route Page">Back to Route</a></button>
+      </div>
+    </header>
+
+    <!-- This is End of the Header -->
+
+     <!-- This is Timetables section -->    
 
         <section id="timetables">
+            <div id="routetitle">
+                <h2>Clonakilty to Kinsale</h2>
+              </div>
+
             <div style="overflow-x: auto;">
                 <table id="table253A">
                     <tbody>
@@ -259,6 +267,10 @@
                     </tbody>
                 </table>
             </div>
+
+            <div id="routetitle">
+                <h2>Kinsale to Clonakilty</h2>
+              </div>
 
             <div style="overflow-x: auto;">
                 <table id="table253B">
