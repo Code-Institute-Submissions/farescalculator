@@ -133,6 +133,10 @@ button a, .fareButton {
 .fa-twitter-square { transition: all .2s ease-in-out; }
 .fa-twitter-square:hover { transform: scale(1.1); }
 
+#site-flex-button {
+  margin-top: 20px;
+}
+
 #routenumber {
   display: flex;
   justify-content: center;
