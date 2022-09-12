@@ -205,20 +205,29 @@ table {
   margin-bottom: 2.5px;
 }
 
-#table253A {
+.layout253 {
   border-collapse: collapse;
   width: 100%;
-
 }
 
-#table253B {
-  border-collapse: collapse;
-  width: 100%;
-
+.layout253 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1D4D71;
+  color: white;
 }
 
-#table253A td,
-#table253A th {
+.layout253 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.layout253 tr:hover {
+  background-color: #ddd;
+}
+
+.layout253 td,
+.layout253 th {
   display: table-cell;
   vertical-align: middle;
   border: 1px solid #ddd;
@@ -226,17 +235,8 @@ table {
   text-align: center;
 }
 
-#table253B td,
-#table253B th {
-  display: table-cell;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-#table253A tr td:nth-child(1),
-#table253A th:nth-child(1) {
+.layout253 tr td:nth-child(1)
+ {
   position: sticky;
   position: -webkit-sticky;
   left: 0;
@@ -244,49 +244,6 @@ table {
   background-color: #04AA6D;
   font-weight: bold;
   text-align: left;
-}
-
-#table253B tr td:nth-child(1),
-#table253B th:nth-child(1) {
-  position: sticky;
-  position: -webkit-sticky;
-  left: 0;
-  z-index: 1;
-  background-color: #04AA6D;
-  font-weight: bold;
-  text-align: left;
-}
-
-#table253A tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#table253B tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#table253A tr:hover {
-  background-color: #ddd;
-}
-
-#table253B tr:hover {
-  background-color: #ddd;
-}
-
-#table253A th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-
-#table253B th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
 }
 
 /* End of Timetable styling */
