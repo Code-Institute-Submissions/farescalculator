@@ -1,14 +1,19 @@
-// Wait for the DOM to finish loading before populating the selects
-// Then populate some of the selects with defaults.
-document.addEventListener("DOMContentLoaded", function () {
+//This is for single html only
 
-  populateSelects("direction", 1);
-  populateSelects("pickup", 1);
-  populateSelects("dropoff", 1, 1);
-  populateSelects("passenger", 1);
-  populateSelects("ticket", 1);
+if (window.location.href === 'single.html') {
+  // Wait for the DOM to finish loading before populating the selects
+  // Then populate some of the selects with defaults.
+  document.addEventListener("DOMContentLoaded", function () {
 
-});
+    populateSelects("direction", 1);
+    populateSelects("pickup", 1);
+    populateSelects("dropoff", 1, 1);
+    populateSelects("passenger", 1);
+    populateSelects("ticket", 1);
+
+  });
+
+}
 
 /**
  * The main populating function, called when the popup is first loaded and loads default direction.
@@ -267,6 +272,23 @@ function checkFares(fares) {
   return fares.pick === farePick && fares.drop === fareDrop;
 }
 
+/**
+ * The Swap Direction function.
+ * This function swaps direction on the timetable page.
+ */
+function swapDirection() {
+  let outward = document.getElementById("outgoing");
+  let inward = document.getElementById("incoming");
+  if (outward.style.display === "none") {
+    outward.style.display = "block";
+    inward.style.display = "none";
+  } else {
+    outward.style.display = "none";
+    inward.style.display = "block";
+  }
+
+}
+
 //Set up event listeners on form
 const form = document.getElementById('form_fares');
 
@@ -274,20 +296,28 @@ const selectdirection = document.getElementById('direction');
 
 const selectPickupPoint = document.getElementById('pickup');
 
-selectdirection.addEventListener('change', function handleChange(event) {
-  // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
-  populateSelects('pickup', parseInt(event.target.value));
-  if (parseInt(event.target.value)=== 1) {
-    populateSelects('dropoff', parseInt(event.target.value), 1 );
-  } else if (parseInt(event.target.value)=== 2) {
-    populateSelects('dropoff', parseInt(event.target.value), 21 );
-  }
-});
-  
-selectPickupPoint.addEventListener('change', function handleChange(event) {
-  // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
-  populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
+//This is for single html only
 
-});
+if (window.location.href === 'single.html') {
+  selectdirection.addEventListener('change', function handleChange(event) {
+    // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
+    populateSelects('pickup', parseInt(event.target.value));
+    if (parseInt(event.target.value) === 1) {
+      populateSelects('dropoff', parseInt(event.target.value), 1);
+    } else if (parseInt(event.target.value) === 2) {
+      populateSelects('dropoff', parseInt(event.target.value), 21);
+    }
+  });
 
+}
 
+//This is for single html only
+
+if (window.location.href === 'single.html') {
+  selectPickupPoint.addEventListener('change', function handleChange(event) {
+    // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
+    populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
+
+  });
+
+}

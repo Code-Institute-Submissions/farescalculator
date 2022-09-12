@@ -196,6 +196,10 @@ button a, .fareButton {
 
 /* Timetable styling */
 
+#timetables {
+  margin-top: 16px;
+}
+
 table {
   font-family: 'Signika', sans-serif;
   margin-bottom: 2.5px;
