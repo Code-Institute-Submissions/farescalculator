@@ -19,55 +19,55 @@
 
 <body>
 
-    <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (fc) -->
-    <div class="fc-container">
-        <div id="fc-pop" class="fc-modal">
-            <div class="fc-modal-content fc-animate-zoom-bigger" style="max-width:600px">
-                <div class="fc-center"><br>
-                    <span onclick="document.getElementById('fc-pop').style.display='none'"
-                        class="fc-button fc-xlarge fc-hover-blue fc-display-topright" title="Close Modal">&times;</span>
+    <!-- This is the html for the Full Screen Fare Calculator Modal Popup Container (pu) -->
+    <div class="pu-container">
+        <div id="pu-pop" class="pu-modal">
+            <div class="pu-modal-content pu-animate-zoom-bigger" style="max-width:600px">
+                <div class="pu-center"><br>
+                    <span onclick="document.getElementById('pu-pop').style.display='none'"
+                        class="pu-button pu-xlarge pu-hover-blue pu-display-topright" title="Close Modal">&times;</span>
                 </div>
 
-                <form class="fc-container" action="">
-                    <div class="fc-section">
-                        <label for="direction" class="fc-label">Direction</label>
-                        <select class="directionoptions fc-select fc-border fc-margin-bottom" name="direction"
+                <form class="pu-container" action="">
+                    <div class="pu-section">
+                        <label for="direction" class="pu-label">Direction</label>
+                        <select class="directionoptions pu-select pu-border pu-margin-bottom" name="direction"
                             id="direction" required>
 
                         </select>
-                        <label for="pickup" class="fc-label">Pickup Point</label>
-                        <select class="pickoptions fc-select fc-border fc-margin-bottom" name="pickup" id="pickup"
+                        <label for="pickup" class="pu-label">Pickup Point</label>
+                        <select class="pickoptions pu-select pu-border pu-margin-bottom" name="pickup" id="pickup"
                             required>
 
                         </select>
 
-                        <label for="dropoff" class="fc-label">Destination</label>
-                        <select class="dropoptions fc-select fc-border fc-margin-bottom" name="dropoff" id="dropoff"
+                        <label for="dropoff" class="pu-label">Destination</label>
+                        <select class="dropoptions pu-select pu-border pu-margin-bottom" name="dropoff" id="dropoff"
                             required>
 
                         </select>
 
-                        <label for="passenger" class="fc-label">Passenger</label>
-                        <select class="passengeroptions fc-select fc-border fc-margin-bottom" name="passenger"
+                        <label for="passenger" class="pu-label">Passenger</label>
+                        <select class="passengeroptions pu-select pu-border pu-margin-bottom" name="passenger"
                             id="passenger" required>
 
                         </select>
 
-                        <label for="ticket" class="fc-label">Ticket</label>
-                        <select class="ticketoptions fc-select fc-border fc-margin-bottom" name="ticket" id="ticket"
+                        <label for="ticket" class="pu-label">Ticket</label>
+                        <select class="ticketoptions pu-select pu-border pu-margin-bottom" name="ticket" id="ticket"
                             required>
 
                         </select>
 
                     </div>
                     <button onclick="formParameters()"
-                        class="fc-button fc-block fc-thick fc-green fc-section fc-padding" type="button">Calculate
+                        class="nb-button nb-green" type="button">Calculate
                         Fare</button>
                 </form>
 
                 <div id="faredisplay" class="faredisplay">
-                    <h3 class="farelabel fc-h3">The calculated fare is:</h3>
-                    <h4 class="fare fc-h4" name="fare" id="fare"></h4>
+                    <h3 class="farelabel pu-h3">The calculated fare is:</h3>
+                    <h4 class="fare pu-h4" name="fare" id="fare"></h4>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
           </ul>
         </div>
         <!-- This button returns the user to main index page -->
-          <button class="site-flex-button" id="site-flex-button"><a href="index.html">Home</a></button>
+          <button class="site-flex-button fc-green" id="site-flex-button"><a href="index.html">Home</a></button>
       </div>
     </header>
 
@@ -129,7 +129,7 @@
         </div>
   
         <!-- This button opens the Full Screen Fare Calculator Modal Popup -->
-        <button onclick="document.getElementById('fc-pop').style.display='block'" class="fareButton" id="fareButton">Click
+        <button onclick="document.getElementById('pu-pop').style.display='block'" class="fareButton" id="fareButton">Click
           here to calculate fares</button>
   
         <!-- This button links to the Timetable Page -->
