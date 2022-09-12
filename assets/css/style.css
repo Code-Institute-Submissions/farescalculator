@@ -142,7 +142,7 @@ button a, .fareButton {
   justify-content: center;
 }
 
-#routetitle {
+.routetitle {
   display: flex;
   flex-direction: column;
   align-items: center;

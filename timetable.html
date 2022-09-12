@@ -52,8 +52,8 @@
                     </ul>
                 </div>
                 <!-- This button returns the user to main index page -->
-                <button class="nb-button nb-blue" id="site-flex-button"><a href="index.html"
-                        aria-label="Start a new search">New Search</a></button>
+                <<button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-flex-button">
+                        aria-label="Start a new search">New Search</button>                                          
             </div>
         </header>
 
@@ -63,13 +63,13 @@
 
         <!-- This button swaps the direction of timetable -->
         <main class = "main-single">
-        <button onclick="swapDirection()" class="nb-button nb-green"
-            id="swapbutton">Click here to Change Direction</button>
+        <button onclick="swapDirection()" class="nb-button nb-green" id="swapbutton"
+        aria-label="Click here to swap direction">Click here to Change Direction</button>
 
         <section id="timetables">
 
                 <div id="outgoing">
-                    <div id="routetitle">
+                    <div class="routetitle">
                         <h2>Clonakilty to Kinsale</h2>
                     </div>
 
@@ -280,9 +280,9 @@
 
                 </div>
 
-                <div id="incoming" style="display: none;"">
+                <div id="incoming" style="display: none;">
 
-                    <div id="routetitle">
+                    <div class="routetitle">
                         <h2>Kinsale to Clonakilty</h2>
                     </div>
 
