@@ -28,7 +28,8 @@ body {
 
 /* Note this is a mobile first approach*/
 
-/* For all of the styling fc denotes Fares Calculator */
+/* For all of the styling fc denotes Fares Calculator 
+See bottom of this file for Popup styling pu*/
 
 /* Page containers */
 
@@ -39,8 +40,8 @@ body {
 }
 
 .fc-container {
-  
-  padding: 0.01em 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 .fc-container > div {
@@ -94,30 +95,8 @@ button a, .fareButton {
   border: #fff;
 }
 
- 
-.site-flex-button:hover, .fareButton:hover, .timesButton:hover, .pdfButton:hover,
-.site-flex-button:focus, .fareButton:focus, .timesButton:focus, .pdfButton:focus
- {
-  box-shadow: 0 3px 7px 1px rgba(50, 50, 50, 0.25);
-}
 
 
-.fc-blue {
-  color: #fff;
-  background-color: #3B5998;
-}
- 
-.fc-green {
-  color: #fff;
-  background-color: #4CAF50;
-}
-.fc-padding {
-  padding: 8px 16px;
-}
-
-button, [type=button], [type=reset], [type=submit] {
-  -webkit-appearance: button;
-}
 button, select {
   text-transform: none;
 }
@@ -331,7 +310,13 @@ table {
 }
 
 .pu-container {
+  display: flex;
+  flex-direction: column;
   padding: 0.01em 16px;
+}
+
+.pu-container > div {
+  flex: 1;
 }
 
 .pu-modal {
@@ -340,7 +325,7 @@ table {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
@@ -356,19 +341,17 @@ table {
   height: 100%; 
 }
 
-.pu-animate-zoom {
-  animation: animatezoom 0.6s;
+.pu-animate-opacity {
+  animation: animateopacity 0.8s;
 }
 
-@keyframes animatezoom {
+@keyframes animateopacity {
   0% {
-    top: -300px;
     opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
+}
+100% {
+  opacity: 1;
+}
 }
 
 .pu-center {
