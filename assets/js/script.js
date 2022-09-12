@@ -1,9 +1,13 @@
-//This is for single html only
-
-if (window.location.href === 'single.html') {
+const url = document.location.href;
+const lastSegment = url.substring(url.lastIndexOf("/") + 1);
+  
   // Wait for the DOM to finish loading before populating the selects
   // Then populate some of the selects with defaults.
   document.addEventListener("DOMContentLoaded", function () {
+
+  //This is for single html only
+   
+if (lastSegment === 'single.html') { 
 
     populateSelects("direction", 1);
     populateSelects("pickup", 1);
@@ -11,9 +15,9 @@ if (window.location.href === 'single.html') {
     populateSelects("passenger", 1);
     populateSelects("ticket", 1);
 
-  });
-
 }
+
+  });
 
 /**
  * The main populating function, called when the popup is first loaded and loads default direction.
@@ -296,9 +300,9 @@ const selectdirection = document.getElementById('direction');
 
 const selectPickupPoint = document.getElementById('pickup');
 
-//This is for single html only
-
-if (window.location.href === 'single.html') {
+ //This is for single html only
+   
+ if (lastSegment === 'single.html') { 
   selectdirection.addEventListener('change', function handleChange(event) {
     // The user has selected a direction. Now populate the Pickup Point select with the appropriate json
     populateSelects('pickup', parseInt(event.target.value));
@@ -311,9 +315,9 @@ if (window.location.href === 'single.html') {
 
 }
 
-//This is for single html only
-
-if (window.location.href === 'single.html') {
+ //This is for single html only
+   
+if (lastSegment === 'single.html') { 
   selectPickupPoint.addEventListener('change', function handleChange(event) {
     // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
     populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
