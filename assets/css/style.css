@@ -142,6 +142,10 @@ button a,
   transform: scale(1.1);
 }
 
+#site-header-button {
+  margin-top: 20px;
+}
+
 .videoframe iframe {
   height: 100%;
   width: 100%;
@@ -153,8 +157,43 @@ button a,
   width: 100%;
 }
 
-#site-flex-button {
-  margin-top: 20px;
+.su-container:after,
+.su-container:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.su-container {
+  padding: 0.01em 16px;
+}
+
+.su-section {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.su-thick {
+  line-height: 3em;
+}
+
+.su-margin-bottom {
+  margin-bottom: 16px !important;
+}
+
+.su-border {
+  border: 1px solid #ccc !important;
+}
+
+.su-select {
+  color: #000;
+  padding: 8px;
+  font-weight: 700;
+  width: 100%;
+}
+
+.su-label {
+  font-weight: 700;
 }
 
 #routenumber {
@@ -188,6 +227,7 @@ button a,
   /* For desktop: */
 
   #site-header-button {
+    margin-top: 0;
     width: 15%;
   }
 
@@ -199,20 +239,9 @@ button a,
     margin: 0 30px;
   }
 
-  #site-flex-button {
-    margin-top: 0;
-  }
-
   .desktop {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-  }
-
-  .desktopshow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
   }
 
   .videoframe {
@@ -224,12 +253,22 @@ button a,
   .videoframe iframe {
     height: 480px;
     width: 640px;
+
+  }
+
+  .su-container {
+    padding: 0.01em 16px;
+  }
+
+  .su-select {
+    color: #000;
+    padding: 8px;
+    font-weight: 700;
   }
 
   #searchbutton {
     font-size: 16px;
-    padding: 20px;
-    width: 100%;
+    padding: 20px;   
     border: #fff;
     color: #000;
     background-color: #00A651;
@@ -256,6 +295,21 @@ button a,
   .site-flex-container {
     margin: 0 30px;
     height: 150px;
+  }
+
+}
+
+@media only screen and (max-width: 1400px) {
+
+  .desktop {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .videoframe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
 }
@@ -415,8 +469,6 @@ table {
 
 /* End of  the X to close the Fares Calculator popup styling */
 
-
-
 .pu-thick {
   line-height: 3em;
 }
@@ -447,12 +499,6 @@ table {
 .pu-label {
   font-weight: 700;
 }
-
-.pu-block {
-  display: block;
-  width: 100%;
-}
-
 
 .pu-h4 {
   margin-top: 20px;
