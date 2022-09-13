@@ -157,43 +157,25 @@ button a,
   width: 100%;
 }
 
-.su-container:after,
-.su-container:before {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .su-container {
-  padding: 0.01em 16px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: baseline;
+  margin: 30px 0; 
 }
 
-.su-section {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-.su-thick {
-  line-height: 3em;
-}
-
-.su-margin-bottom {
-  margin-bottom: 16px !important;
-}
-
-.su-border {
-  border: 1px solid #ccc !important;
-}
-
-.su-select {
+.searchoptions {
   color: #000;
   padding: 8px;
   font-weight: 700;
-  width: 100%;
+  width: fit-content;
+  border: 1px solid #000;
 }
 
 .su-label {
   font-weight: 700;
+  margin-right: 20px;
 }
 
 #routenumber {
@@ -239,43 +221,6 @@ button a,
     margin: 0 30px;
   }
 
-  .desktop {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .videoframe {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .videoframe iframe {
-    height: 480px;
-    width: 640px;
-
-  }
-
-  .su-container {
-    padding: 0.01em 16px;
-  }
-
-  .su-select {
-    color: #000;
-    padding: 8px;
-    font-weight: 700;
-  }
-
-  #searchbutton {
-    font-size: 16px;
-    padding: 20px;   
-    border: #fff;
-    color: #000;
-    background-color: #00A651;
-    font-weight: 700;
-    margin: 0 auto;
-  }
-
   .fc-modal {
     padding-top: 100px;
     overflow: auto;
@@ -290,26 +235,6 @@ button a,
 
   .fc-button {
     margin-right: 0px;
-  }
-
-  .site-flex-container {
-    margin: 0 30px;
-    height: 150px;
-  }
-
-}
-
-@media only screen and (max-width: 1400px) {
-
-  .desktop {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .videoframe {
-    width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
 }
