@@ -28,9 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 window.addEventListener('load', (event) => {
- 
-    populateSelects("search", 1);
 
+  //This is for index html only
+
+  if (lastSegment === 'single.html') { 
+    
+  } else if (lastSegment === 'timetable.html'){
+    
+} else {
+  populateSelects("search", 1);
+}
+    
 });
 
 /**
@@ -370,6 +378,7 @@ if (lastSegment === 'single.html') {
   });
 
 }
+
 
 
 
