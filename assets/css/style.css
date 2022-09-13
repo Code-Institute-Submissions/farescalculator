@@ -17,16 +17,12 @@ This is standard stuff*/
 
 html {
   box-sizing: border-box;
-  margin: 0;
-  height: 100%;
 }
 
 /* Give the body a font family and a color and set the margin */
 body {
   font-family: 'Raleway', sans-serif;
   color: #000;
-  margin: 0;
-  height: 100%;
 }
 
 /* Note this is a mobile first approach*/
@@ -40,7 +36,7 @@ They are either green or blue but other than that they all look the same*/
 
 .nb-button {
   font-size: 16px;
-  font-weight: 500; 
+  font-weight: 500;
   padding: 20px;
   width: 100%;
   border: #fff;
@@ -51,23 +47,24 @@ They are either green or blue but other than that they all look the same*/
   background-color: #1D4D71;
 }
 
-.nb-blue:hover, .nb-blue:focus {
+.nb-blue:hover,
+.nb-blue:focus {
   background-color: #B9CCDA;
-
 }
- 
+
 .nb-green {
   color: #000;
   background-color: #00A651;
   font-weight: 700;
 }
 
-.nb-green:hover, .nb-green:focus {
+.nb-green:hover,
+.nb-green:focus {
   background-color: #51DDC0;
-
 }
 
-button a, .fareButton {
+button a,
+.fareButton {
   text-decoration: none;
   color: #fff;
 }
@@ -76,7 +73,8 @@ button a, .fareButton {
 
 /* Page containers and Header and Body element styling */
 
-.fc-container:after, .fc-container:before {
+.fc-container:after,
+.fc-container:before {
   content: "";
   display: table;
   clear: both;
@@ -85,23 +83,18 @@ button a, .fareButton {
 .fc-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-.fc-container > * {
-  padding: 16px;
+.fc-container>* {
+  padding: 16px 0;
 }
 
-.main-single {
-  flex-grow: 1;
-}
-
-.hd-mobile {
+.header-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
- }
+}
 
 .site-flex-social ul {
   display: flex;
@@ -117,22 +110,48 @@ button a, .fareButton {
   color: #3B5998;
 }
 
-.fa-facebook { transition: all .2s ease-in-out; }
-.fa-facebook:hover { transform: scale(1.1); }
+.fa-facebook {
+  transition: all .2s ease-in-out;
+}
+
+.fa-facebook:hover {
+  transform: scale(1.1);
+}
 
 .fa-instagram {
   color: #3F729B;
 }
 
-.fa-instagram  { transition: all .2s ease-in-out; }
-.fa-instagram:hover { transform: scale(1.1); }
+.fa-instagram {
+  transition: all .2s ease-in-out;
+}
+
+.fa-instagram:hover {
+  transform: scale(1.1);
+}
 
 .fa-twitter-square {
   color: #00ACEE;
 }
 
-.fa-twitter-square { transition: all .2s ease-in-out; }
-.fa-twitter-square:hover { transform: scale(1.1); }
+.fa-twitter-square {
+  transition: all .2s ease-in-out;
+}
+
+.fa-twitter-square:hover {
+  transform: scale(1.1);
+}
+
+.videoframe iframe {
+  height: 100%;
+  width: 100%;
+  min-height: 300px;
+}
+
+.videoframe {
+  height: 100%;
+  width: 100%;
+}
 
 #site-flex-button {
   margin-top: 20px;
@@ -163,28 +182,73 @@ button a, .fareButton {
   margin: 10px 0 30px 0;
 }
 
-.videoframe iframe {
-  height: 100%;
-  width: 100%;
-}
-
-.videoframe {
-  height: 100%;
-  width: 100%;
-}
+/* End of Page containers and Header and Body element styling */
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
+
+  #site-header-button {
+    width: 15%;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+  }
+
+  #site-flex-button {
+    margin-top: 0;
+  }
+
+  .desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .desktopshow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .videoframe {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .videoframe iframe {
+    height: 480px;
+    width: 640px;
+  }
+
+  #searchbutton {
+    font-size: 16px;
+    padding: 20px;
+    width: 100%;
+    border: #fff;
+    color: #000;
+    background-color: #00A651;
+    font-weight: 700;
+    margin: 0 auto;
+  }
+
   .fc-modal {
     padding-top: 100px;
     overflow: auto;
     width: 100%;
-    height: 100%; 
+    height: 100%;
   }
+
   .fc-modal-content {
     padding: 0;
     width: 600px;
   }
+
   .fc-button {
     margin-right: 0px;
   }
@@ -193,17 +257,8 @@ button a, .fareButton {
     margin: 0 30px;
     height: 150px;
   }
-   .hd-desktop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 30px;
-    margin-right: 30px;
-   }
-}
 
-/* End of Page containers and Header and Body element styling */
+}
 
 /* Timetable styling */
 
@@ -246,8 +301,7 @@ table {
   text-align: center;
 }
 
-.layout253 tr td:nth-child(1)
- {
+.layout253 tr td:nth-child(1) {
   position: sticky;
   position: -webkit-sticky;
   left: 0;
@@ -262,7 +316,8 @@ table {
 /* Modal Fares Calculation Popup Related Styling*/
 /* For the popup styling pu denotes Popup */
 
-.pu-container:after, .pu-container:before {
+.pu-container:after,
+.pu-container:before {
   content: "";
   display: table;
   clear: both;
@@ -274,20 +329,20 @@ table {
   padding: 0.01em 16px;
 }
 
-.pu-container > div {
+.pu-container>div {
   flex: 1;
 }
 
 .pu-modal {
   z-index: 3;
-  display: none; 
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .pu-modal-content {
@@ -295,9 +350,9 @@ table {
   background-color: #fff;
   position: relative;
   padding-right: 16px;
-  outline: 0; 
+  outline: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
 }
 
 .pu-animate-opacity {
@@ -307,10 +362,11 @@ table {
 @keyframes animateopacity {
   0% {
     opacity: 0;
-}
-100% {
-  opacity: 1;
-}
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .pu-center {
@@ -343,15 +399,15 @@ table {
 
 
 .pu-xlarge {
-  font-size: 48px; 
+  font-size: 48px;
 }
 
-.pu-hover-blue:hover{
-  color:#fff;
-  background-color:#1D4D71;
+.pu-hover-blue:hover {
+  color: #fff;
+  background-color: #1D4D71;
 }
 
-.pu-display-topright{
+.pu-display-topright {
   position: absolute;
   right: 0;
   top: 0;
@@ -371,13 +427,15 @@ table {
 }
 
 .pu-margin-bottom {
-  margin-bottom: 16px!important;
+  margin-bottom: 16px !important;
 }
+
 .pu-border {
-  border: 1px solid #ccc!important;
+  border: 1px solid #ccc !important;
 }
+
 .pu-select {
-  color:#000;
+  color: #000;
   padding: 8px;
   font-weight: 700;
   display: block;
@@ -401,10 +459,8 @@ table {
 }
 
 .faredisplay {
-  margin-left: 15px; 
+  margin-left: 15px;
   padding-bottom: 20px;
 }
 
 /* End of the modal popup form styling fc denotes Fares Calculator */
-
-  

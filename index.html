@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Locallink Cork Rural Transport Routes">
-  <meta name="keywords" content="locallink cork, locallink, local, link, cork, nta, national transport authority, national, transport, rural">
+  <meta name="keywords"
+    content="locallink cork, locallink, local, link, cork, nta, national transport authority, national, transport, rural">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,7 +27,7 @@
   <div class="fc-container" id="site-flex-container">
     <header>
       <!-- This is the header. It contains all header related divs and classes -->
-      <div class="header-container hd-mobile hd-desktop">
+      <div class="header-container">
         <!-- This is the wrapper for the header elements -->
         <div class="site-flex-logo logo-center">
           <!-- This is the site logo. When clicked it takes us home -->
@@ -52,7 +53,7 @@
           </ul>
         </div>
         <!-- This button returns the user to main index page -->
-        <button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-flex-button"
+        <button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-header-button"
           aria-label="Click here for a new search">New Search</button>
       </div>
     </header>
@@ -60,26 +61,29 @@
     <!-- This is End of the Header -->
 
     <main class="main-single">
-      <div class="videoframe">
-        <iframe title="About Us" src="https://www.youtube.com/embed/vAVqvW4xlsY"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
+      <div id="desktop" class="desktop">
+        <div class="videoframe">
+          <iframe title="About Us" src="https://www.youtube.com/embed/vAVqvW4xlsY"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div id = "desktopshow" class id = "desktopshow">
+          <div id="searchdetails" class = "searchdetails">
+            <!-- This is the search details div. It contains all search details related divs -->
+            <form class="pu-container">
+              <div class="pu-section">
+                <label for="selectroute" class="pu-label">Search All Routes</label>
+                <select class="searchoptions pu-select pu-border pu-margin-bottom" name="selectroute" id="selectroute">
 
-      <div id="searchdetails">
-        <!-- This is the search details div. It contains all search details related divs -->
-        <form class="pu-container">
-          <div class="pu-section">
-            <label for="selectroute" class="pu-label">Search All Routes</label>
-            <select class="searchoptions pu-select pu-border pu-margin-bottom" name="selectroute" id="selectroute">
+                </select>
 
-            </select>
-
+              </div>
+            </form>
           </div>
-        </form>
-        <!-- This button links to the Result of Search Page. For now it is the single.html -->
-        <button onclick="document.location='single.html'" class=" nb-button nb-green" id="searchbutton"
-          aria-label="Click here to search for a route">Search Now</button>
+          <!-- This button links to the Result of Search Page. For now it is the single.html -->
+          <button onclick="document.location='single.html'" class="nb-button nb-green" id="searchbutton"
+            aria-label="Click here to search for a route">Search Now</button>
+        </div>
       </div>
     </main>
   </div>
