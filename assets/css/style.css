@@ -35,7 +35,7 @@ body {
 See bottom of this file for Popup styling pu*/
 
 /* Navigation Buttons nb denotes navigation button
-This section includes the action button that opens popup
+This section includes the action button that opens popup also the href button for pdf download
 They are either green or blue but other than that they all look the same*/
 
 .nb-button {

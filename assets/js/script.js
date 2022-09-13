@@ -19,10 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //This is for index html only
 
-  if (lastSegment === 'index.html') {
+  if (lastSegment === 'index.html') { 
     populateSelects("search", 1);
 
   }
+
+});
+
+
+window.addEventListener('load', (event) => {
+ 
+    populateSelects("search", 1);
 
 });
 
@@ -320,11 +327,19 @@ function swapDirection() {
 
 }
 
+function openPDF() {
+
+  window.open('assets/pdf/locallink_253.pdf');
+
+}
+
 //Set up event listeners on form
 
 const selectDirection = document.getElementById('direction');
 
 const selectPickupPoint = document.getElementById('pickup');
+
+const pdfBtn = document.getElementById("pdfBtn");
 
 //This is for single html only
 
@@ -337,6 +352,10 @@ if (lastSegment === 'single.html') {
     } else if (parseInt(event.target.value) === 2) {
       populateSelects('dropoff', parseInt(event.target.value), 21);
     }
+  });
+
+  pdfBtn.addEventListener("click", () => {
+    window.open("assets/pdf/locallink_253.pdf"); 
   });
 
 }
