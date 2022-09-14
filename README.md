@@ -1,14 +1,19 @@
-# Fares Calculator <img align="right" width="75" height="75" src="favicon.ico">
+# Journey Planner <img align="right" width="75" height="75" src="favicon.ico">
+
+Important Note: This project is listed as Fares Calculator.
+The project is now titled Journey Planner and all references are now Journey Planner.
 
 ## Site Goals
 
-Fares Calculator is a site for people to look up Local Link Rural Transport routes in Cork to view timetables and get exact fare costs for their journey.
+Journey Planner is a site for people to look up Local Link Rural Transport routes in Cork to view timetables and get exact fare costs for their journey.
 The site is targetted at people of all ages who are interested in travelling on these routes.   
 
-Fares Calculator is useful for these potential passengers by allowing them to plan for a journey by picking out routes that have suitable pickup and drop points.
+Journey Planner is useful for these potential passengers by allowing them to plan for a journey by picking out routes that have suitable pickup and drop points.
 As times are published in the timetables they can work out a journey that suits their needs or adjust their schedule to match the pick up times.
 
 The Fares Calculation popup is particularly useful as it spares the potential passenger from trying to work through complicated grids of fare structures that are incomprehensible to the average person. Instead they can pick from a set of select options (calculation parameters) to get an exact fare.
+
+Important Note: At this point there is only one route listed.
 
 Important Note: All references to Local Link are for Local Link Cork only.
 
@@ -19,7 +24,7 @@ Important Note: All references to Local Link are for Local Link Cork only.
 ## Design Choices
 
 - A three page website is a preferred minimum to satisfy the user requirement as opposed to a one page scroll.
-- As a fourth Search Results page is planned, the required user interaction would make a single page scroll not a sensible approach.
+- Especially as a fourth Search Results page is planned, the required user interaction would make a single page scroll not a sensible approach.
 - A simple colour scheme is preferred with lots of white space to present a modern no nonsense site which is uncluttered clear and inviting.
 - As the audience will typically access this site from a mobile Phone while on the move, the layout is presented in a Mobile Application Format rather than a more typical website appearance.
 - As the target audience is likely to include people with accessibility issues the site is designed to make browsing as simple as possible with very clear instructions.
@@ -30,15 +35,16 @@ Important Note: All references to Local Link are for Local Link Cork only.
     - Calculate Fares
         This is a popup that allows the user provide us with the necessary parameters to calculate the fare and present it on screen.
     - View Timetables
-        This a table presentation of the Stops with the scheduled times can be easily seen.
+        This a table presentation of the Stops where the scheduled times can be easily seen.
         On a Mobile device this wide table has a scrolling feature so that the Stops stay fixed.
-        The User can also choose the change the direction of travel by clicking the Change Direction button.
+        The User can also choose to change the direction of travel by clicking the Change Direction button.
     - Download a PDF version of the route.
         On a Mobile device a download notice will typically appear.
         On larger devices typically the user can view the pdf and download using the browser download feature.
-        The download PDF button opens in a new tab (future versions will decide this based on a provided accessibilty option as a new tab can confusing to screen readers etc.)
-- There is a New Search button available in the header at all times to enable the user to return to index.html (Home).
-- Using json files allows for this site to dynamically generate pertinent information to a user.
+        The download PDF button opens in a new tab (future versions will decide this based on a provided accessibilty option as a new tab can be confusing to screen readers etc.)
+
+- There is a New Search button available in the header at all times to enable the user to return to index.html (New Search).
+- Using json files allows for this site to dynamically generate pertinent information to a users requirements.
 
 ## User Stories
 
@@ -51,130 +57,128 @@ Important Note: All references to Local Link are for Local Link Cork only.
 - Users need to be able to trust the information given to them.
     - Because this site publishes data directly from json files generated directly from regulated sources, data accuracy is not compromised.
         - Note: The timetable is not produced from json just now but it will be in the next version.
-- Users need to be able to find all of their required in one place.
+- Users need to be able to find all of their required information in one place.
     - This site presents all of the information they require in an easy to navigate presentation.
         - Note: There is only one route published at present but once the search results feature is in place then all routes will be available.
 
 ## Site Navigation
  
-- The Logo is featured in the top left corner. This links to the top of the index page called Home.
-- The navigation links are buttons situated to the bottom centre of the page. The other pages are Single (with a Fares Calcualtion Popup) and Timetable.
+- The Logo is featured in the top left corner. This links to the top of the index page called New Search.
+- The navigation links are buttons situated to the bottom centre of the page. The other pages are Single (with a Fares Calculation Popup) and Timetable.
 - The navigation links are in an attractive and visually clear websafe font which change color on hover to show a contrast.
 - The font color of the navigation clearly stands out against a well contrasted background.
 - The navigation is really simple with very little scope for confusion.
 
 ---- 
 
-![](assets/images/header.webp)
-
-![](assets/images/hamburgerclosed.webp)  |  ![](assets/images/hamburger.webp)
+![](assets/images/headermob.webp)
 
 ## Header
 
 - The branding of the site is consistent as this is the common header used throughout the site and is situated at the top of every page.
-- The color scheme is simple using the green and blue from the logo. Socail media icons use the appropriate colors.
-- As the header includes the Home button (New Search) this provides a consistent experience for the person browsing the site. 
-- The header logo tells the user which Rural Transport entity they are looking at. 
-- The New Search button indicates that this a site that allows for them to search for suitable routes.
+- The color scheme is simple using the green and blue from the logo. Social media icons use the appropriate colors.
+- The header includes the New Search button which provides a consistent experience for the person browsing the site. 
+- The header logo tells the user which Rural Transport entity they are looking at, and that is Local Link as opposed to Bus Eireann. 
+- The New Search button indicates to the user that this a site that allows them to search for suitable routes.
+
+![](assets/images/header.webp)
+
 ----  
 
 ## Pages  
 
-### Index Page titled Home  
+### Index Page New Search 
 
-Hero Section
+![](assets/images/index.webp)
 
-- The hero section shows an attractive background image of hikers with a dog, this helps to cement the message of what the site is about.
-- A CTA is included as a text overlay. This links to the subscribe page when clicked.
-- The CTA has a background color with opacity which allows the image to show through and yet aid in reading clarity.
-- The background color of the CTA also complements the green in the logo.  
-- The image of the dog smiling with a header which belongs to the ethos section is pulled up into the hero section for added visual impact. 
+Video
 
-![](assets/images/hero.webp)
+- The video shows a video which promotes Local Link services and provides valuable information on how the service works.  .
 
-Ethos Section
+Select Route Dropdown List
 
-The ethos section is displayed in 3 columns. These columns stack on smaller devices.
+- The user can select from a list of Local Link Cork routes. (Note: there is only one route visible in this version).
 
-Left Column
+Search Now Button
 
-- The left column shows the dog smiling image and the associated header which combined contain a positive emotional message.
-- Below this is a challenge statement seeking to engage the user. 
-- Below the challenge statement are some interesting fact statements. 
+- The Search Now button navigates the user to the single.html page so they can look at all the details of the selected route.
 
-![](assets/images/ethosleft.webp)
+Instruction
 
-Center and Right Columns
-
-- The center and right columns are laid out with 4 key Why? statements.
-- These address the main reasons why it is important for users to consider bringing their dogs with them on hikes.
+- The instruction assists the user by explaining how the search works. 
+- It also serves as a site description.
 
 ![](assets/images/ethoscenterright.webp)
 
-### Trails Page
+### Single   Page
 
-Voted trails of the week
+Details about the Route selected on index.html page
 
-- This consists of 3 highlighted trails that are presented in 3 columns.
-- These columns stack on smaller devices.
-- Each column has a featured trail with details about that trail including a youtube video and a link to to an external site.
-- Each column has a different background colour to clearly show that each trail is a seperate entity.
+- There are three buttons each one providing the user with pertinent information about the route
+    - Calculate Fares opens a popup which allows the user to calculate the fare based on their provided parameters.
+    - View Timetables opens a seperate page timetable.html.
+    - Download PDF opens a PDF in a seperate tab.
 
-![](assets/images/trails.webp)
+![](assets/images/single.webp)
 
-### Gallery Page
+### Calculate Fares Popup
 
-This contains images of dogs on hiking trails.
+This is a popup on the single.html page. The user can pick from various parameters to calculate a fare.
 
-- This consists of images displayed in 4 columns in masonry format.
-- The column count changes as devices get smaller.
-- On mobile phones each image is displayed one above the other.
-- Each image has a hover effect.
-- Each image has a lightbox effect with navigation included in the lightbox display.
+- Direction:
+    - Are they travelling outbound or Inbound.
+- Pickup Point:
+    - Where do they intend to catch the bus.
+- Destination:
+    - Where are they travelling to.
+- Passenger:
+    - What type of passenger e.g. Adult.
+- Ticket:
+    - What type of ticket they require e.g. Weekly Ticket.
 
-![](assets/images/gallery.webp)
-![](assets/images/lightbox.webp)
+Calculate Fare button. This when clicked will perform the calculation and present it to the user under "calculate fare is:"
 
-### Subscribe Page
+The calculated fare is: The calculated fare is dynamically written to the form.
 
-This page is where a user can subscribe.
+![](assets/images/calcform.webp)
 
-Hero Section
+### Timetable  Page
 
-This is identical to the hero section on the index.html page. (Please see index page information above)
+![](assets/images/timetable.webp)
 
-- This consists of 2 columns in 1/3 to 2/3 layout.
-- The left column has similarities to the ethos left column. (Please see ethos left column on index page above)
-- Below this is a challenge statement seeking to engage the user is an audio piece provided by a hiker.
-- Below that is a headline inviting a user to listen to the audio.
+Change Direction Button. This toggles the direction related timetable schedule from Outbound to Inbound and vice versa.
 
-![](assets/images/audio.webp)
+Clonakilty to Kinsale               |  Kinsale to Clonakilty
+:-----------------:|:-----------------:
+![](assets/images/timetableclon.webp)  |  ![](assets/images/timetablekinsale.webp)
 
-- The right column has the subscription form.
-- The form is laid out in 3 distinct areas:
-    - Subscriber details
-    - Subscriber Login Details
-    - Trail Regional Preferences
-- A subscribe button is clearly visible and it's background color draws a users attention to it.
+Direction Title. This describes the direction being travelled.
 
-![](assets/images/subscribeform.webp)
-![](assets/images/subscribebutton.webp)
+Schedule Table. This is the pertinent schedule for the direction being travelled for the previously selected route.
+The Schedule table consists of:
 
-----
+- Stops (Pickup/Dropoff points) in the left column. This is a fixed column and does not scroll.
+- The other columns show the times.
 
-## Footer
+First column Fixed Pre Scroll              |  First column fixed after scroll
+:-----------------:|:-----------------:
+![](assets/images/timemob.webp)  |  ![](assets/images/timescroll.webp)
 
-The footer is used for all pages. However the subscribe page is slightly different in that the Subscribe button is omitted from the footer as it is used with the subscribe form.
+Note: This table will be dynamically created in the next version)
 
-![](assets/images/footersubscribe.webp)
+### Download PDF
 
-The footer is displayed in 3 columns.
+This is a link to the associated pdf for the previously selected route.
 
-- The left column has an elevator pitch statement promoting the site.
-- The middle column contains our social media icons. These link to external social media pages.
-- The right column displays a subscribe button which links to the subscribe page.
+This link opens in a new tab.
 
-![](assets/images/footer.webp)
+The pdf can be viewed or downloaded with the browser download feature.
+
+Note: On mobile, viewing is usually not possible, an option to download is all that is provided.
+
+PDF Page 1              |  PDF Page 2
+:-----------------:|:-----------------:
+![](assets/images/pdf1.webp)  |  ![](assets/images/pdf2.webp)
 
 ----
 
@@ -185,13 +189,20 @@ Tests carried out by me.
 - This site was tested by me to ensure that all of the pages on this site work in different browsers: Edge, Chrome, Safari and Firefox.
 - I checked that the site works in responsive mode on all of these browsers.
 - These tests were carried out on all pages of the site.
-- The navigation works well on all browsers and the responsive hamburger works well on all browsers.
-- The subscribe form works well and form validation works where required fields will not allow a bypass without valid entries. The email field will only accept a valid email structure and the submit button works as expected.
+- The navigation works well on all browsers.
+- The download PDf link works as expected.
+
+Javascript Functionality
+
+- All select elements are populating correctly.
+- Calculated fares are correct.
+- The timetable change direction is working correctly.
 
 Validator Testing
 
 - HTML:             All pages were passed through the official https://validator.w3.org/ and no errors were found.
 - CSS:              All pages were passed through the official https://jigsaw.w3.org/css-validator/ and no errors were found.
+- Javscript:        All javscript was passed through the official https://jshint.com/ and no errors were found.
 - Accessibility:    By running the site pages through Lighthouse in Inspect on Chrome I got the following results:
 
 index desktop                |  index mobile
@@ -216,30 +227,111 @@ subscribe desktop               |  subscribe mobile
 
 ### Initial Wireframe Concept
 
-index.html                 |  trails.html
+index.html                 |  single.html
 :-----------------:|:-----------------:
 ![](docs/wireframes/index.webp)  |  ![](docs/wireframes/trailspage.webp)
 
-gallery.html               |  login.html
+calculate popup              |  timetable.html
 :-----------------:|:-----------------:
 ![](docs/wireframes/gallerypage.webp)  |  ![](docs/wireframes/loginpage.webp)
 
-- July 12th I introduce a fancy multiline button with a pacman hover effect on Footer. See Credits for keenanpayne.com.
-- July 14th I decide to remove the Login Form as I deem it confusing to include it at this point when I do not have a fully working login framework.
-- So all login references become subscribe references.
-- July 17th I am introduced to the world of flexbox. I decide to implement it on the site.
-- This is an important development as it will have an impact on all my responsive development work yet to come.
-- July 18th Use Javascript for Submit button and form validation. This is required because the button is not a regular submit button.
-- July 21st I decide that Project1 should be free of Javascript and perform as CSS only
-- So all javascript coding for the subscribe form are removed. 
-- The Subscribe button which leans on javascript for its fancy multiline pacman styyle is now a regular submit button.
-- This also applies to the Button in the footer.
-- July 21st I decide to introduce a CSS only hamburger. I introduce this and it works fine. But this implementation fails the w3 html validator.
-- I try a few others and same result. I naively decide to rollback to pre hamburger implementation attempts. 
-- This does not go well but after some nervous work and assistance from Tutor support I get back to a good place.
-- Lesson learned and an unexpected crash course in github.
-- July 22nd I implement a CSS only hamburger. See Credits for alvarotrigo. This works well and does pass w3 html validator.
-- July 24th I introduce CSS only lightbox. See Credits for veritygriscti
+### Data Concept
+
+These excel files are provided by the Local Link Cork timetable and fares management team.
+
+Excel Clonakilty Fares Grid                 |  Excel Kinsale Fares Grid 
+:-----------------:|:-----------------:
+![](assets/images/clonakiltyfares.webp)  |  ![](assets/images/kinsalefares.webp)
+
+These excel files are then Looped through with VBA Code which gathers the data in arrays.
+
+These arrays are then used to create json files like these:
+
+clonfaredata.json                                      |  kinsalefaredata.json
+:-----------------------------------------------------:|:----------------------------------------:
+ {                                                     | {
+   "pick": "1",                                        |   "pick": "21",
+   "drop": "2",                                        |   "drop": "22", 
+   "adult_single": "2.50",                             |   "adult_single": "2.50",
+   "adult_return": "4.00",                             |   "adult_return": "4.00",
+   "adult_weekly": "17.50",                            |   "adult_weekly": "17.50",
+   "student_single": "1.00",                           |   "student_single": "1.00",
+   "student_return": "2.00",                           |   "student_return": "2.00",
+   "student_weekly": "9.00",                           |   "student_weekly": "9.00",
+   "child_single": "1.00",                             |   "child_single": "1.00",
+   "child_return": "2.00",                             |   "child_return": "2.00",
+   "child_weekly": "9.00",                             |   "child_weekly": "9.00",
+   "ppoint": "Clonakilty (Pearse Street Newsagents)",  |   "ppoint": "Kinsale (Bus Stop in Car Park)"",
+   "dpoint": "Clonakilty (Croppy Quay)"                |   "dpoint": "Kinsale (Community College)"
+ }                                                     | } 
+   
+Excel Clonakilty Timetable                 |  Excel Kinsale Timetable
+:-----------------:|:-----------------:
+![](assets/images/clonakiltytimes.webp)  |  ![](assets/images/kinsaletimes.webp)
+
+These excel files are then Looped through with VBA Code which gathers the data in arrays.
+
+These arrays are then used to create json files like these:
+
+clonfaredata.json                                      |  kinsalefaredata.json
+:-----------------------------------------------------:|:----------------------------------------:
+ {                                                     | {
+   "value": "1",                                       |   "value": "21",
+   "ppoint": "Clonakilty (Pearse Street Newsagents)"   |   "ppoint": "Kinsale (Bus Stop in Car Park)"
+ },                                                    | },
+ {                                                     | {
+   "value": "2"                                        |   "value": "22"
+   "ppoint": "Clonakilty (Croppy Quay)"                |   "ppoint": "Kinsale (Community College)"
+ },                                                    | },
+   "value": "3",                                       |   "value": "23",
+   "ppoint": "Ring (Kitty Mac’s Pub)"                  |   "ppoint": "Speckled Door Pub" 
+ },                                                    | }, 
+
+The VBA modules for json creation are in assets/docs/modules_vba 
+
+These json files are then used to populate the select dropdowns on the Calculate Fares popup form.
+
+![](assets/images/calcform.webp)
+
+
+### How the Calculated Fare works
+
+The user selects whether it is the Outbound Journey or the Inbound Journey in the direction select.
+
+![](assets/images/direction.webp)
+
+The Pickup select is populated from json to match the direction selected
+
+Clonakilty Pickup                 |  Kinsale Pickup
+:-----------------:|:-----------------:
+![](assets/images/pickupclonakilty.webp)  |  ![](assets/images/pickupkinsale.webp)
+
+The Destination select is also populated from json to match the direction selected
+
+Clonakilty Pickup                 |  Kinsale Pickup
+:-----------------:|:-----------------:
+![](assets/images/destinationclonakilty.webp)  |  ![](assets/images/destinationkinsale.webp)
+
+Important Note: The first stop is not included, because a passenger cannot be Picked Up and have as the Destination the same stop.
+
+Clonakilty Pickup Stop                |  Clonakilty available Destination Stops
+:-----------------:|:-----------------:
+![](assets/images/pickstop.webp)  |  ![](assets/images/destinationstops.webp)
+
+Important Note: A Passenger cannot have a Destination that is earlier than or the same as the Pick Up Point on the route.
+The Destination Select responds by only making available Stops that are later than the Pickup stop.
+
+The user can select what passenger type they are like for example "Adult".
+
+The user cans elect what ticket they are looking to purchase like for example "Weekly Ticket".
+
+Passenger                |  Ticket
+:-----------------:|:-----------------:
+![](assets/images/passenger.webp)  |  ![](assets/images/ticket.webp)
+
+Then by clicking the Calculate Fares button the correct fare is calculated based on the user selections and the fare is presented on the form.
+
+![](assets/images/correctfare.webp)
 
 ----
 
@@ -249,79 +341,6 @@ gallery.html               |  login.html
 
 - July 12th I discovered a problem with the Readme file in that I could not get Wireframes in PDF format to work.
     - Fix 914854db37d5a4f86d42053262d710da332bdf6e changed to images instead.
-
-- July 13th Due to a typo at the top of style.css which had a ripple effect of formatting issues further down the style.css document. I had various formatting problems that needed a tidy up.
-    - Fix 00cfa733a6ee2ea4a31b3c6ea74a4e78b181d82d Some css reformatting required.
-
-- July 14th Due to mistakes with relative path the site when viewed on github looked wrong with the hero image missing.
-    - Fix 58ba9b492aeddd10a609252606df2537313d8f14 Fixed relative path.
-
-- July 18th Form validation javascript error.
-    - Fix bc31621d1b85133355cee5943063c6f8cdbdebac Fixed javascript
-
-- July 21st Spacing errors in social media and a type error in the hero section.
-    - Fix fcf07b6278ee7159886b0fd78bf7ac21bc3cb269 Spacing errors and typo fixed.
-
-- July 21st Spacing errors on trails page.
-    - Fix 2b16e4e5dbef380f4f1e7a6af4a3437fce5587cc Spacing errors fixed.
-
-- July 21st Font issue with roboto condensed not proper use of syntax
-    - Fix 1dd56159346b445ee90f27ab84e014e2c46d9248 Syntax sorted.
-
-- July 21st Footer button div background flagged by w3 validator.
-    - Fix da51a9fe6febd809cfa2f751a498cce465a06a64 Div background changed.
-
-- July 21st Submit button on subscribe form error.
-- Fix 346c0eaae930b12539ffdd56452240ca05d84b1e Submit button changed.
-
-- July 23rd Responsive style error at 768px.
-    - Fix d95b1db63be036f9ef035b3ab8c30354013f8e79 Hamburger styling changed.
-
-- July 24th Active not working on all navaigaion links.
-    - Fix 69498a174c8037baab815540a40b6369249091d6 Active sorted.
-
-- July 24th Parse error in style sheet.
-    - Fix 44e2697a2b3a9d793f98e204647fdf89992d1f61 Parse error fixed.
-
-- July 24th css validator error background color of none is not allowed.
-    - Fix 05bc1f2ff0bb552c6040a4ab266cf1872f40ba48 Background is now transparent.
-
-- August 1st alt on site logo is incorrect.
-    - Fix 621349334ae3b57a7a08558b37ebe4fef2b03e95 alt changed.
-
-- August 10th href error on logo.
-    - Fix 9867899eee98ff6f2261ff1c88a55923bdbe7165 Fixed href on logo on all pages.
-
-- August 11th Typo errors on hero section and audio on subscribe form.
-    - Fix 26c5c65972f311beea14dce239216f82a366b0bd Typos fixed.
-
-- August 11th aria-describedby errors.
-- Fix 26c5c65972f311beea14dce239216f82a366b0bd Errors fixed.
-    - Fix 26c5c65972f311beea14dce239216f82a366b0bd Errors Fixed.
-
-- August 11th Radio input typo.
-    - Fix 3d5eba0f518565392cd4d068c4db59237c6f3217 Typo fixed.
-
-- August 11th Typo in comments on gallery page.
-    - Fix bb0143d3cf97e1f47696f1383d3a63c65e82aea6 Typo fixed.
-
-- August 11th aria labels issues on footer.
-    - Fix dfeb94bb3ce18b41701cadd66e101c7e7e7fb9f9 aria labels fixed.
-    - Fix 95de492e7fabc4fd17a378ab67e49b37eef2540a aria labels fixed.
-
-- Ausust 11th typos in footer with regard to href.
-    - Fix 95de492e7fabc4fd17a378ab67e49b37eef2540a typo fixed.
-    - Fix 1a737936cadf2b62ecaf91772a0539869576ffb4 typo fixed.
-    - Fix a2bcb9c20c9520e266394eb6ddf298c9480be700 typo fixed.
-    - Fix 5aeb1b196f7fe4e95fe99aabb4ab5de18b1b0af4 typo fixed.
-    - Fix 851c02a77587329aacdbc8b85c9c9fc8cee0d046 typo fixed.
-
-- August 11th typos on aria labels in footer.
-    - Fix b4bf39bb9f5bc81cdd58c0537c3fabf88a9d465a typo fixed.
-    - Fix 4bc856ed1b17308387e456063c0a9e24eab10e1a typo fixed.
-
-- August 12th typos in readme.
-    - Fix c9d56780de488604175e08fb123e791dcd6cbf94 typo fixed.
 
 ### Unfixed Bugs
 
@@ -347,22 +366,18 @@ The live link to the site on GitHub is: [Dog Friendly Trails](https://tmartin88.
 
 ## Future Features
 
-- To include a Login Form with Password Reset.
-- To setup a CMS like structure for Trails complete with Search and Filter options where subscribers could upload to.
-- To create a popup subscribe instead of a subscribe page.
-- Moderated forum for dog loving hikers to interact and exchange experiences.
+- To include all routes run by Local Link Cork.
+- To allow the user to free type place names in Search and present a matching Search results page.
+- To migrate all Excel data to a database.
+- To enhance the VBA json generating code to pick up data from this data and convert the data to meaningful json.
+- To link into Irish Rail and Bus Eireann journey planners.
+- To incorporate a QR Code creator to link directly to route urls.
 
 ----
 
 ## Performance Improvements
 
-- To include ms flex for IE10 and ensure compatibility with older browsers.
-- To streamline HTML structure.
-- To improve css to be more efficient.
-- I would consider learning and using Flex grid for complete site layout.
-- To improve use of flexbox.
 - To get all lighthouse results close to 100%.
-- With regard to gallery images to really get them compressed down to around or less than 50 kb.
 
 ----
  
@@ -370,29 +385,21 @@ The live link to the site on GitHub is: [Dog Friendly Trails](https://tmartin88.
 
 ### Inspiration
 
-- Credit to my great friends and companions, a Jack Russell called Luna and Buddha whose breed is unknown. "Happy trails".
+- Working part time with Local Link Cork and in association with Steve Ellis we identified that passengers could not get easy access to our route details.
+- Also that the fares rate tables were largly incomprehensible to the regular person.
 
-### Instruction
+The challenge is to take data stored in Excel files and bring them to the public.
 
-- Flex Box Tuition thanks to w3schools and CSS Tricks
-- Credit to w3schools for javascript tuition on submit and form validation on subscribe form. Actually I threw out all Javascript opting for a CSS only site.
+And so the Journey planner was conceived. This project is hopefully just the beginning.
 
 ### Content
 
 - Credit for Fetch API to [javascripttutorial](https://www.javascripttutorial.net/javascript-fetch-api/)
 - Credit for Filter Array ideas to [w3schools] (https://www.w3schools.com/jsref/jsref_filter.asp)
 
-### Media
+### JSON data
 
-- Thanks to my friend and hiking companion Ger Killilea for most of the photos.
-- Pxhere.com for the hero image.
-- Pexels for 4 of the gallery images boggyvalley, rockyriver, smallboyanddog and icyriver.
-- Thank you for the Turraun Route Loop picture to [The Curvy Hiker] (https://thecurvyhiker.wordpress.com/the-canine-companions/)
-- Pixabay.com for Dog smiling image on ethos section.
-- Knocknarea Trail image is thanks to Pete Houghton - Wordpress.com
-- Ger Killilea for Audio piece on hiking.
-- Trail Videos are embeeded iframe links fro youtube.
-- Social media icons coutesy of Love Running Project.
+- Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use logo, video, data and pdf.
 
 ----
 

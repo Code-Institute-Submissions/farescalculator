@@ -1,0 +1,133 @@
+Option Explicit
+
+'********************************************************************
+'
+' This Module jsonCreator sets up a json file for output and append
+' This module writes the provided strings to the json file
+' The correct structure for json is catered for here
+'
+'********************************************************************
+
+Function cleanJSONFile(jsonFileName) 'Set up the file and also overwrite an existing file if it exists
+Dim strFilePath As String
+
+On Error GoTo Err_cleanJSONFile 'Set up the error handler
+
+strFilePath = "C:\moonf\" & jsonFileName & ".json"
+
+Open strFilePath For Output As #1
+
+closeJSONFile
+
+Exit_Err_cleanJSONFile:
+Exit Function
+
+Err_cleanJSONFile:
+
+MsgBox "Problem with cleanJSONFile", vbCritical, "Problem"
+
+Resume Exit_Err_cleanJSONFile
+
+End Function
+
+Function openJSONFile(jsonFileName) 'Set up the json file for writing strings to it
+Dim strFilePath As String
+
+On Error GoTo Err_openJSONFile 'Set up the error handler
+
+strFilePath = "C:\moonf\" & jsonFileName & ".json"
+Open strFilePath For Append As #1
+
+Exit_Err_openJSONFile:
+Exit Function
+
+Err_openJSONFile:
+
+MsgBox "Problem with openJSONFile", vbCritical, "Problem"
+
+Resume Exit_Err_openJSONFile
+
+End Function
+
+Function jsonPreamble() 'Set up the initial json structure [
+Dim jsonElement As String
+
+On Error GoTo Err_jsonPreamble 'Set up the error handler
+
+jsonElement = "[" 'Set up the beginning bracket which encapsulates all of the data objects
+WritetoJSONFile jsonElement, 0 'write this to the json file
+
+Exit_Err_jsonPreamble:
+Exit Function
+
+Err_jsonPreamble:
+
+MsgBox "Problem with jsonPreamble", vbCritical, "Problem"
+
+Resume Exit_Err_jsonPreamble
+    
+End Function
+
+Function WritetoJSONFile(lineJSON As String, intTab As Integer) 'Write the string to json
+
+On Error GoTo Err_WritetoJSONFile 'Set up the error handler
+
+Select Case intTab 'Check for the string type and tab size
+
+Case 0
+    Print #1, lineJSON 'This is an opening [ or closing ] data object
+Case 2
+    Print #1, Tab(2); lineJSON 'This is an opening { or closing } data object
+Case 4
+    Print #1, Tab(4); lineJSON 'This is a key value pair
+Case Else
+
+End Select
+
+Exit_Err_WritetoJSONFile:
+Exit Function
+
+Err_WritetoJSONFile:
+
+MsgBox "Problem with WritetoJSONFile", vbCritical, "Problem"
+
+Resume Exit_Err_WritetoJSONFile
+
+End Function
+
+Function jsonPostamble() 'Close off the json file structure ]
+Dim jsonElement As String
+
+On Error GoTo Err_jsonPostamble 'Set up the error handler
+
+jsonElement = "]" 'Set up the closing bracket which encapsulates all of the data objects
+WritetoJSONFile jsonElement, 0 'write this to the json file
+
+Exit_Err_jsonPostamble:
+Exit Function
+
+Err_jsonPostamble:
+
+MsgBox "Problem with jsonPostamble", vbCritical, "Problem"
+
+Resume Exit_Err_jsonPostamble
+    
+End Function
+
+Function closeJSONFile() 'Close the file
+
+On Error GoTo Err_closeJSONFile 'Set up the error handler
+
+Close #1    ' Close file.
+
+Exit_Err_closeJSONFile:
+Exit Function
+
+Err_closeJSONFile:
+
+MsgBox "Problem with closeJSONFile", vbCritical, "Problem"
+
+Resume Exit_Err_closeJSONFile
+
+End Function
+

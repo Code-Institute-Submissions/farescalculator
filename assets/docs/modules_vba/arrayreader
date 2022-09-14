@@ -1,0 +1,76 @@
+Option Explicit
+
+'********************************************************************
+'
+' This Module arrayReader reads an array which was created in the
+' arrayWriter module.
+' As the array is Read the array contents are written to a json file.
+'
+'********************************************************************
+
+Function readArraytoJSON(jsonArray As Variant, intSheet As Integer)
+
+Dim x As Integer 'This is the row counter for the array
+Dim y As Integer 'This is the column counter for the array
+Dim jsonWrite As String 'This is the string to write to the json file
+Dim jsonFileName As String
+
+On Error GoTo Err_readArraytoJSON 'Set up the error handler
+
+'Pick up the filename from the sheet name
+jsonFileName = Worksheets(intSheet).Name
+
+cleanJSONFile jsonFileName 'This opens and closes the file which works to overwrite any text that might be in it
+
+openJSONFile jsonFileName 'Open the JSON file
+
+jsonPreamble 'Put in the beginning bracket
+'Set the counter defaults
+x = 0
+y = 0
+
+'Start to read the Json File
+
+For x = 0 To UBound(jsonArray)
+
+'First lets wrap the data object in a curly brace
+jsonWrite = "{"
+WritetoJSONFile jsonWrite, 2
+
+'Now loop through the columns
+For y = 0 To UBound(jsonArray, 2)
+
+jsonWrite = jsonArray(x, y)
+WritetoJSONFile jsonWrite, 4
+
+Next y
+  
+y = 0
+
+If x = UBound(jsonArray) Then 'This is checking for the last row in the array as we have to terminate data object differently
+jsonWrite = "}"
+WritetoJSONFile jsonWrite, 2
+Else
+jsonWrite = "},"
+WritetoJSONFile jsonWrite, 2
+End If
+Next x
+
+jsonPostamble 'Put in the closing bracket
+
+closeJSONFile
+
+readArraytoJSON = 1
+
+Exit_Err_readArraytoJSON:
+Exit Function
+
+Err_readArraytoJSON:
+
+MsgBox "Problem with readArraytoJSON", vbCritical, "Problem"
+
+readArraytoJSON = 2
+
+Resume Exit_Err_readArraytoJSON
+
+End Function

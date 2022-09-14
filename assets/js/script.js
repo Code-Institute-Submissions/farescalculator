@@ -276,7 +276,7 @@ function formParameters() {
  * It then returns that fare value.
  */
 async function calculateFares(fareDirection, fareDirectionText, farePick, farePickText, fareDrop, fareDropText, farePassenger, farePassengerText, fareTicket, fareTicketText) {
-  let fareUrl = ""
+  let fareUrl = "";
   //Which direction are we travelling?
   if (fareDirection === 1) {
     fareUrl = 'assets/js/clonfaredata.json';
@@ -295,11 +295,11 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
   const fareSearch = farePText.concat("_", fareTTextLower); //Key
 
   //Use the key to get the value
-  let correctFare = ""
+  let correctFare = "";
   try {
     correctFare = fares[0][fareSearch];
     //Now we have the Fare Tell the user what it is
-    let returnText = `From ${farePickText}<br>to ${fareDropText}<br>${farePassengerText} ${fareTicketText}<br>will cost ${correctFare} euro.`
+    let returnText = `From ${farePickText}<br>to ${fareDropText}<br>${farePassengerText} ${fareTicketText}<br>will cost ${correctFare} euro.`;
     document.getElementById("fare").innerHTML = returnText;
     document.getElementById("fare").style.fontSize = "large";
     document.getElementById("fare").style.fontWeight = "900";
@@ -313,8 +313,8 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
  * This function filters the returned json object to the specified parameters.
  */
 function checkFares(fares) {
-  const farePick = pickup.options[pickup.selectedIndex].value
-  const fareDrop = dropoff.options[dropoff.selectedIndex].value
+  const farePick = pickup.options[pickup.selectedIndex].value;
+  const fareDrop = dropoff.options[dropoff.selectedIndex].value;
   return fares.pick === farePick && fares.drop === fareDrop;
 }
 

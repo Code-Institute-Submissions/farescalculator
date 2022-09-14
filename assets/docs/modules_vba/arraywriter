@@ -1,0 +1,368 @@
+Option Explicit
+
+'********************************************************************
+'
+' This Module arrayWriter creates and populates an array created from
+' Sheet2 which contains all the fare details for the given Route.
+'
+'********************************************************************
+
+Function readFareExceltoJSONArray()
+
+Dim jsonArray As Variant 'Declare an array
+Dim jsonDataObect As String 'Declare an the json object
+Dim jsonDataKey As String 'Declare an the json key string
+Dim jsonDataValue As String 'Declare an the json value string
+Dim jsonElement As String 'Declare an the json element string
+
+Dim jsonWrite As Integer 'This will tell the calling function if we have a successful run or not
+
+Dim i, x, y, z As Integer 'Declare the counters
+Dim firstRow, lastRow As Integer 'Declare the start and end rows
+Dim firstColumn, lastColumn As Integer 'Declare the start and end columns
+Dim currentRow, currentColumn As Integer 'Declare the current row and current column positions
+
+Dim rowArrayCount As Integer
+
+'****************************************************************
+'Ok variables are declared lets get to work on the excel sheet
+'****************************************************************
+
+On Error GoTo Err_readFareExceltoJSONArray 'Set up the error handler
+
+firstRow = 4 'We can see from the excel file that the fares data begins on row 4
+
+lastRow = getlastRow 'We need to find the last populated row of the excel file
+
+firstColumn = 7 'We can see from the excel file that the fares data begins on column G which is the seventh column from the left
+
+lastColumn = getLastColumn 'We need to find the last populated column of the excel file
+
+'We need to calculate the number of rows we require for the array
+'*****************************************************************
+'Basically we will be using blocks of 9 and so we need to work out
+'many valid blocks of 9 we will be working through.
+'We do this by deducting the yellow cells from the total cells
+'*****************************************************************
+rowArrayCount = calculateRowCount
+
+ReDim jsonArray(rowArrayCount, 12) 'Dimension our JSON array which holds all the data we gather from Excel
+'Important note as we are not looping through the first 3 rows or columns see that we are adjusting for that fact
+'By reducing the rows and column counts
+
+'Pick up what we need from Excel
+Worksheets(2).Activate 'make sure we are working on the correct sheet
+
+ '*****************************************************************************************************
+    ' The Excel file is laid out in Blocks of 9 for fares.
+    ' 3 rows x 3 columns
+    ' For visual some blocks are blank as there is no possible fare for this Pick and Drop combination
+    ' A block is either completely blank or it is populated
+    ' So when we encounter a blank we will skip that block
+    ' We also want to get the associated Pick and Drop for these 9 fares
+'******************************************************************************************************
+
+'Lets just set the defaults of all counters to zero
+i = 0 'i is the array row counter
+z = 0 'z is the array column counter
+
+x = 0 'x is the column counter
+y = 0 'y is our row counter
+
+'As we loop through Excel we will need to always know which cell we are working on.
+'We do this by tracking row and column counters
+'We use the range excel function like this example: Range(Cells(currentRow, currentColumn), Cells(currentRow, currentColumn)).Value
+
+'Note we will be jumping up and down rows and back and forth through column to manage the 9 block fare structure
+'To do this we will rely on working relative to currentRow and currentColumn
+
+currentRow = firstRow 'Set this to firstRow to kick us off. This will increment and change as we navigate through
+currentColumn = firstColumn 'Set this to firstColumn to kick us off. This will increment and change as we navigate through
+
+'We can keep going down rows until we hit a row in which the cell in the last column is blank.
+
+'Note that the last 3 rows do not count at all as there will never be fares to collect here.
+'This is because you do not get Picked up and dropped at the last Pick up point
+
+Do While currentRow <= lastRow   'This is the Outer Loop. We start at row 4 and Loop through the rows until the last populated row - 3.
+
+'Ok we are now within the rows loop
+
+'Now we must setup a column checker so we can navigate across the excel row until we hit the last row
+
+    Do While currentColumn <= lastColumn
+    
+    'Ok we are now within the columns loop
+    
+    'We ignore a no Fares Block and we should not encounter one
+    'When we get a Fare with a value then we act and pick up the Drop Code and Pick Code
+    'Then we do our 9 cell block routine looping through a block of 3 rows and 3 columns
+    
+    jsonDataValue = Range(Cells(currentRow, currentColumn), Cells(currentRow, currentColumn)).Value
+    
+    If jsonDataValue = " " Then 'We are ignoring blank fares and should not encounter one
+    
+        currentColumn = currentColumn + 3
+                
+    End If
+         
+        'We have a valid Fare Value. So we need to pick up the drop and pick values
+        'The Pick value will always be on the first column
+        jsonDataKey = "pick"
+        jsonDataValue = Range(Cells(currentRow, 1), Cells(currentRow, 1)).Value
+        jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34) + ","
+        jsonArray(i, z) = jsonElement 'Add to the json array
+        'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+        z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+        jsonDataKey = "drop"
+        jsonDataValue = Range(Cells(1, currentColumn), Cells(1, currentColumn)).Value
+        jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34) + ","
+        jsonArray(i, z) = jsonElement 'Add to the json array
+        'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+        z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+        
+        'Great now we have our pick and drop.
+        'Now we need our 9 fares
+        'We will use y as our row counter
+        For y = 1 To 3
+        
+        'We will use x as our column counter
+        For x = 1 To 3 'This is a 3 fares on this row
+        jsonDataKey = LCase(Range(Cells(currentRow, 3), Cells(currentRow, 3)))
+        jsonDataKey = jsonDataKey + "_" + LCase(Range(Cells(3, currentColumn), Cells(3, currentColumn)))
+        jsonDataValue = Range(Cells(currentRow, currentColumn), Cells(currentRow, currentColumn)).Value
+        jsonDataValue = FormatNumber(jsonDataValue, 2) 'make it a number with 2 decimal places
+        jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34) + ","
+        jsonArray(i, z) = jsonElement
+        'Debug.Print (jsonArray(i, z))
+        z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+        currentColumn = currentColumn + 1
+        Next x
+                
+        'Now we have done the x loop having ran across the 3 columns
+        'Now we need to drop a row
+        currentRow = currentRow + 1
+        currentColumn = currentColumn - 3
+               
+        Next y
+        
+        'Ok we now need to revert back the row to start this fares routine again
+        currentRow = currentRow - 3
+               
+        'Lets pick up the Pick name
+         
+        jsonDataKey = "ppoint"
+        jsonDataValue = Range(Cells(currentRow, 2), Cells(currentRow, 2)).Value
+        jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34) + ","
+        jsonArray(i, z) = jsonElement 'Add to the json array
+        'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+        z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+        
+        'Lets pick up the Pick name
+        
+        jsonDataKey = "dpoint"
+        jsonDataValue = Range(Cells(2, currentColumn), Cells(2, currentColumn)).Value
+        jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34)
+        jsonArray(i, z) = jsonElement 'Add to the json array
+        'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+        z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+        
+        'Ok we now need to move on the column count
+        currentColumn = currentColumn + 3
+                
+        i = i + 1 'We need to increment the row number of the array
+        z = 0 'We need to set the column of the array back to zero
+    
+    Loop ' Exit column loop immediately. This means we have reached the last populated column in Excel for that row
+    
+   
+     'Now that we are out of the column loop we need to increment the row to the next pick row
+     currentRow = currentRow + 3
+        
+     'We need to set the column as well now back to the beginning
+     'We need to move the first column forward 3 now
+     firstColumn = firstColumn + 3
+     currentColumn = firstColumn
+         
+ Loop ' Exit row loop immediately. This means we have reached the last populated row in Excel
+ 
+ 'We are finished reading the excel file into an array
+  'Go ahead and write it to json file
+  
+  jsonWrite = readArraytoJSON(jsonArray, 2)
+  
+  If jsonWrite = 1 Then
+  
+  readFareExceltoJSONArray = 1
+   
+  Else
+  
+  readFareExceltoJSONArray = 2
+  
+  End If
+ 
+Exit_Err_readFareExceltoJSONArray:
+Exit Function
+
+Err_readFareExceltoJSONArray:
+
+MsgBox "Problem with readFareExceltoJSONArray", vbCritical, "Problem"
+
+readFareExceltoJSONArray = 2
+
+Resume Exit_Err_readFareExceltoJSONArray
+
+End Function
+
+Function readTimetableExceltoJSONArray()
+
+Dim jsonArray As Variant 'Declare an array
+Dim jsonDataObect As String 'Declare an the json object
+Dim jsonDataKey As String 'Declare an the json key string
+Dim jsonDataValue As String 'Declare an the json value string
+Dim jsonElement As String 'Declare an the json element string
+
+Dim jsonWrite As Integer 'This will tell the calling function if we have a successful run or not
+
+Dim i, x, y, z As Integer 'Declare the counters
+Dim firstRow, lastRow As Integer 'Declare the start and end rows
+Dim firstColumn, lastColumn As Integer 'Declare the start and end columns
+Dim currentRow, currentColumn As Integer 'Declare the current row and current column positions
+
+Dim rowArrayCount As Integer
+
+'****************************************************************
+'Ok variables are declared lets get to work on the excel sheet
+'****************************************************************
+
+On Error GoTo Err_readTimetableExceltoJSONArray 'Set up the error handler
+
+
+firstRow = 2 'We can see from the excel file that the fares data begins on row 2
+
+lastRow = getlastRow 'We need to find the last populated row of the excel file
+
+firstColumn = 3 'We can see from the excel file that the fares data begins on column C which is the third column from the left
+
+lastColumn = getLastColumn 'We need to find the last populated column of the excel file
+
+'We need to calculate the number of rows we require for the array
+'*****************************************************************
+'Basically we will be looping through each row.
+'we go from left to right across columns on each row.
+'We get up the pick point at column 1
+'and the associated times in the other columns.
+'*****************************************************************
+rowArrayCount = lastRow - 2
+
+ReDim jsonArray(rowArrayCount, lastColumn - 1) 'Dimension our JSON array which holds all the data we gather from Excel
+'Important note as we are not looping through the first 3 rows or columns see that we are adjusting for that fact
+'By reducing the rows and column counts
+
+'Pick up what we need from Excel
+Worksheets(3).Activate 'make sure we are working on the correct sheet
+
+'Lets just set the defaults of all counters to zero
+i = 0 'i is the array row counter
+z = 0 'z is the array column counter
+
+x = 1 'x is the column counter for title
+
+'As we loop through Excel we will need to always know which cell we are working on.
+'We do this by tracking row and column counters
+'To do this we will rely on working relative to currentRow and currentColumn
+'We use the range excel function like this example: Range(Cells(currentRow, currentColumn), Cells(currentRow, currentColumn)).Value
+
+currentRow = firstRow 'Set this to firstRow to kick us off. This will increment and change as we navigate through
+currentColumn = firstColumn 'Set this to firstColumn to kick us off. This will increment and change as we navigate through
+
+'We can keep going down rows until we hit a row in which the cell in the last column is blank.
+
+Do While currentRow <= lastRow   'This is the Outer Loop. We start at row 2 and Loop through the rows until the last populated row.
+
+'Ok we are now within the rows loop
+'So we need to pick up the pick values
+
+    'The Pick value will always be on the first column
+    jsonDataKey = "value"
+    jsonDataValue = Range(Cells(currentRow, 1), Cells(currentRow, 1)).Value
+    jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34) + ","
+    jsonArray(i, z) = jsonElement 'Add to the json array
+    'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+    z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+
+'Now we must setup a column checker so we can navigate across the excel row until we hit the last row
+
+    Do While currentColumn <= lastColumn 'We are not looping through columns 1 and 2
+    
+    'Ok we are now within the columns loop
+    
+    'We go from left to right across the columns picking up the times
+             
+        'We have a valid Time Value.
+        jsonDataKey = "time" & x
+        'We need to check for blank times
+        jsonDataValue = Range(Cells(currentRow, currentColumn), Cells(currentRow, currentColumn)).Value
+        If jsonDataValue = "-" Then
+        'Do nothing
+        Else
+        jsonDataValue = GetMyTimeField(Range(Cells(currentRow, currentColumn), Cells(currentRow, currentColumn)).Value)
+        End If
+        jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34) + ","
+        jsonArray(i, z) = jsonElement 'Add to the json array
+        'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+        z = z + 1 'We need to increment here so our next entry will go to a new column in the array
+        x = x + 1
+        currentColumn = currentColumn + 1
+    Loop ' Exit column loop immediately. This means we have reached the last populated column in Excel for that row
+    x = 1
+    'The Pick Name will always be on the second column
+    jsonDataKey = "ppoint"
+    jsonDataValue = Range(Cells(currentRow, 2), Cells(currentRow, 2)).Value
+    jsonElement = Chr(34) + jsonDataKey + Chr(34) + ": " + Chr(34) + jsonDataValue + Chr(34)
+    jsonArray(i, z) = jsonElement 'Add to the json array
+    'Debug.Print (jsonArray(i, z)) 'Print to Immediate window so we can see it
+    z = 0 'We need to reset here so our next entry will go to a first column in the array
+    
+     'Now that we are out of the column loop we need to increment the row to the next pick row
+     currentRow = currentRow + 1
+     currentColumn = firstColumn
+     
+     i = i + 1
+        
+ Loop ' Exit row loop immediately. This means we have reached the last populated row in Excel
+ 
+ 'We are finished reading the excel file into an array
+  'Go ahead and write it to json file
+  
+jsonWrite = readArraytoJSON(jsonArray, 3)
+  
+  If jsonWrite = 1 Then
+  
+  readTimetableExceltoJSONArray = 1
+  
+  Else
+  
+  readTimetableExceltoJSONArray = 2
+  
+  End If
+ 
+Exit_Err_readTimetableExceltoJSONArray:
+Exit Function
+
+Err_readTimetableExceltoJSONArray:
+
+MsgBox "Problem with readTimetableExceltoJSONArray", vbCritical, "Problem"
+
+readTimetableExceltoJSONArray = 2
+
+Resume Exit_Err_readTimetableExceltoJSONArray
+
+End Function
+
+Sub testbed_readExceltoJSONArray()
+
+'readFareExceltoJSONArray
+  readTimetableExceltoJSONArray
+
+End Sub
