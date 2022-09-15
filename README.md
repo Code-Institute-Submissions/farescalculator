@@ -275,7 +275,7 @@ timetable desktop               |  timetable mobile
 :-----------------:|:-----------------:
 ![](assets/images/desktoptimetable.webp)  |  ![](assets/images/mobiletimetable.webp)
 
-- Javscript:        All javscript was passed through the official https://jshint.com/ and no errors were found.
+- Javscript:        All javascript was passed through the official https://jshint.com/ and no errors were found.
     - jshint did provide these warnings.
 
     ![](assets/images/jshint.webp) 
@@ -296,7 +296,7 @@ calculate popup              |  timetable.html
 
 ### Data Concept
 
-These excel files are provided by the Local Link Cork timetable and fares management team.
+These Fares excel files are provided by the Local Link Cork timetable and fares management team.
 
 Excel Clonakilty Fares Grid                 |  Excel Kinsale Fares Grid 
 :-----------------:|:-----------------:
@@ -328,7 +328,7 @@ Excel Clonakilty Timetable                 |  Excel Kinsale Timetable
 :-----------------:|:-----------------:
 ![](assets/images/clonakiltytimes.webp)  |  ![](assets/images/kinsaletimes.webp)
 
-These excel files are then Looped through with VBA Code which gathers the data in arrays.
+These Timetable excel files are then Looped through with VBA Code which gathers the data in arrays.
 
 These arrays are then used to create json files like these:
 
@@ -352,8 +352,11 @@ These json files are then used to populate the select dropdowns on the Calculate
 
 ![](assets/images/calcform.webp)
 
+===============================================================
 
 ### How the Calculated Fare works
+
+===============================================================
 
 The user selects whether it is the Outbound Journey or the Inbound Journey in the direction select.
 
@@ -395,11 +398,35 @@ Then by clicking the Calculate Fares button the correct fare is calculated based
 ----
 
 ## Bug Fixes
-
+ 
 ### Solved Bugs
 
-- July 12th I discovered a problem with the Readme file in that I could not get Wireframes in PDF format to work.
-    - Fix 914854db37d5a4f86d42053262d710da332bdf6e changed to images instead.
+- August 28th Problem as index page had a capital letter Index.html.
+    - Fix e96c69b2fcd38294c0075cdd66a0dbcddcca3e5a changed to index.html.
+
+- September 1st Problem with json populating Drop Select on Fares Calculation on DOM Load.
+    - Fix 8c56c5f7d2a5d92af624c5578bd6dc4aab10ef4f fixed DOM load to populate Drop.
+
+- September 1st Problem when fare is not found in fares json file for given parameters.
+    - Fix c63f1f924202060d3a47a30489ee205802aa5629 fixed by adding a Try and Err trap.  
+
+- September 1st Change direction event listener not populating Pick and Drop selects properly.
+    - Fix 7cabaa36155e59fed16446a49c6fd3ab3cf9212f fixed event listener code. 
+
+- September 12th Problem with some event listeners firing on pages other than single.
+    - Fix 8c687082c717c84a70b63f1eabd4173f4bafb202 fixed with conditional if. 
+
+- September 12th Problem with closing div on pu-container.
+    - Fix 07f5f0efd84c0c1947c0dba8dbbcd9bd211a6d5f add in closing div.  
+
+- September 12th Problem with stray tag on New Search button on timetable.html.
+    - Fix c6f4f81fdde1768055a3d3ce3221e17a56d076ec remove tag.  
+
+- September 13th Problem Dom loaded not firing select route population by json.
+    - Fix 9b331f9e6cf1cad47f8c6608567760b5a5260fdb add in a window load listener. 
+
+- September 13th Select route population by json needs a conditional so it only fires on index.html.
+    - Fix 015683d84575d2fe6c69a21553ff0076a890b9b4 add in a conditional if.   
 
 ### Unfixed Bugs
 
@@ -411,15 +438,15 @@ Then by clicking the Calculate Fares button the correct fare is calculated based
 
 The site is deployed to GitHub pages. 
 
-- Git status check in Gitpod to ensure all is oushed to GitHub.
-- In the GitHub repository under Recent Repositories select [TMartin88/dog-friendly-trails](https://github.com/TMartin88/dog-friendly-trails)
+- Git status check in Gitpod to ensure all is pushed to GitHub.
+- In the GitHub repository under Recent Repositories select [TMartin88/farescalculator](https://github.com/TMartin88/farescalculator)
 - Then Settings.
 - Then Pages.
 - Under Build and Deployment select Deploy from a branch from the Source dropdown list.
 - Pick main and then root from the Branch selection area.
 - Now GitHub Pages displays a link to the live site.
 
-The live link to the site on GitHub is: [Dog Friendly Trails](https://tmartin88.github.io/dog-friendly-trails)
+The live link to the site on GitHub is: [Journey Planner](https://tmartin88.github.io/farescalculator/)
 
 ----
 
