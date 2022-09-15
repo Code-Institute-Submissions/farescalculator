@@ -458,6 +458,7 @@ The live link to the site on GitHub is: [Journey Planner](https://tmartin88.gith
 - To enhance the VBA json generating code to pick up data from database and convert the data to meaningful json.
 - To link into Irish Rail and Bus Eireann journey planners.
 - To incorporate a QR Code creator to link directly to route urls.
+- To put in Extensive Error trapping. 
 
 ----
 
