@@ -184,42 +184,101 @@ PDF Page 1              |  PDF Page 2
 
 # Testing
 
-Tests carried out by me.
+## Tests carried out by me.
 
 - This site was tested by me to ensure that all of the pages on this site work in different browsers: Edge, Chrome, Safari and Firefox.
 - I checked that the site works in responsive mode on all of these browsers.
 - These tests were carried out on all pages of the site.
 - The navigation works well on all browsers.
-- The download PDf link works as expected.
 
-Javascript Functionality
+### Header
+
+- The Logo links back to index page when clicked as expected.
+- The Social Media icons open in a new tab to the various sites as expected.
+- The New Search button takes you back to index page as expected.
+
+Note: Header is fully responsive.
+
+### Index Page
+
+- The iframe youtube video works as expected including youtube controls like fullscreen.
+- The Search All Routes Select Dropdown is populated by json correctly and works as expected.
+- The Search Now button takes you to single.html as expected.
+- The Instruction text is clearly visible
+
+Note: Index Page is fully responsive.
+
+### Single Page
+
+- Calculate fares button opens popup as expected.
+- View Timetables button opens timetable page as expected.
+- Download PDF opens PDF in new tab as expected.
+
+Note: Single Page is fully responsive.
+
+### Calculate Popup
+
+- The Direction select populates for json as expected.
+- The Pickup Point select populates from json as expected.
+    - The Pickup select reacts to Direction select as expected.
+- The Destination select populates from json as expected.
+    - The Destination select reacts to Direction select as expected.
+    - The Destination select reacts to Pickup select as expected.
+- The Passenger select populates from json as expected.
+- The Ticket select populates from json as expected.
+- The Calculate fare button runs the javascript calculation as expected.
+- The Correct Fare is published in the fare .innerHTML as expected.
+- The Try Catch err for Fare Calculate works as expected:
+    - Direction Kinsale to Clonakilty
+    - Pickup Darrara (Agricultural College)
+    - Destination Courtmacsherry (The Shop)
+
+Note: Calculate Popup is fully responsive.
+
+### Timetable Page
+
+- The Change Direction button works as expected toggling the Timetable Table Presented.
+- The Route Direction Title toggles as expected.
+- The Timetable Table toggles as expected.
+- The Timetable Table column one is fixed as expected.
+- The Timetable Table columns other than column one scroll as expected on smaller devices.
+- The Timetable Table Headings scrolls as one and the heading column 1 is not fixed as expected.
+
+Note: Timetable Page is fully responsive.
+
+### Download PDF
+
+- The download PDF link works and opens in a new tab as expected.
+
+
+### Javascript Functionality
 
 - All select elements are populating correctly.
 - Calculated fares are correct.
 - The timetable change direction is working correctly.
 
-Validator Testing
+## Validator Testing
 
 - HTML:             All pages were passed through the official https://validator.w3.org/ and no errors were found.
 - CSS:              All pages were passed through the official https://jigsaw.w3.org/css-validator/ and no errors were found.
-- Javscript:        All javscript was passed through the official https://jshint.com/ and no errors were found.
 - Accessibility:    By running the site pages through Lighthouse in Inspect on Chrome I got the following results:
 
 index desktop                |  index mobile
 :-----------------:|:-----------------:
-![](assets/images/indexdesktop.webp)  |  ![](assets/images/indexmobile.webp)
+![](assets/images/desktopindex.webp)  |  ![](assets/images/mobileindex.webp)
 
-trails desktop               |  trails mobile
+single desktop               |  single mobile
 :-----------------:|:-----------------:
-![](assets/images/trailsdesktop.webp)  |  ![](assets/images/trailsmobile.webp)
+![](assets/images/desktopsingle.webp)  |  ![](assets/images/mobilesingle.webp)
 
-gallery desktop               |  gallery mobile
+timetable desktop               |  timetable mobile
 :-----------------:|:-----------------:
-![](assets/images/gallerydesktop.webp)  |  ![](assets/images/gallerymobile.webp)
+![](assets/images/desktoptimetable.webp)  |  ![](assets/images/mobiletimetable.webp)
 
-subscribe desktop               |  subscribe mobile
-:-----------------:|:-----------------:
-![](assets/images/subscribedesktop.webp)  |  ![](assets/images/subscribemobile.webp)
+- Javscript:        All javscript was passed through the official https://jshint.com/ and no errors were found.
+    - jshint did provide these warnings.
+
+    ![](assets/images/jshint.webp) 
 
 ----
 
@@ -229,11 +288,11 @@ subscribe desktop               |  subscribe mobile
 
 index.html                 |  single.html
 :-----------------:|:-----------------:
-![](docs/wireframes/index.webp)  |  ![](docs/wireframes/trailspage.webp)
+![](assets/docs/wireframes/indexpagewire.webp)  |  ![](assets/docs/wireframes/singlepagewire.webp)
 
 calculate popup              |  timetable.html
 :-----------------:|:-----------------:
-![](docs/wireframes/gallerypage.webp)  |  ![](docs/wireframes/loginpage.webp)
+![](assets/docs/wireframes/popupwire.webp)  |  ![](assets/docs/wireframes/timetablewire.webp)
 
 ### Data Concept
 
@@ -369,7 +428,7 @@ The live link to the site on GitHub is: [Dog Friendly Trails](https://tmartin88.
 - To include all routes run by Local Link Cork.
 - To allow the user to free type place names in Search and present a matching Search results page.
 - To migrate all Excel data to a database.
-- To enhance the VBA json generating code to pick up data from this data and convert the data to meaningful json.
+- To enhance the VBA json generating code to pick up data from database and convert the data to meaningful json.
 - To link into Irish Rail and Bus Eireann journey planners.
 - To incorporate a QR Code creator to link directly to route urls.
 
@@ -395,7 +454,7 @@ And so the Journey planner was conceived. This project is hopefully just the beg
 ### Content
 
 - Credit for Fetch API to [javascripttutorial](https://www.javascripttutorial.net/javascript-fetch-api/)
-- Credit for Filter Array ideas to [w3schools] (https://www.w3schools.com/jsref/jsref_filter.asp)
+- Credit for Filter Array ideas to [w3schools](https://www.w3schools.com/jsref/jsref_filter.asp)
 
 ### JSON data
 
