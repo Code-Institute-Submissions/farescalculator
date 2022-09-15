@@ -25,10 +25,38 @@ body {
   color: #000;
 }
 
+/* Give the buttons a font family*/
+button {
+  font-family: 'Signika', sans-serif;
+}
+
+/* Give the selects a font family*/
+select {
+  font-family: 'Signika', sans-serif;
+}
+
 /* Note this is a mobile first approach*/
 
 /* For all of the styling fc denotes Fares Calculator 
 See bottom of this file for Popup styling pu*/
+
+/* The wrapper for pages */
+.fc-container:after,
+.fc-container:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fc-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-container>* {
+  padding: 16px 0;
+}
+/************** End of The Wrapper for Pages ***************/
 
 /* Navigation Buttons nb denotes navigation button
 This section includes the action button that opens popup also the href button for pdf download
@@ -69,25 +97,9 @@ button a,
   color: #fff;
 }
 
-/* End of Navigation button styling */
+/**************** End of Navigation button styling ****************/
 
-/* Page containers and Header and Body element styling */
-
-.fc-container:after,
-.fc-container:before {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.fc-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.fc-container>* {
-  padding: 16px 0;
-}
+/* The site header*/
 
 .header-container {
   display: flex;
@@ -96,6 +108,7 @@ button a,
   align-items: center;
 }
 
+/* The social media icons on site header*/
 .site-flex-social ul {
   display: flex;
   flex-direction: row;
@@ -142,9 +155,20 @@ button a,
   transform: scale(1.1);
 }
 
+/**** End of The social media icons on site header ***/
+
+/* The New Search button on site header*/
 #site-header-button {
   margin-top: 20px;
 }
+
+/*** End of The New Search button on site header ***/
+
+/**************** End of The site header*****************/
+
+/* The Index page */
+
+/* The Video youtube iframe on index page*/
 
 .videoframe iframe {
   height: 100%;
@@ -157,12 +181,20 @@ button a,
   width: 100%;
 }
 
+/*** End of The Video youtube iframe on index page ***/
+
+/* The Select Route select on index page*/
 .su-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: baseline;
   margin: 30px 0; 
+}
+
+.su-label {
+  font-weight: 700;
+  margin-right: 20px;
 }
 
 .searchoptions {
@@ -173,6 +205,9 @@ button a,
   border: 1px solid #000;
 }
 
+/*** End of The Select Route select on index page ***/
+
+/* The Text instructions on index page*/
 .instruct {
   text-align: center;
   color: #000;
@@ -181,11 +216,13 @@ button a,
   margin: 25px 10px;
 }
 
-.su-label {
-  font-weight: 700;
-  margin-right: 20px;
-}
+/***End of The Text instructions on index page ***/
 
+/****************** End of Index page **************************/
+
+/* The Single page*/
+
+/* The Route Description Information*/
 #routenumber {
   display: flex;
   justify-content: center;
@@ -211,48 +248,18 @@ button a,
   margin: 10px 0 30px 0;
 }
 
-/* End of Page containers and Header and Body element styling */
+/*** End of The Route Description Information ***/
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
+/*********************** End of The Single Page ****************************/
 
-  #site-header-button {
-    margin-top: 0;
-    width: 15%;
-  }
+/* The Timetable Page */
 
-  .header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 30px;
-  }
-
-  .fc-modal {
-    padding-top: 100px;
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-  }
-
-  .fc-modal-content {
-    padding: 0;
-    width: 600px;
-  }
-
-  .fc-button {
-    margin-right: 0px;
-  }
-
-}
-
-/* Timetable styling */
-
+/* The Dynamically filled Direction Title and Table */
 #timetables {
   margin-top: 16px;
 }
 
+/* The Table */
 table {
   font-family: 'Signika', sans-serif;
   margin-bottom: 2.5px;
@@ -263,6 +270,7 @@ table {
   width: 100%;
 }
 
+/* The Table Header th */
 .layout253 th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -271,6 +279,7 @@ table {
   color: white;
 }
 
+/* The Table Stripes */
 .layout253 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -279,6 +288,7 @@ table {
   background-color: #ddd;
 }
 
+/* The Table Rows and Header */
 .layout253 td,
 .layout253 th {
   display: table-cell;
@@ -288,6 +298,7 @@ table {
   text-align: center;
 }
 
+/* The Table First Column Fixed No Scroll */
 .layout253 tr td:nth-child(1) {
   position: sticky;
   position: -webkit-sticky;
@@ -298,7 +309,7 @@ table {
   text-align: left;
 }
 
-/* End of Timetable styling */
+/***************** End of Timetable styling ****************************/
 
 /* Modal Fares Calculation Popup Related Styling*/
 /* For the popup styling pu denotes Popup */
@@ -320,6 +331,7 @@ table {
   flex: 1;
 }
 
+/* Open the Popup and keep it front and modal */
 .pu-modal {
   z-index: 3;
   display: none;
@@ -332,6 +344,7 @@ table {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* The Popup Content */
 .pu-modal-content {
   margin: auto;
   background-color: #fff;
@@ -342,6 +355,11 @@ table {
   height: 100%;
 }
 
+.pu-center {
+  text-align: center;
+}
+
+/* The Transition when opening Popup */
 .pu-animate-opacity {
   animation: animateopacity 0.8s;
 }
@@ -354,10 +372,6 @@ table {
   100% {
     opacity: 1;
   }
-}
-
-.pu-center {
-  text-align: center;
 }
 
 /* This styling is applied to the X to close the Fares Calculator popup */
@@ -378,12 +392,6 @@ table {
   user-select: none;
 }
 
-@media only screen and (max-width: 630px) {
-  .pu-button {
-    margin-right: 10px;
-  }
-}
-
 
 .pu-xlarge {
   font-size: 48px;
@@ -402,6 +410,7 @@ table {
 
 /* End of  the X to close the Fares Calculator popup styling */
 
+/* The Select Boxes */
 .pu-thick {
   line-height: 3em;
 }
@@ -437,9 +446,53 @@ table {
   margin-top: 20px;
 }
 
+/*** End of Select Boxes ***/
+
 .faredisplay {
   margin-left: 15px;
   padding-bottom: 20px;
 }
 
-/* End of the modal popup form styling fc denotes Fares Calculator */
+/************************ End of The Modal Popup  **************************/
+
+/* For Screens bigger Smaller than 630px */
+@media only screen and (max-width: 630px) {
+  .pu-button {
+    margin-right: 10px;
+  }
+}
+
+/* For Screens bigger Bigger than 768px */
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+
+  #site-header-button {
+    margin-top: 0;
+    width: 15%;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+  }
+
+  .fc-modal {
+    padding-top: 100px;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fc-modal-content {
+    padding: 0;
+    width: 600px;
+  }
+
+  .fc-button {
+    margin-right: 0px;
+  }
+
+}

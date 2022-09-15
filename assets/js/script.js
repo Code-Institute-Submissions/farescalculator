@@ -85,6 +85,8 @@ async function fetchJson(myUrl) {
   }
 }
 
+/* Note the fetch function above is mentioned in credits */
+
 
 /**
  * The Direction select populating function.
@@ -317,6 +319,8 @@ function checkFares(fares) {
   const fareDrop = dropoff.options[dropoff.selectedIndex].value;
   return fares.pick === farePick && fares.drop === fareDrop;
 }
+
+/* Note the filter function above is mentioned in credits */
 
 /**
  * The Swap Direction function.

@@ -21,13 +21,9 @@
 
 <body>
 
-    <!-- This is the Header -->
-
-    <div class="fc-container" id="site-flex-container">
-        <header>
-            <!-- This is the header. It contains all header related divs and classes -->
-            <div class="header-container">
-                <!-- This is the wrapper for the header elements -->
+    <div class="fc-container" id="site-flex-container"> <!-- This is the Page Wrapper -->
+        <header> <!-- This is the header. It contains all header related divs and classes -->           
+            <div class="header-container"> <!-- This is the wrapper for the header elements -->              
                 <div class="site-flex-logo logo-center">
                     <!-- This is the site logo. When clicked it takes us home -->
                     <a href="index.html" aria-label="Jump to the Home Page">
@@ -57,20 +53,15 @@
                 <button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-header-button"
                     aria-label="Start a new search">New Search</button>
             </div>
-        </header>
-
-        <!-- This is End of the Header -->
-
-        <!-- This is Timetables section -->
-
-        <!-- This button swaps the direction of timetable -->
-        <main class="main-single">
+        </header> <!-- This is End of the Header -->
+     
+        <main class="main-single">  <!-- This is Timetables section -->
             <button onclick="swapDirection()" class="nb-button nb-green" id="swapbutton"
-                aria-label="Click here to swap direction">Click here to Change Direction</button>
+                aria-label="Click here to swap direction">Click here to Change Direction</button> <!-- This button swaps the direction of timetable -->
 
-            <section id="timetables">
+            <section id="timetables"> <!-- This is dynamically filled by Javascript -->
 
-                <div id="outgoing">
+                <div id="outgoing"> <!-- This is dynamically toggled to dshow or hide by Javascript -->
                     <div class="routetitle">
                         <h2>Clonakilty to Kinsale</h2>
                     </div>
@@ -282,7 +273,7 @@
 
                 </div>
 
-                <div id="incoming" style="display: none;">
+                <div id="incoming" style="display: none;"> <!-- This is dynamically toggled to dshow or hide by Javascript -->
 
                     <div class="routetitle">
                         <h2>Kinsale to Clonakilty</h2>

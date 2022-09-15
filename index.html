@@ -22,13 +22,9 @@
 
 <body>
 
-  <!-- This is the Header -->
-
-  <div class="fc-container" id="site-flex-container">
-    <header>
-      <!-- This is the header. It contains all header related divs and classes -->
-      <div class="header-container">
-        <!-- This is the wrapper for the header elements -->
+  <div class="fc-container" id="site-flex-container"> <!-- This is the Page Wrapper -->
+    <header> <!-- This is the header. It contains all header related divs and classes -->
+      <div class="header-container"> <!-- This is the wrapper for the header elements -->
         <div class="site-flex-logo logo-center">
           <!-- This is the site logo. When clicked it takes us home -->
           <a href="index.html" aria-label="Jump to the Home Page">
@@ -56,28 +52,23 @@
         <button onclick="document.location='index.html'" class="nb-button nb-blue" id="site-header-button"
           aria-label="Click here for a new search">New Search</button>
       </div>
-    </header>
+    </header> <!-- This is End of the Header -->
 
-    <!-- This is End of the Header -->
-
-    <main class="main-single">
+    <main class="main-single"> <!-- This is Page content below the header -->
         <div class="videoframe">
           <iframe title="About Us" src="https://www.youtube.com/embed/vAVqvW4xlsY"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-        </div>
-            <!-- This is the search details div. It contains all search details related divs -->
-            <form class="su-container">
+        </div>          
+            <form class="su-container">  <!-- This is the search details wrapper. It contains all search details related divs -->
                 <label for="selectroute" class="su-label">Search All Routes</label>
                 <select class="searchoptions" name="selectroute" id="selectroute">
 
                 </select>
             </form>
-          <!-- This button links to the Result of Search Page. For now it is the single.html -->
           <button onclick="document.location='single.html'" class="nb-button nb-green" id="searchbutton"
-            aria-label="Click here to search for a route">Search Now</button> 
-          <!-- This instruction tells the user what to do to perform a search -->
-          <p id = "instruct" class = "instruct">To see the timetable and fares detail information please select the route you are interested in and then click "Search Now" button.</p>
+            aria-label="Click here to search for a route">Search Now</button>  <!-- This button links to the Result of Search Page. For now it is the single.html -->         
+          <p id = "instruct" class = "instruct">To see the timetable and fares detail information please select the route you are interested in and then click "Search Now" button.</p><!-- This instruction tells the user what to do to perform a search -->
     </main>
   </div>
   <script src="assets/js/script.js"></script>
