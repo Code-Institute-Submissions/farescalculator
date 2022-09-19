@@ -306,8 +306,18 @@ table {
 
 /* This sets the thickness for specific column*/
 table .thickborder {
-  border-left: 2px double #000; 
-  border-right: 2px double #000; 
+  border-left: 2px double 	#04AA6D; 
+  border-right: 2px double 	#04AA6D; 
+}
+
+/* This sets the thickness for specific column left only*/
+table .thickleft {
+  border-left: 2px double 	#04AA6D; 
+}
+
+/* This sets the thickness for specific column right only*/
+table .thickright {
+  border-right: 2px double 	#04AA6D; 
 }
 
 /***************** End of Timetable styling ****************************/
