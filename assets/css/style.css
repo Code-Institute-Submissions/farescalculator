@@ -254,24 +254,19 @@ button a,
 
 /* The Timetable Page */
 
-/* The Dynamically filled Direction Title and Table */
-#timetables {
-  margin-top: 16px;
-}
-
 /* The Table */
 table {
   font-family: 'Signika', sans-serif;
   margin-bottom: 2.5px;
 }
 
-.layout253 {
+.tabletime {
   border-collapse: collapse;
   width: 100%;
 }
 
 /* The Table Header th */
-.layout253 th {
+.tabletime th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -280,17 +275,17 @@ table {
 }
 
 /* The Table Stripes */
-.layout253 tr:nth-child(even) {
+.tabletime tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.layout253 tr:hover {
+.tabletime tr:hover {
   background-color: #ddd;
 }
 
 /* The Table Rows and Header */
-.layout253 td,
-.layout253 th {
+.tabletime td,
+.tabletime th {
   display: table-cell;
   vertical-align: middle;
   border: 1px solid #ddd;
@@ -299,7 +294,7 @@ table {
 }
 
 /* The Table First Column Fixed No Scroll */
-.layout253 tr td:nth-child(1) {
+.tabletime tr td:nth-child(1) {
   position: sticky;
   position: -webkit-sticky;
   left: 0;
@@ -307,6 +302,12 @@ table {
   background-color: #04AA6D;
   font-weight: bold;
   text-align: left;
+}
+
+/* This sets the thickness for specific column*/
+table .thickborder {
+  border-left: 2px double #000; 
+  border-right: 2px double #000; 
 }
 
 /***************** End of Timetable styling ****************************/
