@@ -40,7 +40,28 @@ select {
 /* For all of the styling jp denotes Journey Planner
 See bottom of this file for Popup styling pu*/
 
-/* The wrapper for pages */
+.site-header { grid-area: header; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+
+.grid-container {  /* The Index page layout */
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'main main main main main main'
+    'footer footer footer footer footer footer';
+  gap: 10px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color:#fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
 .jp-container:after,
 .jp-container:before {
   content: "";
@@ -170,16 +191,10 @@ button a,
 
 /* The Video youtube iframe on index page*/
 
-.videoframe iframe {
-  height: 100%;
-  width: 100%;
-  min-height: 300px;
-}
-
-.videoframe {
-  height: 100%;
-  width: 100%;
-}
+.videoframe, .sub-container {
+  text-align: center;
+   margin: 0 30px;
+ }
 
 /*** End of The Video youtube iframe on index page ***/
 
@@ -488,6 +503,12 @@ table .thickright {
     justify-content: space-between;
     align-items: center;
     margin: 0 30px;
+  }
+  
+  .header-container2 {
+    display: flex;
+    justify-content: center;
+     align-items: center;
   }
 
   .jp-modal {
