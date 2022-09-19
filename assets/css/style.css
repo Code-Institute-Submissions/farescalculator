@@ -40,26 +40,35 @@ select {
 /* For all of the styling jp denotes Journey Planner
 See bottom of this file for Popup styling pu*/
 
-.site-header { grid-area: header; }
-.main { grid-area: main; }
-.footer { grid-area: footer; }
+.site-header {
+  grid-area: header;
+}
 
-.grid-container {  /* The Index page layout */
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.grid-container {
+  /* The Index page layout */
   display: grid;
   grid-template-areas:
-    'header header header header header header'
-    'main main main main main main'
-    'footer footer footer footer footer footer';
+    'header'
+    'main'
+    'footer';
   gap: 10px;
   background-color: #fff;
   padding: 10px;
+
 }
 
-.grid-container > div {
-  background-color:#fff;
+.grid-container>div {
+  background-color: #fff;
   text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+
 }
 
 .jp-container:after,
@@ -77,6 +86,7 @@ See bottom of this file for Popup styling pu*/
 .jp-container>* {
   padding: 16px 0;
 }
+
 /************** End of The Wrapper for Pages ***************/
 
 /* Navigation Buttons nb denotes navigation button
@@ -191,10 +201,11 @@ button a,
 
 /* The Video youtube iframe on index page*/
 
-.videoframe, .sub-container {
+.videoframe,
+.sub-container {
   text-align: center;
-   margin: 0 30px;
- }
+  margin: 0 30px;
+}
 
 /*** End of The Video youtube iframe on index page ***/
 
@@ -204,7 +215,7 @@ button a,
   flex-flow: row wrap;
   justify-content: center;
   align-items: baseline;
-  margin: 30px 0; 
+  margin: 30px 0;
 }
 
 .su-label {
@@ -321,18 +332,18 @@ table {
 
 /* This sets the thickness for specific column*/
 table .thickborder {
-  border-left: 2px double 	#04AA6D; 
-  border-right: 2px double 	#04AA6D; 
+  border-left: 2px double #04AA6D;
+  border-right: 2px double #04AA6D;
 }
 
 /* This sets the thickness for specific column left only*/
 table .thickleft {
-  border-left: 2px double 	#04AA6D; 
+  border-left: 2px double #04AA6D;
 }
 
 /* This sets the thickness for specific column right only*/
 table .thickright {
-  border-right: 2px double 	#04AA6D; 
+  border-right: 2px double #04AA6D;
 }
 
 /***************** End of Timetable styling ****************************/
@@ -480,11 +491,19 @@ table .thickright {
 }
 
 /************************ End of The Modal Popup  **************************/
+@media only screen and (max-width: 390px) {
+   .videoframe {
+    margin: 0 auto;
+  }
+}
 
-/* For Screens bigger Smaller than 630px */
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 660px) {
   .pu-button {
     margin-right: 10px;
+  }
+
+  .videoframe iframe {
+    width: auto;
   }
 }
 
@@ -504,11 +523,11 @@ table .thickright {
     align-items: center;
     margin: 0 30px;
   }
-  
+
   .header-container2 {
     display: flex;
     justify-content: center;
-     align-items: center;
+    align-items: center;
   }
 
   .jp-modal {
