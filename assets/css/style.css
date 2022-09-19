@@ -37,23 +37,23 @@ select {
 
 /* Note this is a mobile first approach*/
 
-/* For all of the styling fc denotes Fares Calculator 
+/* For all of the styling jp denotes Journey Planner
 See bottom of this file for Popup styling pu*/
 
 /* The wrapper for pages */
-.fc-container:after,
-.fc-container:before {
+.jp-container:after,
+.jp-container:before {
   content: "";
   display: table;
   clear: both;
 }
 
-.fc-container {
+.jp-container {
   display: flex;
   flex-direction: column;
 }
 
-.fc-container>* {
+.jp-container>* {
   padding: 16px 0;
 }
 /************** End of The Wrapper for Pages ***************/
@@ -490,19 +490,19 @@ table .thickright {
     margin: 0 30px;
   }
 
-  .fc-modal {
+  .jp-modal {
     padding-top: 100px;
     overflow: auto;
     width: 100%;
     height: 100%;
   }
 
-  .fc-modal-content {
+  .jp-modal-content {
     padding: 0;
     width: 600px;
   }
 
-  .fc-button {
+  .jp-button {
     margin-right: 0px;
   }
 

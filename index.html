@@ -22,12 +22,9 @@
 
 <body>
 
-  <div class="fc-container" id="site-flex-container">
-    <!-- This is the Page Wrapper -->
-    <header>
-      <!-- This is the header. It contains all header related divs and classes -->
-      <div class="header-container">
-        <!-- This is the wrapper for the header elements -->
+  <div class="jp-container" id="site-flex-container"> <!-- This is the Page Wrapper -->
+    <header> <!-- This is the header. It contains all header related divs and classes -->
+      <div class="header-container"> <!-- This is the wrapper for the header elements -->
         <div class="site-flex-logo logo-center">
           <!-- This is the site logo. When clicked it takes us home -->
           <a href="index.html" aria-label="Jump to the Home Page">
@@ -57,27 +54,19 @@
       </div>
     </header> <!-- This is End of the Header -->
 
-    <main class="main-single">
-      <!-- This is Page content below the header -->
-      <div class="videoframe">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/qpyc-Hv7EUk" title="title=" About Us""
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <form class="su-container">
-        <!-- This is the search details wrapper. It contains all search details related divs -->
-        <label for="selectroute" class="su-label">Search All Routes</label>
-        <select class="searchoptions" name="selectroute" id="selectroute">
+    <main class="main-single"> <!-- This is Page content below the header -->
+        <div class="videoframe">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qpyc-Hv7EUk" title="title="About Us"" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>          
+            <form class="su-container">  <!-- This is the search details wrapper. It contains all search details related divs -->
+                <label for="selectroute" class="su-label">Search All Routes</label>
+                <select class="searchoptions" name="selectroute" id="selectroute">
 
-        </select>
-      </form>
-      <button onclick="document.location='single.html'" class="nb-button nb-green" id="searchbutton"
-        aria-label="Click here to search for a route">Search Now</button>
-      <!-- This button links to the Result of Search Page. For now it is the single.html -->
-      <p id="instruct" class="instruct">To see the timetable and fares detail information please select the route you
-        are interested in and then click "Search Now" button.</p>
-      <!-- This instruction tells the user what to do to perform a search -->
+                </select>
+            </form>
+          <button onclick="document.location='single.html'" class="nb-button nb-green" id="searchbutton"
+            aria-label="Click here to search for a route">Search Now</button>  <!-- This button links to the Result of Search Page. For now it is the single.html -->         
+          <p id = "instruct" class = "instruct">To see the timetable and fares detail information please select the route you are interested in and then click "Search Now" button.</p><!-- This instruction tells the user what to do to perform a search -->
     </main>
   </div>
   <script src="assets/js/script.js"></script>
