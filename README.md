@@ -1,14 +1,11 @@
-# Journey Planner <img align="right" width="75" height="75" src="favicon.ico">
-
-Important Note: This project is listed as Fares Calculator.
-The project is now titled Journey Planner and all references are now Journey Planner.
+# Fares Calculator <img align="right" width="75" height="75" src="favicon.ico">
 
 ## Site Goals
 
-Journey Planner is a site for people to look up Local Link Rural Transport routes in Cork to view timetables and get exact fare costs for their journey.
+Fares Calculator is a site for people to look up Local Link Rural Transport routes in Cork to view timetables and get exact fare costs for their journey.
 The site is targetted at people of all ages who are interested in travelling on these routes.   
 
-Journey Planner is useful for these potential passengers by allowing them to plan for a journey by picking out routes that have suitable pickup and drop points.
+Fares Calculator is useful for these potential passengers by allowing them to plan for a journey by picking out routes that have suitable pickup and drop points.
 As times are published in the timetables they can work out a journey that suits their needs or adjust their schedule to match the pick up times.
 
 The Fares Calculation popup is particularly useful as it spares the potential passenger from trying to work through complicated grids of fare structures that are incomprehensible to the average person. Instead they can pick from a set of select options (calculation parameters) to get an exact fare.
@@ -436,6 +433,8 @@ Then by clicking the Calculate Fares button the correct fare is calculated based
 
 ## Deployment
 
+### Deployment to GitHub
+
 The site is deployed to GitHub pages. 
 
 - Git status check in Gitpod to ensure all is pushed to GitHub.
@@ -446,7 +445,21 @@ The site is deployed to GitHub pages.
 - Pick main and then root from the Branch selection area.
 - Now GitHub Pages displays a link to the live site.
 
-The live link to the site on GitHub is: [Journey Planner](https://tmartin88.github.io/farescalculator/)
+The live link to the site on GitHub is: [Fares Calculator](https://tmartin88.github.io/farescalculator/)
+
+### Deployment to work domain
+
+This project is also deployed on a live domain for the company I work for part-time. The website on this domain is developed by me in Wordpress using Elementor Pro site builder and Custom Posts (basically each route is a custom post).
+
+The goal of this site is to provide an online search platform which allows interested parties such as passengers to search through all of the Local Link Cork routes.
+
+Fares Calculation is simple for most routes but for some high frequency routes like the 253 it is very complicated and difficult to present in a user friendly way. To make an easy to understand interface for passengers really required something like Javascript so that was the inspiration for me to do this project 2 in the way I did it.
+
+This Project is very useful for Local Link Cork for certain Routes like the 253. The code for fares calculator is the same apart from a few tweaks that are wordpress/elementor specific.
+
+This Fares Calculation element will also be applied to other routes similar to the 253 in the Wordpress implementation.
+
+The link to the site live on a domain is: [253-monday-to-sunday](https://locallinkcork.com/schedule/253-monday-to-sunday/)
 
 ----
 
@@ -456,7 +469,7 @@ The live link to the site on GitHub is: [Journey Planner](https://tmartin88.gith
 - To allow the user to free type place names in Search and present a matching Search results page.
 - To migrate all Excel data to a database.
 - To enhance the VBA json generating code to pick up data from database and convert the data to meaningful json.
-- To link into Irish Rail and Bus Eireann journey planners.
+- To link into Irish Rail and Bus Eireann Fares Calculators.
 - To incorporate a QR Code creator to link directly to route urls.
 - To put in Extensive Error trapping. 
 
@@ -477,7 +490,7 @@ The live link to the site on GitHub is: [Journey Planner](https://tmartin88.gith
 
 The challenge is to take data stored in Excel files and bring them to the public.
 
-And so the Journey planner was conceived. This project is hopefully just the beginning.
+And so the Fares Calculator was conceived. This project is hopefully just the beginning.
 
 ### Content
 
