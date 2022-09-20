@@ -277,6 +277,8 @@ timetable desktop               |  timetable mobile
 
     ![](assets/images/jshint.webp) 
 
+Note: As all async functions are operating correctly I assume that I can ignore these warnings.
+
 ----
 
 ## Development Transition
