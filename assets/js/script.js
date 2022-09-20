@@ -355,6 +355,10 @@ const selectPickupPoint = document.getElementById('pickup');
 
 const pdfBtn = document.getElementById("pdfBtn");
 
+const calcsBtn = document.getElementById("calculationbutton");
+
+const swapBtn = document.getElementById("swapbutton");
+
 //This is for single html only
 
 if (lastSegment === 'single.html') {
@@ -369,7 +373,7 @@ if (lastSegment === 'single.html') {
   });
 
   pdfBtn.addEventListener("click", () => {
-    window.open("assets/pdf/locallink_253.pdf"); 
+    openPDF(); 
   });
 
 }
@@ -386,6 +390,26 @@ if (lastSegment === 'single.html') {
 
 }
 
+//This is for single html only
 
+if (lastSegment === 'single.html') {
+  calcsBtn.addEventListener('click', function handleChange(event) {
+    // The user has selected a Calculate. Now Calculate the fare
+    
+    formParameters();
 
+  });
 
+}
+
+//This is for timetable html only
+
+if (lastSegment === 'timetable.html') {
+  swapBtn.addEventListener('click', function handleChange(event) {
+    // The user has selected Swap Direction. Now Swap.
+    
+    swapDirection();
+
+  });
+
+}
