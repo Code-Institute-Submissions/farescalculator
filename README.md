@@ -423,7 +423,10 @@ Then by clicking the Calculate Fares button the correct fare is calculated based
     - Fix 9b331f9e6cf1cad47f8c6608567760b5a5260fdb add in a window load listener. 
 
 - September 13th Select route population by json needs a conditional so it only fires on index.html.
-    - Fix 015683d84575d2fe6c69a21553ff0076a890b9b4 add in a conditional if.   
+    - Fix 015683d84575d2fe6c69a21553ff0076a890b9b4 add in a conditional if. 
+
+- September 20th Fix error in title iframe on index.html.
+    - Fix 4c893f408c664917484bdb347ca265eff02b8729 removed typo. 
 
 ### Unfixed Bugs
 
