@@ -315,6 +315,8 @@ async function calculateFares(fareDirection, fareDirectionText, farePick, farePi
  * This function filters the returned json object to the specified parameters.
  */
 function checkFares(fares) {
+  const pickup = document.getElementById("pickup");
+  const dropoff = document.getElementById("dropoff");
   const farePick = pickup.options[pickup.selectedIndex].value;
   const fareDrop = dropoff.options[dropoff.selectedIndex].value;
   return fares.pick === farePick && fares.drop === fareDrop;
@@ -377,6 +379,7 @@ if (lastSegment === 'single.html') {
 if (lastSegment === 'single.html') {
   selectPickupPoint.addEventListener('change', function handleChange(event) {
     // The user has selected a Pickup Point. Now populate the Drop off Point select with the appropriate json
+    const direction = document.getElementById("direction");
     populateSelects('dropoff', parseInt(direction.options[direction.selectedIndex].value), parseInt(event.target.value));
 
   });
